@@ -14,25 +14,27 @@ const baseLineStyle: CSSProperties = {
   lineHeight: 0.94,
   fontWeight: 900,
   fontSynthesis: 'none',
-  backgroundImage:
-    'linear-gradient(180deg, #fff9d8 0%, #ffef9d 18%, #efc23d 42%, #c9860a 70%, #8e5100 100%)',
   WebkitBackgroundClip: 'text',
   backgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
   filter:
-    'drop-shadow(0 0 0.07em rgba(255,255,248,0.98)) drop-shadow(0 0 0.2em rgba(255,247,175,0.62)) drop-shadow(0.028em 0.04em 0 #dca425) drop-shadow(0.06em 0.085em 0 #995a00)',
+    'drop-shadow(0 0 0.07em rgba(255,255,248,0.98)) drop-shadow(0 0 0.2em rgba(255,244,168,0.58)) drop-shadow(0.028em 0.04em 0 #daa11e) drop-shadow(0.06em 0.085em 0 #925100)',
 };
 
 const topLineStyle: CSSProperties = {
   ...baseLineStyle,
   fontSize: 'clamp(3.2rem, min(14vw, 10.5vh), 6.4rem)',
   letterSpacing: '-0.024em',
+  backgroundImage:
+    'linear-gradient(180deg, #865000 0%, #b87806 26%, #d79d12 52%, #f3cd4c 72%, #ffde24 82%, #d7a11a 100%)',
 };
 
 const bottomLineStyle: CSSProperties = {
   ...baseLineStyle,
   fontSize: 'clamp(5.15rem, min(23vw, 18vh), 10rem)',
   letterSpacing: '-0.038em',
+  backgroundImage:
+    'linear-gradient(180deg, #865000 0%, #b87806 26%, #d79d12 52%, #f3cd4c 72%, #ffde24 82%, #d7a11a 100%)',
 };
 
 export default function PanelTextOverlay() {

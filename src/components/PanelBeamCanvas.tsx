@@ -96,11 +96,24 @@ function createBackdropTexture() {
   }
 
   const baseGradient = context.createLinearGradient(0, 0, 0, canvas.height);
-  baseGradient.addColorStop(0, '#ffe34f');
-  baseGradient.addColorStop(0.36, '#ffd318');
-  baseGradient.addColorStop(0.7, '#efb600');
-  baseGradient.addColorStop(1, '#db9300');
+  baseGradient.addColorStop(0, '#ffe66a');
+  baseGradient.addColorStop(0.18, '#ffdd28');
+  baseGradient.addColorStop(0.48, '#ffd000');
+  baseGradient.addColorStop(0.78, '#efb100');
+  baseGradient.addColorStop(1, '#d88b00');
   context.fillStyle = baseGradient;
+  context.fillRect(0, 0, canvas.width, canvas.height);
+
+  const warmWash = context.createLinearGradient(
+    0,
+    canvas.height * 0.18,
+    canvas.width,
+    canvas.height,
+  );
+  warmWash.addColorStop(0, 'rgba(255, 239, 131, 0.24)');
+  warmWash.addColorStop(0.5, 'rgba(255, 212, 36, 0)');
+  warmWash.addColorStop(1, 'rgba(214, 126, 0, 0.18)');
+  context.fillStyle = warmWash;
   context.fillRect(0, 0, canvas.width, canvas.height);
 
   const centerGlow = context.createRadialGradient(
@@ -111,10 +124,10 @@ function createBackdropTexture() {
     canvas.height * 0.58,
     360,
   );
-  centerGlow.addColorStop(0, 'rgba(255, 255, 245, 0.98)');
-  centerGlow.addColorStop(0.18, 'rgba(255, 248, 198, 0.88)');
-  centerGlow.addColorStop(0.42, 'rgba(255, 236, 132, 0.36)');
-  centerGlow.addColorStop(0.72, 'rgba(255, 214, 92, 0.08)');
+  centerGlow.addColorStop(0, 'rgba(255, 255, 247, 0.99)');
+  centerGlow.addColorStop(0.16, 'rgba(255, 249, 205, 0.92)');
+  centerGlow.addColorStop(0.38, 'rgba(255, 236, 122, 0.42)');
+  centerGlow.addColorStop(0.7, 'rgba(255, 205, 49, 0.1)');
   centerGlow.addColorStop(1, 'rgba(255, 214, 92, 0)');
   context.fillStyle = centerGlow;
   context.fillRect(0, 0, canvas.width, canvas.height);
