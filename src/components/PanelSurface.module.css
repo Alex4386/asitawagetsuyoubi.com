@@ -5,7 +5,6 @@
   min-height: 100vh;
   overflow: hidden;
   isolation: isolate;
-  background: #f2c109;
 }
 
 .surface > :not(.sparkle) {
