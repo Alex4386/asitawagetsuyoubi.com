@@ -2,14 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-    background: linear-gradient(
-        to bottom,
-        #ffe66a 0%,
-        #ffdd28 18%,
-        #ffd000 48%,
-        #efb100 78%,
-        #d88b00 100%
-    );
-    min-height: 100dvh;
+:root {
+  background-color: #ffe66a;
+}
+
+html {
+  min-height: 100%;
+  background-color: #ffe66a;
+}
+
+body {
+  min-height: 100dvh;
+  margin: 0;
+  background-color: #ffe66a;
+  background-image: linear-gradient(
+    to bottom,
+    #ffe66a 0%,
+    #ffdd28 18%,
+    #ffd000 48%,
+    #efb100 78%,
+    #d88b00 100%
+  );
 }
