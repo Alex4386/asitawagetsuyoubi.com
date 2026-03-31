@@ -1,0 +1,28 @@
+.goldPlatedText {
+  color: transparent;
+  line-height: 0.94;
+  font-weight: 900;
+  font-synthesis: none;
+  background-image: var(
+    --gold-plated-gradient,
+    linear-gradient(
+      180deg,
+      #865000 0%,
+      #b87806 26%,
+      #d79d12 52%,
+      #f3cd4c 72%,
+      #ffde24 82%,
+      #d7a11a 100%
+    )
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: var(
+    --gold-plated-shadow,
+    drop-shadow(0 0 0.07em rgba(255, 255, 248, 0.98))
+      drop-shadow(0 0 0.2em rgba(255, 244, 168, 0.58))
+      drop-shadow(0.028em 0.04em 0 #daa11e)
+      drop-shadow(0.06em 0.085em 0 #925100)
+  );
+}
