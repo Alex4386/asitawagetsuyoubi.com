@@ -23,7 +23,7 @@ const bottomLineStyle: CSSProperties = {
 export default function PanelTextOverlay() {
   return (
     <div
-      className={`pointer-events-none z-[4] col-start-1 row-start-1 flex h-screen w-screen items-center justify-center overflow-hidden px-4 sm:px-6 ${notoSansJp.className}`}>
+      className={`pointer-events-none z-[4] col-start-1 row-start-1 flex h-full w-full items-center justify-center overflow-hidden px-4 sm:px-6 ${notoSansJp.className}`}>
       <h1 className="sr-only">
         {PANEL_COPY.topLine} {PANEL_COPY.bottomLine}
       </h1>
