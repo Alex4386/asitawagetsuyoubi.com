@@ -2,24 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --page-gold-gradient: linear-gradient(
-    to bottom,
-    #ffe66a 0%,
-    #ffdd28 18%,
-    #ffd000 48%,
-    #efb100 78%,
-    #d88b00 100%
-  );
-  background-color: #ffe66a;
-}
-
 html {
   min-height: 100%;
-  background-color: #ffe66a;
-  background-image: var(--page-gold-gradient);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-color: var(--panel-page-background-color);
 }
 
 body {

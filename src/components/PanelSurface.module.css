@@ -14,6 +14,7 @@
 }
 
 .beamLayer,
+.bottomTarget,
 .texture,
 .vignette {
   position: absolute;
@@ -23,6 +24,16 @@
 
 .beamLayer {
   z-index: 1;
+}
+
+.bottomTarget {
+  top: 100dvh;
+  height: clamp(11rem, 30svh, 19rem);
+  z-index: 0;
+  background-image: var(--panel-page-background-gradient);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 220%;
 }
 
 .texture {

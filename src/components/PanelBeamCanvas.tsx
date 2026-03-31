@@ -24,6 +24,8 @@ import {
   Vector3,
 } from 'three';
 
+import { PANEL_PAGE_GRADIENT_STOPS } from '@/components/panel.theme';
+
 export interface PanelBeamCanvasHandle {
   setAccelerating(value: boolean): void;
 }
@@ -95,12 +97,13 @@ function createBackdropTexture() {
     return null;
   }
 
+  const rootStyles = getComputedStyle(document.documentElement);
   const baseGradient = context.createLinearGradient(0, 0, 0, canvas.height);
-  baseGradient.addColorStop(0, '#ffe66a');
-  baseGradient.addColorStop(0.18, '#ffdd28');
-  baseGradient.addColorStop(0.48, '#ffd000');
-  baseGradient.addColorStop(0.78, '#efb100');
-  baseGradient.addColorStop(1, '#d88b00');
+  PANEL_PAGE_GRADIENT_STOPS.forEach(stop => {
+    const color =
+      rootStyles.getPropertyValue(stop.cssVariable).trim() || stop.color;
+    baseGradient.addColorStop(stop.offset, color);
+  });
   context.fillStyle = baseGradient;
   context.fillRect(0, 0, canvas.width, canvas.height);
 

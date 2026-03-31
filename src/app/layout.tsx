@@ -2,9 +2,10 @@ import 'material-icons/iconfont/material-icons.css';
 import './global.css';
 
 import type { Metadata, Viewport } from 'next';
-import { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 import Providers from '@/app/Providers';
+import { PANEL_ROOT_CSS_VARIABLES } from '@/components/panel.theme';
 
 export const metadata: Metadata = {
   title: 'あしたは月曜日',
@@ -19,7 +20,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ja">
+    <html lang="ja" style={PANEL_ROOT_CSS_VARIABLES as CSSProperties}>
       <body>
         <Providers>{children}</Providers>
       </body>
