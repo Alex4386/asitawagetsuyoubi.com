@@ -24,7 +24,6 @@ import {
   Vector3,
 } from 'three';
 
-import { PANEL_PAGE_GRADIENT_STOPS } from '@/components/panel.theme';
 
 export interface PanelBeamCanvasHandle {
   setAccelerating(value: boolean): void;
@@ -97,14 +96,8 @@ function createBackdropTexture() {
     return null;
   }
 
-  const rootStyles = getComputedStyle(document.documentElement);
-  const baseGradient = context.createLinearGradient(0, 0, 0, canvas.height);
-  PANEL_PAGE_GRADIENT_STOPS.forEach(stop => {
-    const color =
-      rootStyles.getPropertyValue(stop.cssVariable).trim() || stop.color;
-    baseGradient.addColorStop(stop.offset, color);
-  });
-  context.fillStyle = baseGradient;
+  // solid base fill
+  context.fillStyle = '#d8a200';
   context.fillRect(0, 0, canvas.width, canvas.height);
 
   const warmWash = context.createLinearGradient(
@@ -113,7 +106,7 @@ function createBackdropTexture() {
     canvas.width,
     canvas.height,
   );
-  warmWash.addColorStop(0, 'rgba(255, 239, 131, 0.24)');
+  warmWash.addColorStop(0, 'rgba(255, 239, 131, 0.08)');
   warmWash.addColorStop(0.5, 'rgba(255, 212, 36, 0)');
   warmWash.addColorStop(1, 'rgba(214, 126, 0, 0.18)');
   context.fillStyle = warmWash;
@@ -122,16 +115,19 @@ function createBackdropTexture() {
   const centerGlow = context.createRadialGradient(
     canvas.width * 0.5,
     canvas.height * 0.58,
-    48,
+    0,
     canvas.width * 0.5,
     canvas.height * 0.58,
-    360,
+    canvas.width * 0.7,
   );
-  centerGlow.addColorStop(0, 'rgba(255, 255, 247, 0.99)');
-  centerGlow.addColorStop(0.16, 'rgba(255, 249, 205, 0.92)');
-  centerGlow.addColorStop(0.38, 'rgba(255, 236, 122, 0.42)');
-  centerGlow.addColorStop(0.7, 'rgba(255, 205, 49, 0.1)');
-  centerGlow.addColorStop(1, 'rgba(255, 214, 92, 0)');
+  centerGlow.addColorStop(0, 'rgba(255, 255, 247, 0.5)');
+  centerGlow.addColorStop(0.06, 'rgba(255, 252, 230, 0.42)');
+  centerGlow.addColorStop(0.14, 'rgba(255, 245, 200, 0.32)');
+  centerGlow.addColorStop(0.25, 'rgba(255, 238, 160, 0.22)');
+  centerGlow.addColorStop(0.4, 'rgba(255, 225, 120, 0.13)');
+  centerGlow.addColorStop(0.58, 'rgba(255, 210, 80, 0.06)');
+  centerGlow.addColorStop(0.78, 'rgba(255, 200, 60, 0.02)');
+  centerGlow.addColorStop(1, 'rgba(255, 200, 60, 0)');
   context.fillStyle = centerGlow;
   context.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -167,13 +163,18 @@ function createGlowTexture() {
   }
 
   const glow = context.createRadialGradient(256, 286, 24, 256, 286, 220);
-  glow.addColorStop(0, 'rgba(255, 255, 250, 1)');
-  glow.addColorStop(0.12, 'rgba(255, 255, 238, 0.95)');
-  glow.addColorStop(0.34, 'rgba(255, 247, 188, 0.54)');
-  glow.addColorStop(0.62, 'rgba(255, 235, 148, 0.14)');
+  glow.addColorStop(0, 'rgba(255, 255, 250, 0.8)');
+  glow.addColorStop(0.05, 'rgba(255, 255, 245, 0.75)');
+  glow.addColorStop(0.15, 'rgba(255, 255, 238, 0.65)');
+  glow.addColorStop(0.3, 'rgba(255, 250, 210, 0.65)');
+  glow.addColorStop(0.5, 'rgba(255, 243, 178, 0.3)');
+  glow.addColorStop(0.72, 'rgba(255, 238, 155, 0.08)');
+  glow.addColorStop(0.88, 'rgba(255, 235, 148, 0.02)');
   glow.addColorStop(1, 'rgba(255, 235, 148, 0)');
   context.fillStyle = glow;
-  context.fillRect(0, 0, canvas.width, canvas.height);
+  context.beginPath();
+  context.arc(256, 286, 220, 0, Math.PI * 2);
+  context.fill();
 
   const texture = new CanvasTexture(canvas);
   texture.minFilter = LinearFilter;
@@ -363,11 +364,11 @@ const BeamField = forwardRef<PanelBeamCanvasHandle>(
     return (
       <>
         <BackgroundField />
-        <ambientLight intensity={0.4} />
+        <ambientLight intensity={.2} />
         <pointLight
-          position={[0, -0.15, 3.6]}
-          intensity={2.05}
-          color="#fff9e2"
+          position={[0, -0.1, 3.6]}
+          intensity={.5}
+          color="#ffcc00"
         />
 
         {beams.map((beam, index) => (

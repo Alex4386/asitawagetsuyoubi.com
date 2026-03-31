@@ -8,15 +8,7 @@
   --panel-page-stop-2: #ffd000;
   --panel-page-stop-3: #efb100;
   --panel-page-stop-4: #d88b00;
-  --panel-page-background-color: var(--panel-page-stop-0);
-  --panel-page-background-gradient: linear-gradient(
-    to bottom,
-    var(--panel-page-stop-0) 0%,
-    var(--panel-page-stop-1) 18%,
-    var(--panel-page-stop-2) 48%,
-    var(--panel-page-stop-3) 78%,
-    var(--panel-page-stop-4) 100%
-  );
+  --panel-page-background-color: var(--panel-page-stop-4);
   --panel-text-gradient: linear-gradient(
     180deg,
     #865000 0%,
@@ -39,8 +31,7 @@ body {
 }
 
 html {
-  background-color: var(--panel-page-background-color, #ffe66a);
-  background-image: var(--panel-page-background-gradient);
+  background-color: var(--panel-page-background-color, #d88b00);
   overscroll-behavior: none;
 }
 
