@@ -19,7 +19,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ja">
+    <html lang="ja" className="bg-[#ffe66a]">
       <body>
         <Providers>{children}</Providers>
       </body>

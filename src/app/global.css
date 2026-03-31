@@ -32,39 +32,29 @@
     drop-shadow(0.06em 0.085em 0 #925100);
 }
 
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
 html {
   min-height: 100%;
   background-color: var(--panel-page-background-color, #ffe66a);
+  overscroll-behavior: none;
 }
 
 body {
   min-height: 100dvh;
   margin: 0;
   background: transparent;
+  overflow: hidden;
 }
 
 @layer components {
   .panel-bottom-target {
-    position: absolute;
-    inset-inline: 0;
-    bottom: 0;
-    z-index: 0;
-    height: clamp(11rem, 30svh, 19rem);
-    pointer-events: none;
-    background-image: var(
-      --panel-page-background-gradient,
-      linear-gradient(
-        to bottom,
-        var(--panel-page-stop-0, #ffe66a) 0%,
-        var(--panel-page-stop-1, #ffdd28) 18%,
-        var(--panel-page-stop-2, #ffd000) 48%,
-        var(--panel-page-stop-3, #efb100) 78%,
-        var(--panel-page-stop-4, #d88b00) 100%
-      )
-    );
-    background-position: center bottom;
+    background-color: var(--panel-page-stop-4, #d88b00);
     background-repeat: no-repeat;
-    background-size: 100% 100dvh;
   }
 
   .panel-surface-texture,
