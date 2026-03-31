@@ -31,7 +31,7 @@ body {
 }
 
 html {
-  background-color: var(--panel-page-background-color, #d88b00);
+  background-color: #dba00b;
   overscroll-behavior: none;
 }
 
