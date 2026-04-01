@@ -1,4 +1,3 @@
-import 'material-icons/iconfont/material-icons.css';
 import './global.css';
 
 import type { Metadata, Viewport } from 'next';
@@ -20,17 +19,18 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ja">
-      <style>{`
-        /* I really didn't have choices here */
-        html {
-          background-color: var(--panel-background-not-monday, #494949);
-        }
-        
-        html.not-getsuyoubi {
-          background-color: var(--panel-background, #dba00b);
-        }
+      <head>
+        <style>{`
+          /* I really didn't have choices here */
+          html {
+            background-color: var(--panel-background-not-monday, #494949);
+          }
 
-      `}</style>
+          html.monday {
+            background-color: var(--panel-background, #dba00b);
+          }
+        `}</style>
+      </head>
       <body>
         <Providers>{children}</Providers>
       </body>

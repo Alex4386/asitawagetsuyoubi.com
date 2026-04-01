@@ -14,8 +14,22 @@
   );
   --panel-text-shadow: drop-shadow(0 0 0.07em rgba(255, 255, 248, 0.98))
     drop-shadow(0 0 0.2em rgba(255, 244, 168, 0.58))
-    drop-shadow(0.028em 0.04em 0 #daa11e)
-    drop-shadow(0.06em 0.085em 0 #925100);
+    drop-shadow(0.028em 0.04em 0 #daa11e) drop-shadow(0.06em 0.085em 0 #925100);
+  --panel-disappointed-text-gradient: linear-gradient(
+    180deg,
+    #f4f4f4 0%,
+    #d8d8d8 22%,
+    #8c8c8c 48%,
+    #fafafa 68%,
+    #cdcdcd 82%,
+    #585858 100%
+  );
+  --panel-disappointed-text-shadow: drop-shadow(
+      0 0 0.02em rgba(255, 255, 255, 0.45)
+    )
+    drop-shadow(0.018em 0.028em 0 rgba(116, 116, 116, 0.92))
+    drop-shadow(0.042em 0.06em 0 rgba(28, 28, 28, 0.9));
+  --panel-disappointed-text-stroke: rgba(42, 42, 42, 0.52);
 
   --panel-background: #dba00b;
   --panel-background-not-monday: #494949;
@@ -28,7 +42,6 @@ body {
 }
 
 html {
-  background-color: var(--panel-background, #dba00b);
   overscroll-behavior: none;
 }
 
@@ -77,6 +90,36 @@ body {
         drop-shadow(0 0 0.2em rgba(255, 244, 168, 0.58))
         drop-shadow(0.028em 0.04em 0 #daa11e)
         drop-shadow(0.06em 0.085em 0 #925100)
+    );
+  }
+
+  .panel-gray-text {
+    color: transparent;
+    line-height: 0.94;
+    font-weight: 900;
+    font-synthesis: none;
+    background-image: var(
+      --panel-disappointed-text-gradient,
+      linear-gradient(
+        180deg,
+        #f4f4f4 0%,
+        #d8d8d8 22%,
+        #8c8c8c 48%,
+        #fafafa 68%,
+        #cdcdcd 82%,
+        #585858 100%
+      )
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0.012em
+      var(--panel-disappointed-text-stroke, rgba(42, 42, 42, 0.52));
+    filter: var(
+      --panel-disappointed-text-shadow,
+      drop-shadow(0 0 0.02em rgba(255, 255, 255, 0.45))
+        drop-shadow(0.018em 0.028em 0 rgba(116, 116, 116, 0.92))
+        drop-shadow(0.042em 0.06em 0 rgba(28, 28, 28, 0.9))
     );
   }
 
