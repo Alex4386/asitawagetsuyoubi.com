@@ -16,7 +16,7 @@ import {
   type AsitaWaGetsuyoubiResponse,
 } from '@/lib/asitawagetsuyoubi';
 
-const MONDAY_CLASS_NAME = 'monday';
+const TEASING_CLASS_NAME = 'teasing';
 const DEFAULT_COUNTRY = 'JP';
 const browserHolidayCache = createMemoryHolidayCacheStore();
 
@@ -35,33 +35,26 @@ export interface MondayContextValue {
 
 const MondayContext = createContext<MondayContextValue | null>(null);
 
-function getInitialMondayState() {
-  if (typeof document === 'undefined') {
-    return false;
-  }
-
-  return document.documentElement.classList.contains(MONDAY_CLASS_NAME);
-}
-
 function getFetchWithSignal(signal: AbortSignal): typeof fetch {
   return (input, init) => fetch(input, { ...init, signal });
 }
 
 export function MondayProvider({ children }: { children: ReactNode }) {
-  const [isTomorrowMonday, setTomorrowMonday] = useState(getInitialMondayState);
+  const [isTomorrowMonday, setTomorrowMonday] = useState(false);
   const [isShukujitsu, setShukujitsu] = useState(false);
   const [teaseOmaeraOverride, setTeaseOmaeraOverride] =
     useState<TeaseOmaeraOverride>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const canTeaseOmaera = isTomorrowMonday && !isShukujitsu;
+  const canTeaseOmaera =
+    !isShukujitsu && (teaseOmaeraOverride ?? isTomorrowMonday);
 
   useEffect(() => {
     document.documentElement.classList.toggle(
-      MONDAY_CLASS_NAME,
-      isTomorrowMonday,
+      TEASING_CLASS_NAME,
+      canTeaseOmaera,
     );
-  }, [isTomorrowMonday]);
+  }, [canTeaseOmaera]);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -135,7 +128,7 @@ export function MondayProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     return () => {
-      document.documentElement.classList.remove(MONDAY_CLASS_NAME);
+      document.documentElement.classList.remove(TEASING_CLASS_NAME);
     };
   }, []);
 

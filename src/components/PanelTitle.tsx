@@ -40,7 +40,7 @@ export default function PanelTitle({
 
       <div
         className={joinClassNames(
-          'flex w-full flex-col items-center justify-center text-center',
+          'panel-title-font flex w-full flex-col items-center justify-center text-center',
           stackClassName,
         )}
         aria-hidden="true">

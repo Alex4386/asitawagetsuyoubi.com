@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 :root {
+  --app-font-family: 'Noto Sans JP', 'Hiragino Sans',
+    'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Yu Gothic UI', 'Meiryo',
+    sans-serif;
   --panel-text-gradient: linear-gradient(
     180deg,
     #865000 0%,
@@ -48,12 +51,26 @@ html {
 body {
   margin: 0;
   background: transparent;
+  font-family: var(
+    --app-font-family,
+    'Noto Sans JP',
+    'Hiragino Sans',
+    'Hiragino Kaku Gothic ProN',
+    'Yu Gothic',
+    'Yu Gothic UI',
+    'Meiryo',
+    sans-serif
+  );
 }
 
 @layer components {
   .panel-bottom-target {
     background-color: var(--panel-background, #dba00b);
     background-repeat: no-repeat;
+  }
+
+  .panel-title-font {
+    font-family: inherit;
   }
 
   .panel-surface-texture,

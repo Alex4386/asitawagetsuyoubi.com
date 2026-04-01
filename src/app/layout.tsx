@@ -4,6 +4,7 @@ import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 
 import Providers from '@/app/Providers';
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: 'あしたは月曜日',
@@ -26,7 +27,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             background-color: var(--panel-background-not-monday, #494949);
           }
 
-          html.monday {
+          html.teasing {
             background-color: var(--panel-background, #dba00b);
           }
         `}</style>
