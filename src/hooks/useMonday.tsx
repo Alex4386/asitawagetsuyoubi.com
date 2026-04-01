@@ -11,23 +11,30 @@ import {
 } from 'react';
 
 import {
+  DEFAULT_COUNTRY,
   createMemoryHolidayCacheStore,
   getAsitaWaGetsuyoubi,
+  getSupportedCountryCode,
+  parseReferenceDate,
   type AsitaWaGetsuyoubiResponse,
 } from '@/lib/asitawagetsuyoubi';
 
 const TEASING_CLASS_NAME = 'teasing';
-const DEFAULT_COUNTRY = 'JP';
+const COUNTRY_STORAGE_KEY = 'asita-country';
 const browserHolidayCache = createMemoryHolidayCacheStore();
 
 type TeaseOmaeraOverride = boolean | null;
 
 export interface MondayContextValue {
+  country: string;
   isTomorrowMonday: boolean;
   isShukujitsu: boolean;
   canTeaseOmaera: boolean;
+  specificDateTime: string;
   teaseOmaeraOverride: TeaseOmaeraOverride;
   isLoading: boolean;
+  setCountry: Dispatch<SetStateAction<string>>;
+  setSpecificDateTime: Dispatch<SetStateAction<string>>;
   setTomorrowMonday: Dispatch<SetStateAction<boolean>>;
   setShukujitsu: Dispatch<SetStateAction<boolean>>;
   setTeaseOmaeraOverride: Dispatch<SetStateAction<TeaseOmaeraOverride>>;
@@ -40,11 +47,27 @@ function getFetchWithSignal(signal: AbortSignal): typeof fetch {
 }
 
 export function MondayProvider({ children }: { children: ReactNode }) {
+  const [countryState, setCountryState] = useState(DEFAULT_COUNTRY);
   const [isTomorrowMonday, setTomorrowMonday] = useState(false);
   const [isShukujitsu, setShukujitsu] = useState(false);
+  const [specificDateTime, setSpecificDateTime] = useState('');
   const [teaseOmaeraOverride, setTeaseOmaeraOverride] =
     useState<TeaseOmaeraOverride>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [hasResolvedStoredCountry, setHasResolvedStoredCountry] =
+    useState(false);
+  const referenceDateIso = parseReferenceDate(specificDateTime)?.toISOString();
+
+  const setCountry: Dispatch<SetStateAction<string>> = nextCountry => {
+    setCountryState(currentCountry => {
+      const resolvedCountry =
+        typeof nextCountry === 'function'
+          ? nextCountry(currentCountry)
+          : nextCountry;
+
+      return getSupportedCountryCode(resolvedCountry);
+    });
+  };
 
   const canTeaseOmaera =
     !isShukujitsu && (teaseOmaeraOverride ?? isTomorrowMonday);
@@ -54,9 +77,38 @@ export function MondayProvider({ children }: { children: ReactNode }) {
       TEASING_CLASS_NAME,
       canTeaseOmaera,
     );
+
+    // safari hack!
+    document.documentElement.style.display = 'none';
+    document.documentElement.offsetHeight; // Accessing this forces a reflow
+    document.documentElement.style.display = '';
   }, [canTeaseOmaera]);
 
   useEffect(() => {
+    const storedCountry =
+      typeof window === 'undefined'
+        ? DEFAULT_COUNTRY
+        : getSupportedCountryCode(
+            window.localStorage.getItem(COUNTRY_STORAGE_KEY),
+          );
+
+    setCountryState(storedCountry);
+    setHasResolvedStoredCountry(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hasResolvedStoredCountry || typeof window === 'undefined') {
+      return;
+    }
+
+    window.localStorage.setItem(COUNTRY_STORAGE_KEY, countryState);
+  }, [countryState, hasResolvedStoredCountry]);
+
+  useEffect(() => {
+    if (!hasResolvedStoredCountry) {
+      return;
+    }
+
     const abortController = new AbortController();
 
     function applyMondayState(payload: AsitaWaGetsuyoubiResponse) {
@@ -65,9 +117,17 @@ export function MondayProvider({ children }: { children: ReactNode }) {
     }
 
     async function hydrateMondayState() {
+      setIsLoading(true);
+
       try {
+        const searchParams = new URLSearchParams({ country: countryState });
+
+        if (referenceDateIso) {
+          searchParams.set('at', referenceDateIso);
+        }
+
         const response = await fetch(
-          `/api/asitawagetsuyoubi?country=${DEFAULT_COUNTRY}`,
+          `/api/asitawagetsuyoubi?${searchParams.toString()}`,
           {
             cache: 'no-store',
             signal: abortController.signal,
@@ -91,10 +151,13 @@ export function MondayProvider({ children }: { children: ReactNode }) {
         );
 
         try {
+          const referenceDate =
+            parseReferenceDate(referenceDateIso) ?? undefined;
           const payload = await getAsitaWaGetsuyoubi({
             cache: browserHolidayCache,
-            country: DEFAULT_COUNTRY,
+            country: countryState,
             fetchImpl: getFetchWithSignal(abortController.signal),
+            now: referenceDate,
           });
 
           if (abortController.signal.aborted) {
@@ -124,7 +187,7 @@ export function MondayProvider({ children }: { children: ReactNode }) {
     return () => {
       abortController.abort();
     };
-  }, []);
+  }, [countryState, hasResolvedStoredCountry, referenceDateIso]);
 
   useEffect(() => {
     return () => {
@@ -136,9 +199,13 @@ export function MondayProvider({ children }: { children: ReactNode }) {
     <MondayContext.Provider
       value={{
         canTeaseOmaera,
+        country: countryState,
         isLoading,
         isShukujitsu,
         isTomorrowMonday,
+        setCountry,
+        setSpecificDateTime,
+        specificDateTime,
         teaseOmaeraOverride,
         setShukujitsu,
         setTeaseOmaeraOverride,

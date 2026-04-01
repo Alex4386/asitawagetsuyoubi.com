@@ -1,8 +1,38 @@
 const HOLIDAY_CACHE_TTL_MS = 1000 * 60 * 60 * 12;
 const NAGER_DATE_BASE_URL = 'https://date.nager.at/api/v3/PublicHolidays';
-const COUNTRY_TIME_ZONES: Record<string, string> = {
-  JP: 'Asia/Tokyo',
-};
+
+export const DEFAULT_COUNTRY = 'JP';
+
+export const COUNTRY_OPTIONS = [
+  { code: 'JP', label: '日本', timeZone: 'Asia/Tokyo' },
+  { code: 'KR', label: '韓国', timeZone: 'Asia/Seoul' },
+  { code: 'TW', label: '台湾', timeZone: 'Asia/Taipei' },
+  { code: 'SG', label: 'シンガポール', timeZone: 'Asia/Singapore' },
+  { code: 'GB', label: 'イギリス', timeZone: 'Europe/London' },
+  { code: 'DE', label: 'ドイツ', timeZone: 'Europe/Berlin' },
+  { code: 'FR', label: 'フランス', timeZone: 'Europe/Paris' },
+  { code: 'IT', label: 'イタリア', timeZone: 'Europe/Rome' },
+  { code: 'ES', label: 'スペイン', timeZone: 'Europe/Madrid' },
+  {
+    code: 'AU',
+    label: 'オーストラリア（シドニー）',
+    timeZone: 'Australia/Sydney',
+  },
+  { code: 'NZ', label: 'ニュージーランド', timeZone: 'Pacific/Auckland' },
+  { code: 'US', label: 'アメリカ（東部時間）', timeZone: 'America/New_York' },
+  { code: 'CA', label: 'カナダ（東部時間）', timeZone: 'America/Toronto' },
+] as const;
+
+export type SupportedCountryCode = (typeof COUNTRY_OPTIONS)[number]['code'];
+
+const COUNTRY_TIME_ZONES: Record<SupportedCountryCode, string> =
+  COUNTRY_OPTIONS.reduce(
+    (timeZones, option) => {
+      timeZones[option.code] = option.timeZone;
+      return timeZones;
+    },
+    {} as Record<SupportedCountryCode, string>,
+  );
 
 interface HolidayRecord {
   date: string;
@@ -118,8 +148,38 @@ function normalizeCountryCode(country: string) {
   return normalizedCountry;
 }
 
+export function getSupportedCountryCode(country: string | null | undefined) {
+  let normalizedCountry = DEFAULT_COUNTRY;
+
+  try {
+    normalizedCountry = normalizeCountryCode(country ?? DEFAULT_COUNTRY);
+  } catch {
+    return DEFAULT_COUNTRY;
+  }
+
+  if (COUNTRY_OPTIONS.some(option => option.code === normalizedCountry)) {
+    return normalizedCountry as SupportedCountryCode;
+  }
+
+  return DEFAULT_COUNTRY;
+}
+
+export function parseReferenceDate(value: string | null | undefined) {
+  if (!value) {
+    return null;
+  }
+
+  const referenceDate = new Date(value);
+
+  if (Number.isNaN(referenceDate.getTime())) {
+    return null;
+  }
+
+  return referenceDate;
+}
+
 function getCountryTimeZone(country: string) {
-  return COUNTRY_TIME_ZONES[country] ?? 'UTC';
+  return COUNTRY_TIME_ZONES[getSupportedCountryCode(country)];
 }
 
 function getRequiredDatePart(
