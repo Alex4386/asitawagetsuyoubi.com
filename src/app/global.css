@@ -44,10 +44,6 @@ body {
   min-height: 100%;
 }
 
-html {
-  overscroll-behavior: none;
-}
-
 body {
   margin: 0;
   background: transparent;

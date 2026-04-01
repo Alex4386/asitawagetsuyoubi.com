@@ -73,18 +73,6 @@ export function MondayProvider({ children }: { children: ReactNode }) {
     !isShukujitsu && (teaseOmaeraOverride ?? isTomorrowMonday);
 
   useEffect(() => {
-    document.documentElement.classList.toggle(
-      TEASING_CLASS_NAME,
-      canTeaseOmaera,
-    );
-
-    // safari hack!
-    document.documentElement.style.display = 'none';
-    document.documentElement.offsetHeight; // Accessing this forces a reflow
-    document.documentElement.style.display = '';
-  }, [canTeaseOmaera]);
-
-  useEffect(() => {
     const storedCountry =
       typeof window === 'undefined'
         ? DEFAULT_COUNTRY

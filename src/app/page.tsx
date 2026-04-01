@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <>
       <SettingsDialog />
-      <main className="fixed inset-0 w-full overflow-hidden">
+      <main className="fixed inset-0 w-full">
         <PanelSurface />
         <div
           className="panel-bottom-target absolute inset-x-0 top-full z-0 h-[clamp(11rem,30svh,19rem)] pointer-events-none"
