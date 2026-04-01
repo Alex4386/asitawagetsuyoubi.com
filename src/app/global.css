@@ -3,12 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --panel-page-stop-0: #ffe66a;
-  --panel-page-stop-1: #ffdd28;
-  --panel-page-stop-2: #ffd000;
-  --panel-page-stop-3: #efb100;
-  --panel-page-stop-4: #d88b00;
-  --panel-page-background-color: var(--panel-page-stop-4);
   --panel-text-gradient: linear-gradient(
     180deg,
     #865000 0%,
@@ -22,6 +16,9 @@
     drop-shadow(0 0 0.2em rgba(255, 244, 168, 0.58))
     drop-shadow(0.028em 0.04em 0 #daa11e)
     drop-shadow(0.06em 0.085em 0 #925100);
+
+  --panel-background: #dba00b;
+  --panel-background-not-monday: #494949;
 }
 
 html,
@@ -31,7 +28,7 @@ body {
 }
 
 html {
-  background-color: #dba00b;
+  background-color: var(--panel-background, #dba00b);
   overscroll-behavior: none;
 }
 
@@ -42,7 +39,7 @@ body {
 
 @layer components {
   .panel-bottom-target {
-    background-color: var(--panel-page-stop-4, #d88b00);
+    background-color: var(--panel-background, #dba00b);
     background-repeat: no-repeat;
   }
 

@@ -20,6 +20,17 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ja">
+      <style>{`
+        /* I really didn't have choices here */
+        html {
+          background-color: var(--panel-background-not-monday, #494949);
+        }
+        
+        html.not-getsuyoubi {
+          background-color: var(--panel-background, #dba00b);
+        }
+
+      `}</style>
       <body>
         <Providers>{children}</Providers>
       </body>
