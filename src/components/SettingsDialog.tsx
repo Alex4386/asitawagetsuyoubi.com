@@ -29,9 +29,7 @@ function StatusRow({ active, label }: { active: boolean; label: string }) {
       <span
         className={cn(
           'rounded-full px-2 py-0.5 text-xs font-medium',
-          active
-            ? 'bg-emerald-400/15 text-emerald-200'
-            : 'bg-white/8 text-neutral-400',
+          active ? 'bg-active text-neutral-950' : 'bg-white/8 text-neutral-400',
         )}>
         {active ? '有効' : '無効'}
       </span>
@@ -69,7 +67,7 @@ function optionButtonClass(active: boolean) {
   return cn(
     'h-auto min-h-[3rem] justify-between rounded-xl border px-4 py-3 text-left text-sm font-semibold whitespace-normal transition-colors',
     active
-      ? 'border-emerald-300 bg-emerald-300 text-neutral-950 hover:bg-emerald-200'
+      ? 'border-active bg-active text-neutral-950 hover:brightness-95'
       : 'border-white/16 bg-[#151515] text-neutral-100 hover:bg-[#1b1b1b]',
   );
 }

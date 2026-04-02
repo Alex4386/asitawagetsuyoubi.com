@@ -59,6 +59,16 @@ body {
   );
 }
 
+@layer utilities {
+  .bg-active {
+    background-color: var(--panel-background, #dba00b);
+  }
+
+  .border-active {
+    border-color: var(--panel-background, #dba00b);
+  }
+}
+
 @layer components {
   .panel-bottom-target {
     background-color: var(--panel-background, #dba00b);
