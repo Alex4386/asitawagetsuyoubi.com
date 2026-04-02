@@ -1,0 +1,3790 @@
+{
+  "metadata": {
+    "generatedAt": "2026-04-02T05:43:22.474Z",
+    "schemaVersion": 3,
+    "years": [
+      2025,
+      2026,
+      2027,
+      2028
+    ]
+  },
+  "countries": {
+    "JP": {
+      "2025": [
+        {
+          "date": "2025-01-01",
+          "name": "元日"
+        },
+        {
+          "date": "2025-01-13",
+          "name": "成人の日"
+        },
+        {
+          "date": "2025-02-11",
+          "name": "建国記念の日"
+        },
+        {
+          "date": "2025-02-24",
+          "name": "天皇誕生日"
+        },
+        {
+          "date": "2025-03-20",
+          "name": "春分の日"
+        },
+        {
+          "date": "2025-04-29",
+          "name": "昭和の日"
+        },
+        {
+          "date": "2025-05-03",
+          "name": "憲法記念日"
+        },
+        {
+          "date": "2025-05-05",
+          "name": "こどもの日"
+        },
+        {
+          "date": "2025-05-06",
+          "name": "みどりの日"
+        },
+        {
+          "date": "2025-07-21",
+          "name": "海の日"
+        },
+        {
+          "date": "2025-08-11",
+          "name": "山の日"
+        },
+        {
+          "date": "2025-09-15",
+          "name": "敬老の日"
+        },
+        {
+          "date": "2025-09-23",
+          "name": "秋分の日"
+        },
+        {
+          "date": "2025-10-13",
+          "name": "スポーツの日"
+        },
+        {
+          "date": "2025-11-03",
+          "name": "文化の日"
+        },
+        {
+          "date": "2025-11-24",
+          "name": "勤労感謝の日"
+        }
+      ],
+      "2026": [
+        {
+          "date": "2026-01-01",
+          "name": "元日"
+        },
+        {
+          "date": "2026-01-12",
+          "name": "成人の日"
+        },
+        {
+          "date": "2026-02-11",
+          "name": "建国記念の日"
+        },
+        {
+          "date": "2026-02-23",
+          "name": "天皇誕生日"
+        },
+        {
+          "date": "2026-03-20",
+          "name": "春分の日"
+        },
+        {
+          "date": "2026-04-29",
+          "name": "昭和の日"
+        },
+        {
+          "date": "2026-05-04",
+          "name": "憲法記念日"
+        },
+        {
+          "date": "2026-05-04",
+          "name": "みどりの日"
+        },
+        {
+          "date": "2026-05-05",
+          "name": "こどもの日"
+        },
+        {
+          "date": "2026-07-20",
+          "name": "海の日"
+        },
+        {
+          "date": "2026-08-11",
+          "name": "山の日"
+        },
+        {
+          "date": "2026-09-21",
+          "name": "敬老の日"
+        },
+        {
+          "date": "2026-09-23",
+          "name": "秋分の日"
+        },
+        {
+          "date": "2026-10-12",
+          "name": "スポーツの日"
+        },
+        {
+          "date": "2026-11-03",
+          "name": "文化の日"
+        },
+        {
+          "date": "2026-11-23",
+          "name": "勤労感謝の日"
+        }
+      ],
+      "2027": [
+        {
+          "date": "2027-01-01",
+          "name": "元日"
+        },
+        {
+          "date": "2027-01-11",
+          "name": "成人の日"
+        },
+        {
+          "date": "2027-02-11",
+          "name": "建国記念の日"
+        },
+        {
+          "date": "2027-02-23",
+          "name": "天皇誕生日"
+        },
+        {
+          "date": "2027-03-21",
+          "name": "春分の日"
+        },
+        {
+          "date": "2027-04-29",
+          "name": "昭和の日"
+        },
+        {
+          "date": "2027-05-03",
+          "name": "憲法記念日"
+        },
+        {
+          "date": "2027-05-04",
+          "name": "みどりの日"
+        },
+        {
+          "date": "2027-05-05",
+          "name": "こどもの日"
+        },
+        {
+          "date": "2027-07-19",
+          "name": "海の日"
+        },
+        {
+          "date": "2027-08-11",
+          "name": "山の日"
+        },
+        {
+          "date": "2027-09-20",
+          "name": "敬老の日"
+        },
+        {
+          "date": "2027-09-23",
+          "name": "秋分の日"
+        },
+        {
+          "date": "2027-10-11",
+          "name": "スポーツの日"
+        },
+        {
+          "date": "2027-11-03",
+          "name": "文化の日"
+        },
+        {
+          "date": "2027-11-23",
+          "name": "勤労感謝の日"
+        }
+      ],
+      "2028": [
+        {
+          "date": "2028-01-01",
+          "name": "元日"
+        },
+        {
+          "date": "2028-01-10",
+          "name": "成人の日"
+        },
+        {
+          "date": "2028-02-11",
+          "name": "建国記念の日"
+        },
+        {
+          "date": "2028-02-23",
+          "name": "天皇誕生日"
+        },
+        {
+          "date": "2028-03-20",
+          "name": "春分の日"
+        },
+        {
+          "date": "2028-04-29",
+          "name": "昭和の日"
+        },
+        {
+          "date": "2028-05-03",
+          "name": "憲法記念日"
+        },
+        {
+          "date": "2028-05-04",
+          "name": "みどりの日"
+        },
+        {
+          "date": "2028-05-05",
+          "name": "こどもの日"
+        },
+        {
+          "date": "2028-07-17",
+          "name": "海の日"
+        },
+        {
+          "date": "2028-08-11",
+          "name": "山の日"
+        },
+        {
+          "date": "2028-09-18",
+          "name": "敬老の日"
+        },
+        {
+          "date": "2028-09-22",
+          "name": "秋分の日"
+        },
+        {
+          "date": "2028-10-09",
+          "name": "スポーツの日"
+        },
+        {
+          "date": "2028-11-03",
+          "name": "文化の日"
+        },
+        {
+          "date": "2028-11-23",
+          "name": "勤労感謝の日"
+        }
+      ]
+    },
+    "KR": {
+      "2025": [
+        {
+          "date": "2025-01-01",
+          "name": "새해"
+        },
+        {
+          "date": "2025-01-27",
+          "name": "임시공휴일"
+        },
+        {
+          "date": "2025-01-28",
+          "name": "설날"
+        },
+        {
+          "date": "2025-01-29",
+          "name": "설날"
+        },
+        {
+          "date": "2025-01-30",
+          "name": "설날"
+        },
+        {
+          "date": "2025-03-01",
+          "name": "3·1절"
+        },
+        {
+          "date": "2025-03-03",
+          "name": "대체공휴일"
+        },
+        {
+          "date": "2025-05-05",
+          "name": "부처님 오신 날"
+        },
+        {
+          "date": "2025-05-06",
+          "name": "대체공휴일"
+        },
+        {
+          "date": "2025-06-03",
+          "name": "임시공휴일(제21대 대통령 선거)"
+        },
+        {
+          "date": "2025-06-06",
+          "name": "현충일"
+        },
+        {
+          "date": "2025-08-15",
+          "name": "광복절"
+        },
+        {
+          "date": "2025-10-03",
+          "name": "개천절"
+        },
+        {
+          "date": "2025-10-05",
+          "name": "추석"
+        },
+        {
+          "date": "2025-10-06",
+          "name": "추석"
+        },
+        {
+          "date": "2025-10-07",
+          "name": "추석"
+        },
+        {
+          "date": "2025-10-08",
+          "name": "추석"
+        },
+        {
+          "date": "2025-10-09",
+          "name": "한글날"
+        },
+        {
+          "date": "2025-12-25",
+          "name": "크리스마스"
+        }
+      ],
+      "2026": [
+        {
+          "date": "2026-01-01",
+          "name": "새해"
+        },
+        {
+          "date": "2026-02-16",
+          "name": "설날"
+        },
+        {
+          "date": "2026-02-17",
+          "name": "설날"
+        },
+        {
+          "date": "2026-02-18",
+          "name": "설날"
+        },
+        {
+          "date": "2026-03-01",
+          "name": "3·1절"
+        },
+        {
+          "date": "2026-03-02",
+          "name": "대체공휴일(삼일절)"
+        },
+        {
+          "date": "2026-05-05",
+          "name": "어린이날"
+        },
+        {
+          "date": "2026-05-24",
+          "name": "부처님 오신 날"
+        },
+        {
+          "date": "2026-05-25",
+          "name": "대체공휴일(부처님오신날)"
+        },
+        {
+          "date": "2026-06-03",
+          "name": "전국동시지방선거"
+        },
+        {
+          "date": "2026-06-06",
+          "name": "현충일"
+        },
+        {
+          "date": "2026-07-17",
+          "name": "제헌절"
+        },
+        {
+          "date": "2026-08-15",
+          "name": "광복절"
+        },
+        {
+          "date": "2026-08-17",
+          "name": "대체공휴일(광복절)"
+        },
+        {
+          "date": "2026-09-24",
+          "name": "추석"
+        },
+        {
+          "date": "2026-09-25",
+          "name": "추석"
+        },
+        {
+          "date": "2026-09-26",
+          "name": "추석"
+        },
+        {
+          "date": "2026-10-03",
+          "name": "개천절"
+        },
+        {
+          "date": "2026-10-05",
+          "name": "대체공휴일(개천절)"
+        },
+        {
+          "date": "2026-10-09",
+          "name": "한글날"
+        },
+        {
+          "date": "2026-12-25",
+          "name": "크리스마스"
+        }
+      ],
+      "2027": [
+        {
+          "date": "2027-01-01",
+          "name": "새해"
+        },
+        {
+          "date": "2027-02-06",
+          "name": "설날"
+        },
+        {
+          "date": "2027-02-07",
+          "name": "설날"
+        },
+        {
+          "date": "2027-02-08",
+          "name": "설날"
+        },
+        {
+          "date": "2027-02-09",
+          "name": "설날"
+        },
+        {
+          "date": "2027-03-01",
+          "name": "3·1절"
+        },
+        {
+          "date": "2027-05-05",
+          "name": "어린이날"
+        },
+        {
+          "date": "2027-05-13",
+          "name": "부처님 오신 날"
+        },
+        {
+          "date": "2027-06-06",
+          "name": "현충일"
+        },
+        {
+          "date": "2027-07-17",
+          "name": "제헌절"
+        },
+        {
+          "date": "2027-08-15",
+          "name": "광복절"
+        },
+        {
+          "date": "2027-08-16",
+          "name": "대체공휴일(광복절)"
+        },
+        {
+          "date": "2027-09-14",
+          "name": "추석"
+        },
+        {
+          "date": "2027-09-15",
+          "name": "추석"
+        },
+        {
+          "date": "2027-09-16",
+          "name": "추석"
+        },
+        {
+          "date": "2027-10-03",
+          "name": "개천절"
+        },
+        {
+          "date": "2027-10-04",
+          "name": "대체공휴일(개천절)"
+        },
+        {
+          "date": "2027-10-09",
+          "name": "한글날"
+        },
+        {
+          "date": "2027-10-11",
+          "name": "대체공휴일(한글날)"
+        },
+        {
+          "date": "2027-12-25",
+          "name": "크리스마스"
+        },
+        {
+          "date": "2027-12-27",
+          "name": "대체공휴일(기독탄신일)"
+        }
+      ],
+      "2028": [
+        {
+          "date": "2028-01-01",
+          "name": "새해"
+        },
+        {
+          "date": "2028-01-26",
+          "name": "설날"
+        },
+        {
+          "date": "2028-01-27",
+          "name": "설날"
+        },
+        {
+          "date": "2028-01-28",
+          "name": "설날"
+        },
+        {
+          "date": "2028-03-01",
+          "name": "3·1절"
+        },
+        {
+          "date": "2028-05-02",
+          "name": "부처님 오신 날"
+        },
+        {
+          "date": "2028-05-05",
+          "name": "어린이날"
+        },
+        {
+          "date": "2028-06-06",
+          "name": "현충일"
+        },
+        {
+          "date": "2028-08-15",
+          "name": "광복절"
+        },
+        {
+          "date": "2028-10-02",
+          "name": "추석"
+        },
+        {
+          "date": "2028-10-03",
+          "name": "추석"
+        },
+        {
+          "date": "2028-10-04",
+          "name": "추석"
+        },
+        {
+          "date": "2028-10-09",
+          "name": "한글날"
+        },
+        {
+          "date": "2028-12-25",
+          "name": "크리스마스"
+        }
+      ]
+    },
+    "SG": {
+      "2025": [
+        {
+          "date": "2025-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2025-01-29",
+          "name": "Chinese New Year"
+        },
+        {
+          "date": "2025-01-30",
+          "name": "Chinese New Year"
+        },
+        {
+          "date": "2025-03-31",
+          "name": "Hari Raya Puasa"
+        },
+        {
+          "date": "2025-04-18",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2025-05-01",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2025-05-12",
+          "name": "Vesak Day"
+        },
+        {
+          "date": "2025-06-07",
+          "name": "Hari Raya Haji"
+        },
+        {
+          "date": "2025-08-09",
+          "name": "National Day"
+        },
+        {
+          "date": "2025-10-21",
+          "name": "Deepavali"
+        },
+        {
+          "date": "2025-12-25",
+          "name": "Christmas Day"
+        }
+      ],
+      "2026": [
+        {
+          "date": "2026-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2026-02-17",
+          "name": "Chinese New Year"
+        },
+        {
+          "date": "2026-02-18",
+          "name": "Chinese New Year"
+        },
+        {
+          "date": "2026-03-20",
+          "name": "Hari Raya Puasa"
+        },
+        {
+          "date": "2026-04-03",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2026-05-01",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2026-05-27",
+          "name": "Hari Raya Haji (Tentative Date)"
+        },
+        {
+          "date": "2026-08-10",
+          "name": "National Day"
+        },
+        {
+          "date": "2026-11-09",
+          "name": "Deepavali"
+        },
+        {
+          "date": "2026-12-25",
+          "name": "Christmas Day"
+        }
+      ],
+      "2027": [
+        {
+          "date": "2027-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2027-02-06",
+          "name": "Chinese New Year"
+        },
+        {
+          "date": "2027-02-08",
+          "name": "Chinese New Year"
+        },
+        {
+          "date": "2027-03-10",
+          "name": "Hari Raya Puasa"
+        },
+        {
+          "date": "2027-03-26",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2027-05-01",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2027-05-17",
+          "name": "Hari Raya Haji (Tentative Date)"
+        },
+        {
+          "date": "2027-08-09",
+          "name": "National Day"
+        },
+        {
+          "date": "2027-10-29",
+          "name": "Deepavali"
+        },
+        {
+          "date": "2027-12-25",
+          "name": "Christmas Day"
+        }
+      ],
+      "2028": [
+        {
+          "date": "2028-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2028-01-26",
+          "name": "Chinese New Year"
+        },
+        {
+          "date": "2028-01-27",
+          "name": "Chinese New Year"
+        },
+        {
+          "date": "2028-04-14",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2028-05-01",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2028-08-09",
+          "name": "National Day"
+        },
+        {
+          "date": "2028-12-25",
+          "name": "Christmas Day"
+        }
+      ]
+    },
+    "GB": {
+      "2025": [
+        {
+          "date": "2025-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2025-01-02",
+          "name": "2 January"
+        },
+        {
+          "date": "2025-03-17",
+          "name": "Saint Patrick's Day"
+        },
+        {
+          "date": "2025-04-18",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2025-04-21",
+          "name": "Easter Monday"
+        },
+        {
+          "date": "2025-05-05",
+          "name": "Early May Bank Holiday"
+        },
+        {
+          "date": "2025-05-26",
+          "name": "Spring Bank Holiday"
+        },
+        {
+          "date": "2025-07-14",
+          "name": "Battle of the Boyne"
+        },
+        {
+          "date": "2025-08-04",
+          "name": "Summer Bank Holiday"
+        },
+        {
+          "date": "2025-08-25",
+          "name": "Summer Bank Holiday"
+        },
+        {
+          "date": "2025-12-01",
+          "name": "Saint Andrew's Day"
+        },
+        {
+          "date": "2025-12-25",
+          "name": "Christmas Day"
+        },
+        {
+          "date": "2025-12-26",
+          "name": "Boxing Day"
+        }
+      ],
+      "2026": [
+        {
+          "date": "2026-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2026-01-02",
+          "name": "2 January"
+        },
+        {
+          "date": "2026-03-17",
+          "name": "Saint Patrick's Day"
+        },
+        {
+          "date": "2026-04-03",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2026-04-06",
+          "name": "Easter Monday"
+        },
+        {
+          "date": "2026-05-04",
+          "name": "Early May Bank Holiday"
+        },
+        {
+          "date": "2026-05-25",
+          "name": "Spring Bank Holiday"
+        },
+        {
+          "date": "2026-06-15",
+          "name": "World Cup Bank Holiday"
+        },
+        {
+          "date": "2026-07-13",
+          "name": "Battle of the Boyne"
+        },
+        {
+          "date": "2026-08-03",
+          "name": "Summer Bank Holiday"
+        },
+        {
+          "date": "2026-08-31",
+          "name": "Summer Bank Holiday"
+        },
+        {
+          "date": "2026-11-30",
+          "name": "Saint Andrew's Day"
+        },
+        {
+          "date": "2026-12-25",
+          "name": "Christmas Day"
+        },
+        {
+          "date": "2026-12-28",
+          "name": "Boxing Day"
+        }
+      ],
+      "2027": [
+        {
+          "date": "2027-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2027-01-02",
+          "name": "2 January"
+        },
+        {
+          "date": "2027-03-17",
+          "name": "Saint Patrick's Day"
+        },
+        {
+          "date": "2027-03-26",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2027-03-29",
+          "name": "Easter Monday"
+        },
+        {
+          "date": "2027-05-03",
+          "name": "Early May Bank Holiday"
+        },
+        {
+          "date": "2027-05-31",
+          "name": "Spring Bank Holiday"
+        },
+        {
+          "date": "2027-07-12",
+          "name": "Battle of the Boyne"
+        },
+        {
+          "date": "2027-08-02",
+          "name": "Summer Bank Holiday"
+        },
+        {
+          "date": "2027-08-30",
+          "name": "Summer Bank Holiday"
+        },
+        {
+          "date": "2027-11-30",
+          "name": "Saint Andrew's Day"
+        },
+        {
+          "date": "2027-12-27",
+          "name": "Christmas Day"
+        },
+        {
+          "date": "2027-12-28",
+          "name": "Boxing Day"
+        }
+      ],
+      "2028": [
+        {
+          "date": "2028-01-03",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2028-01-04",
+          "name": "2 January"
+        },
+        {
+          "date": "2028-03-17",
+          "name": "Saint Patrick's Day"
+        },
+        {
+          "date": "2028-04-14",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2028-04-17",
+          "name": "Easter Monday"
+        },
+        {
+          "date": "2028-05-01",
+          "name": "Early May Bank Holiday"
+        },
+        {
+          "date": "2028-05-29",
+          "name": "Spring Bank Holiday"
+        },
+        {
+          "date": "2028-07-12",
+          "name": "Battle of the Boyne"
+        },
+        {
+          "date": "2028-08-07",
+          "name": "Summer Bank Holiday"
+        },
+        {
+          "date": "2028-08-28",
+          "name": "Summer Bank Holiday"
+        },
+        {
+          "date": "2028-11-30",
+          "name": "Saint Andrew's Day"
+        },
+        {
+          "date": "2028-12-25",
+          "name": "Christmas Day"
+        },
+        {
+          "date": "2028-12-26",
+          "name": "Boxing Day"
+        }
+      ]
+    },
+    "DE": {
+      "2025": [
+        {
+          "date": "2025-01-01",
+          "name": "Neujahr"
+        },
+        {
+          "date": "2025-01-06",
+          "name": "Heilige Drei Könige"
+        },
+        {
+          "date": "2025-03-08",
+          "name": "Internationaler Frauentag"
+        },
+        {
+          "date": "2025-04-18",
+          "name": "Karfreitag"
+        },
+        {
+          "date": "2025-04-20",
+          "name": "Ostersonntag"
+        },
+        {
+          "date": "2025-04-21",
+          "name": "Ostermontag"
+        },
+        {
+          "date": "2025-05-01",
+          "name": "Tag der Arbeit"
+        },
+        {
+          "date": "2025-05-08",
+          "name": "Tag der Befreiung"
+        },
+        {
+          "date": "2025-05-29",
+          "name": "Christi Himmelfahrt"
+        },
+        {
+          "date": "2025-06-08",
+          "name": "Pfingstsonntag"
+        },
+        {
+          "date": "2025-06-09",
+          "name": "Pfingstmontag"
+        },
+        {
+          "date": "2025-06-19",
+          "name": "Fronleichnam"
+        },
+        {
+          "date": "2025-08-15",
+          "name": "Mariä Himmelfahrt"
+        },
+        {
+          "date": "2025-09-20",
+          "name": "Weltkindertag"
+        },
+        {
+          "date": "2025-10-03",
+          "name": "Tag der Deutschen Einheit"
+        },
+        {
+          "date": "2025-10-31",
+          "name": "Reformationstag"
+        },
+        {
+          "date": "2025-11-01",
+          "name": "Allerheiligen"
+        },
+        {
+          "date": "2025-11-19",
+          "name": "Buß- und Bettag"
+        },
+        {
+          "date": "2025-12-25",
+          "name": "Erster Weihnachtstag"
+        },
+        {
+          "date": "2025-12-26",
+          "name": "Zweiter Weihnachtstag"
+        }
+      ],
+      "2026": [
+        {
+          "date": "2026-01-01",
+          "name": "Neujahr"
+        },
+        {
+          "date": "2026-01-06",
+          "name": "Heilige Drei Könige"
+        },
+        {
+          "date": "2026-03-08",
+          "name": "Internationaler Frauentag"
+        },
+        {
+          "date": "2026-04-03",
+          "name": "Karfreitag"
+        },
+        {
+          "date": "2026-04-05",
+          "name": "Ostersonntag"
+        },
+        {
+          "date": "2026-04-06",
+          "name": "Ostermontag"
+        },
+        {
+          "date": "2026-05-01",
+          "name": "Tag der Arbeit"
+        },
+        {
+          "date": "2026-05-14",
+          "name": "Christi Himmelfahrt"
+        },
+        {
+          "date": "2026-05-24",
+          "name": "Pfingstsonntag"
+        },
+        {
+          "date": "2026-05-25",
+          "name": "Pfingstmontag"
+        },
+        {
+          "date": "2026-06-04",
+          "name": "Fronleichnam"
+        },
+        {
+          "date": "2026-08-15",
+          "name": "Mariä Himmelfahrt"
+        },
+        {
+          "date": "2026-09-20",
+          "name": "Weltkindertag"
+        },
+        {
+          "date": "2026-10-03",
+          "name": "Tag der Deutschen Einheit"
+        },
+        {
+          "date": "2026-10-31",
+          "name": "Reformationstag"
+        },
+        {
+          "date": "2026-11-01",
+          "name": "Allerheiligen"
+        },
+        {
+          "date": "2026-11-18",
+          "name": "Buß- und Bettag"
+        },
+        {
+          "date": "2026-12-25",
+          "name": "Erster Weihnachtstag"
+        },
+        {
+          "date": "2026-12-26",
+          "name": "Zweiter Weihnachtstag"
+        }
+      ],
+      "2027": [
+        {
+          "date": "2027-01-01",
+          "name": "Neujahr"
+        },
+        {
+          "date": "2027-01-06",
+          "name": "Heilige Drei Könige"
+        },
+        {
+          "date": "2027-03-08",
+          "name": "Internationaler Frauentag"
+        },
+        {
+          "date": "2027-03-26",
+          "name": "Karfreitag"
+        },
+        {
+          "date": "2027-03-28",
+          "name": "Ostersonntag"
+        },
+        {
+          "date": "2027-03-29",
+          "name": "Ostermontag"
+        },
+        {
+          "date": "2027-05-01",
+          "name": "Tag der Arbeit"
+        },
+        {
+          "date": "2027-05-06",
+          "name": "Christi Himmelfahrt"
+        },
+        {
+          "date": "2027-05-16",
+          "name": "Pfingstsonntag"
+        },
+        {
+          "date": "2027-05-17",
+          "name": "Pfingstmontag"
+        },
+        {
+          "date": "2027-05-27",
+          "name": "Fronleichnam"
+        },
+        {
+          "date": "2027-08-15",
+          "name": "Mariä Himmelfahrt"
+        },
+        {
+          "date": "2027-09-20",
+          "name": "Weltkindertag"
+        },
+        {
+          "date": "2027-10-03",
+          "name": "Tag der Deutschen Einheit"
+        },
+        {
+          "date": "2027-10-31",
+          "name": "Reformationstag"
+        },
+        {
+          "date": "2027-11-01",
+          "name": "Allerheiligen"
+        },
+        {
+          "date": "2027-11-17",
+          "name": "Buß- und Bettag"
+        },
+        {
+          "date": "2027-12-25",
+          "name": "Erster Weihnachtstag"
+        },
+        {
+          "date": "2027-12-26",
+          "name": "Zweiter Weihnachtstag"
+        }
+      ],
+      "2028": [
+        {
+          "date": "2028-01-01",
+          "name": "Neujahr"
+        },
+        {
+          "date": "2028-01-06",
+          "name": "Heilige Drei Könige"
+        },
+        {
+          "date": "2028-03-08",
+          "name": "Internationaler Frauentag"
+        },
+        {
+          "date": "2028-04-14",
+          "name": "Karfreitag"
+        },
+        {
+          "date": "2028-04-16",
+          "name": "Ostersonntag"
+        },
+        {
+          "date": "2028-04-17",
+          "name": "Ostermontag"
+        },
+        {
+          "date": "2028-05-01",
+          "name": "Tag der Arbeit"
+        },
+        {
+          "date": "2028-05-25",
+          "name": "Christi Himmelfahrt"
+        },
+        {
+          "date": "2028-06-04",
+          "name": "Pfingstsonntag"
+        },
+        {
+          "date": "2028-06-05",
+          "name": "Pfingstmontag"
+        },
+        {
+          "date": "2028-06-15",
+          "name": "Fronleichnam"
+        },
+        {
+          "date": "2028-08-15",
+          "name": "Mariä Himmelfahrt"
+        },
+        {
+          "date": "2028-09-20",
+          "name": "Weltkindertag"
+        },
+        {
+          "date": "2028-10-03",
+          "name": "Tag der Deutschen Einheit"
+        },
+        {
+          "date": "2028-10-31",
+          "name": "Reformationstag"
+        },
+        {
+          "date": "2028-11-01",
+          "name": "Allerheiligen"
+        },
+        {
+          "date": "2028-11-22",
+          "name": "Buß- und Bettag"
+        },
+        {
+          "date": "2028-12-25",
+          "name": "Erster Weihnachtstag"
+        },
+        {
+          "date": "2028-12-26",
+          "name": "Zweiter Weihnachtstag"
+        }
+      ]
+    },
+    "FR": {
+      "2025": [
+        {
+          "date": "2025-01-01",
+          "name": "Jour de l'an"
+        },
+        {
+          "date": "2025-04-21",
+          "name": "Lundi de Pâques"
+        },
+        {
+          "date": "2025-05-01",
+          "name": "Fête du Travail"
+        },
+        {
+          "date": "2025-05-08",
+          "name": "Victoire 1945"
+        },
+        {
+          "date": "2025-05-29",
+          "name": "Ascension"
+        },
+        {
+          "date": "2025-06-09",
+          "name": "Lundi de Pentecôte"
+        },
+        {
+          "date": "2025-07-14",
+          "name": "Fête nationale"
+        },
+        {
+          "date": "2025-08-15",
+          "name": "Assomption"
+        },
+        {
+          "date": "2025-11-01",
+          "name": "Toussaint"
+        },
+        {
+          "date": "2025-11-11",
+          "name": "Armistice 1918"
+        },
+        {
+          "date": "2025-12-25",
+          "name": "Noël"
+        }
+      ],
+      "2026": [
+        {
+          "date": "2026-01-01",
+          "name": "Jour de l'an"
+        },
+        {
+          "date": "2026-04-06",
+          "name": "Lundi de Pâques"
+        },
+        {
+          "date": "2026-05-01",
+          "name": "Fête du Travail"
+        },
+        {
+          "date": "2026-05-08",
+          "name": "Victoire 1945"
+        },
+        {
+          "date": "2026-05-14",
+          "name": "Ascension"
+        },
+        {
+          "date": "2026-05-25",
+          "name": "Lundi de Pentecôte"
+        },
+        {
+          "date": "2026-07-14",
+          "name": "Fête nationale"
+        },
+        {
+          "date": "2026-08-15",
+          "name": "Assomption"
+        },
+        {
+          "date": "2026-11-01",
+          "name": "Toussaint"
+        },
+        {
+          "date": "2026-11-11",
+          "name": "Armistice 1918"
+        },
+        {
+          "date": "2026-12-25",
+          "name": "Noël"
+        }
+      ],
+      "2027": [
+        {
+          "date": "2027-01-01",
+          "name": "Jour de l'an"
+        },
+        {
+          "date": "2027-03-29",
+          "name": "Lundi de Pâques"
+        },
+        {
+          "date": "2027-05-01",
+          "name": "Fête du Travail"
+        },
+        {
+          "date": "2027-05-06",
+          "name": "Ascension"
+        },
+        {
+          "date": "2027-05-08",
+          "name": "Victoire 1945"
+        },
+        {
+          "date": "2027-05-17",
+          "name": "Lundi de Pentecôte"
+        },
+        {
+          "date": "2027-07-14",
+          "name": "Fête nationale"
+        },
+        {
+          "date": "2027-08-15",
+          "name": "Assomption"
+        },
+        {
+          "date": "2027-11-01",
+          "name": "Toussaint"
+        },
+        {
+          "date": "2027-11-11",
+          "name": "Armistice 1918"
+        },
+        {
+          "date": "2027-12-25",
+          "name": "Noël"
+        }
+      ],
+      "2028": [
+        {
+          "date": "2028-01-01",
+          "name": "Jour de l'an"
+        },
+        {
+          "date": "2028-04-17",
+          "name": "Lundi de Pâques"
+        },
+        {
+          "date": "2028-05-01",
+          "name": "Fête du Travail"
+        },
+        {
+          "date": "2028-05-08",
+          "name": "Victoire 1945"
+        },
+        {
+          "date": "2028-05-25",
+          "name": "Ascension"
+        },
+        {
+          "date": "2028-06-05",
+          "name": "Lundi de Pentecôte"
+        },
+        {
+          "date": "2028-07-14",
+          "name": "Fête nationale"
+        },
+        {
+          "date": "2028-08-15",
+          "name": "Assomption"
+        },
+        {
+          "date": "2028-11-01",
+          "name": "Toussaint"
+        },
+        {
+          "date": "2028-11-11",
+          "name": "Armistice 1918"
+        },
+        {
+          "date": "2028-12-25",
+          "name": "Noël"
+        }
+      ]
+    },
+    "IT": {
+      "2025": [
+        {
+          "date": "2025-01-01",
+          "name": "Capodanno"
+        },
+        {
+          "date": "2025-01-06",
+          "name": "Epifania"
+        },
+        {
+          "date": "2025-04-20",
+          "name": "Pasqua"
+        },
+        {
+          "date": "2025-04-21",
+          "name": "Lunedì dell'Angelo"
+        },
+        {
+          "date": "2025-04-25",
+          "name": "Festa della Liberazione"
+        },
+        {
+          "date": "2025-05-01",
+          "name": "Festa del Lavoro"
+        },
+        {
+          "date": "2025-06-02",
+          "name": "Festa della Repubblica"
+        },
+        {
+          "date": "2025-06-09",
+          "name": "Lunedì di Pentecoste"
+        },
+        {
+          "date": "2025-08-15",
+          "name": "Ferragosto o Assunzione"
+        },
+        {
+          "date": "2025-11-01",
+          "name": "Tutti i santi"
+        },
+        {
+          "date": "2025-12-08",
+          "name": "Immacolata Concezione"
+        },
+        {
+          "date": "2025-12-25",
+          "name": "Natale"
+        },
+        {
+          "date": "2025-12-26",
+          "name": "Santo Stefano"
+        }
+      ],
+      "2026": [
+        {
+          "date": "2026-01-01",
+          "name": "Capodanno"
+        },
+        {
+          "date": "2026-01-06",
+          "name": "Epifania"
+        },
+        {
+          "date": "2026-04-05",
+          "name": "Pasqua"
+        },
+        {
+          "date": "2026-04-06",
+          "name": "Lunedì dell'Angelo"
+        },
+        {
+          "date": "2026-04-25",
+          "name": "Festa della Liberazione"
+        },
+        {
+          "date": "2026-05-01",
+          "name": "Festa del Lavoro"
+        },
+        {
+          "date": "2026-05-25",
+          "name": "Lunedì di Pentecoste"
+        },
+        {
+          "date": "2026-06-02",
+          "name": "Festa della Repubblica"
+        },
+        {
+          "date": "2026-08-15",
+          "name": "Ferragosto o Assunzione"
+        },
+        {
+          "date": "2026-10-04",
+          "name": "San Francesco d'Assisi"
+        },
+        {
+          "date": "2026-11-01",
+          "name": "Tutti i santi"
+        },
+        {
+          "date": "2026-12-08",
+          "name": "Immacolata Concezione"
+        },
+        {
+          "date": "2026-12-25",
+          "name": "Natale"
+        },
+        {
+          "date": "2026-12-26",
+          "name": "Santo Stefano"
+        }
+      ],
+      "2027": [
+        {
+          "date": "2027-01-01",
+          "name": "Capodanno"
+        },
+        {
+          "date": "2027-01-06",
+          "name": "Epifania"
+        },
+        {
+          "date": "2027-03-28",
+          "name": "Pasqua"
+        },
+        {
+          "date": "2027-03-29",
+          "name": "Lunedì dell'Angelo"
+        },
+        {
+          "date": "2027-04-25",
+          "name": "Festa della Liberazione"
+        },
+        {
+          "date": "2027-05-01",
+          "name": "Festa del Lavoro"
+        },
+        {
+          "date": "2027-05-17",
+          "name": "Lunedì di Pentecoste"
+        },
+        {
+          "date": "2027-06-02",
+          "name": "Festa della Repubblica"
+        },
+        {
+          "date": "2027-08-15",
+          "name": "Ferragosto o Assunzione"
+        },
+        {
+          "date": "2027-10-04",
+          "name": "San Francesco d'Assisi"
+        },
+        {
+          "date": "2027-11-01",
+          "name": "Tutti i santi"
+        },
+        {
+          "date": "2027-12-08",
+          "name": "Immacolata Concezione"
+        },
+        {
+          "date": "2027-12-25",
+          "name": "Natale"
+        },
+        {
+          "date": "2027-12-26",
+          "name": "Santo Stefano"
+        }
+      ],
+      "2028": [
+        {
+          "date": "2028-01-01",
+          "name": "Capodanno"
+        },
+        {
+          "date": "2028-01-06",
+          "name": "Epifania"
+        },
+        {
+          "date": "2028-04-16",
+          "name": "Pasqua"
+        },
+        {
+          "date": "2028-04-17",
+          "name": "Lunedì dell'Angelo"
+        },
+        {
+          "date": "2028-04-25",
+          "name": "Festa della Liberazione"
+        },
+        {
+          "date": "2028-05-01",
+          "name": "Festa del Lavoro"
+        },
+        {
+          "date": "2028-06-02",
+          "name": "Festa della Repubblica"
+        },
+        {
+          "date": "2028-06-05",
+          "name": "Lunedì di Pentecoste"
+        },
+        {
+          "date": "2028-08-15",
+          "name": "Ferragosto o Assunzione"
+        },
+        {
+          "date": "2028-10-04",
+          "name": "San Francesco d'Assisi"
+        },
+        {
+          "date": "2028-11-01",
+          "name": "Tutti i santi"
+        },
+        {
+          "date": "2028-12-08",
+          "name": "Immacolata Concezione"
+        },
+        {
+          "date": "2028-12-25",
+          "name": "Natale"
+        },
+        {
+          "date": "2028-12-26",
+          "name": "Santo Stefano"
+        }
+      ]
+    },
+    "ES": {
+      "2025": [
+        {
+          "date": "2025-01-01",
+          "name": "Año Nuevo"
+        },
+        {
+          "date": "2025-01-06",
+          "name": "Día de Reyes / Epifanía del Señor"
+        },
+        {
+          "date": "2025-02-28",
+          "name": "Día de Andalucía"
+        },
+        {
+          "date": "2025-03-01",
+          "name": "Dia de les Illes Balears"
+        },
+        {
+          "date": "2025-04-17",
+          "name": "Jueves Santo"
+        },
+        {
+          "date": "2025-04-18",
+          "name": "Viernes Santo"
+        },
+        {
+          "date": "2025-04-21",
+          "name": "Lunes de Pascua"
+        },
+        {
+          "date": "2025-04-23",
+          "name": "Día de Castilla y León"
+        },
+        {
+          "date": "2025-04-23",
+          "name": "San Jorge (Día de Aragón)"
+        },
+        {
+          "date": "2025-05-01",
+          "name": "Fiesta del trabajo"
+        },
+        {
+          "date": "2025-05-02",
+          "name": "Fiesta de la Comunidad de Madrid"
+        },
+        {
+          "date": "2025-05-17",
+          "name": "Día das Letras Galegas"
+        },
+        {
+          "date": "2025-05-30",
+          "name": "Día de Canarias"
+        },
+        {
+          "date": "2025-05-31",
+          "name": "Día de la Región Castilla-La Mancha"
+        },
+        {
+          "date": "2025-06-09",
+          "name": "Día de La Rioja"
+        },
+        {
+          "date": "2025-06-09",
+          "name": "Día de la Región de Murcia"
+        },
+        {
+          "date": "2025-06-19",
+          "name": "Corpus Christi"
+        },
+        {
+          "date": "2025-06-24",
+          "name": "Sant Joan"
+        },
+        {
+          "date": "2025-07-25",
+          "name": "Santiago Apóstol"
+        },
+        {
+          "date": "2025-07-28",
+          "name": "Día de las Instituciones de Cantabria"
+        },
+        {
+          "date": "2025-08-15",
+          "name": "Asunción"
+        },
+        {
+          "date": "2025-09-08",
+          "name": "Día de Asturias"
+        },
+        {
+          "date": "2025-09-08",
+          "name": "Día de Extremadura"
+        },
+        {
+          "date": "2025-09-11",
+          "name": "Diada Nacional de Catalunya"
+        },
+        {
+          "date": "2025-09-15",
+          "name": "Festividad de la Bien Aparecida"
+        },
+        {
+          "date": "2025-10-09",
+          "name": "Dia de la Comunitat Valenciana"
+        },
+        {
+          "date": "2025-10-12",
+          "name": "Fiesta Nacional de España"
+        },
+        {
+          "date": "2025-11-01",
+          "name": "Día de todos los Santos"
+        },
+        {
+          "date": "2025-12-06",
+          "name": "Día de la Constitución"
+        },
+        {
+          "date": "2025-12-08",
+          "name": "Inmaculada Concepción"
+        },
+        {
+          "date": "2025-12-25",
+          "name": "Navidad"
+        },
+        {
+          "date": "2025-12-26",
+          "name": "Feast of Saint Stephen"
+        }
+      ],
+      "2026": [
+        {
+          "date": "2026-01-01",
+          "name": "Año Nuevo"
+        },
+        {
+          "date": "2026-01-06",
+          "name": "Día de Reyes / Epifanía del Señor"
+        },
+        {
+          "date": "2026-02-28",
+          "name": "Día de Andalucía"
+        },
+        {
+          "date": "2026-03-01",
+          "name": "Dia de les Illes Balears"
+        },
+        {
+          "date": "2026-04-02",
+          "name": "Jueves Santo"
+        },
+        {
+          "date": "2026-04-03",
+          "name": "Viernes Santo"
+        },
+        {
+          "date": "2026-04-06",
+          "name": "Lunes de Pascua"
+        },
+        {
+          "date": "2026-04-23",
+          "name": "Día de Castilla y León"
+        },
+        {
+          "date": "2026-04-23",
+          "name": "San Jorge (Día de Aragón)"
+        },
+        {
+          "date": "2026-05-01",
+          "name": "Fiesta del trabajo"
+        },
+        {
+          "date": "2026-05-02",
+          "name": "Fiesta de la Comunidad de Madrid"
+        },
+        {
+          "date": "2026-05-17",
+          "name": "Día das Letras Galegas"
+        },
+        {
+          "date": "2026-05-30",
+          "name": "Día de Canarias"
+        },
+        {
+          "date": "2026-05-31",
+          "name": "Día de la Región Castilla-La Mancha"
+        },
+        {
+          "date": "2026-06-04",
+          "name": "Corpus Christi"
+        },
+        {
+          "date": "2026-06-09",
+          "name": "Día de La Rioja"
+        },
+        {
+          "date": "2026-06-09",
+          "name": "Día de la Región de Murcia"
+        },
+        {
+          "date": "2026-06-24",
+          "name": "Sant Joan"
+        },
+        {
+          "date": "2026-07-25",
+          "name": "Santiago Apóstol"
+        },
+        {
+          "date": "2026-07-28",
+          "name": "Día de las Instituciones de Cantabria"
+        },
+        {
+          "date": "2026-08-15",
+          "name": "Asunción"
+        },
+        {
+          "date": "2026-09-08",
+          "name": "Día de Asturias"
+        },
+        {
+          "date": "2026-09-08",
+          "name": "Día de Extremadura"
+        },
+        {
+          "date": "2026-09-11",
+          "name": "Diada Nacional de Catalunya"
+        },
+        {
+          "date": "2026-09-15",
+          "name": "Festividad de la Bien Aparecida"
+        },
+        {
+          "date": "2026-10-09",
+          "name": "Dia de la Comunitat Valenciana"
+        },
+        {
+          "date": "2026-10-12",
+          "name": "Fiesta Nacional de España"
+        },
+        {
+          "date": "2026-11-01",
+          "name": "Día de todos los Santos"
+        },
+        {
+          "date": "2026-12-06",
+          "name": "Día de la Constitución"
+        },
+        {
+          "date": "2026-12-08",
+          "name": "Inmaculada Concepción"
+        },
+        {
+          "date": "2026-12-25",
+          "name": "Navidad"
+        },
+        {
+          "date": "2026-12-26",
+          "name": "Feast of Saint Stephen"
+        }
+      ],
+      "2027": [
+        {
+          "date": "2027-01-01",
+          "name": "Año Nuevo"
+        },
+        {
+          "date": "2027-01-06",
+          "name": "Día de Reyes / Epifanía del Señor"
+        },
+        {
+          "date": "2027-02-28",
+          "name": "Día de Andalucía"
+        },
+        {
+          "date": "2027-03-01",
+          "name": "Dia de les Illes Balears"
+        },
+        {
+          "date": "2027-03-25",
+          "name": "Jueves Santo"
+        },
+        {
+          "date": "2027-03-26",
+          "name": "Viernes Santo"
+        },
+        {
+          "date": "2027-03-29",
+          "name": "Lunes de Pascua"
+        },
+        {
+          "date": "2027-04-23",
+          "name": "Día de Castilla y León"
+        },
+        {
+          "date": "2027-04-23",
+          "name": "San Jorge (Día de Aragón)"
+        },
+        {
+          "date": "2027-05-01",
+          "name": "Fiesta del trabajo"
+        },
+        {
+          "date": "2027-05-03",
+          "name": "Fiesta de la Comunidad de Madrid"
+        },
+        {
+          "date": "2027-05-17",
+          "name": "Día das Letras Galegas"
+        },
+        {
+          "date": "2027-05-27",
+          "name": "Corpus Christi"
+        },
+        {
+          "date": "2027-05-30",
+          "name": "Día de Canarias"
+        },
+        {
+          "date": "2027-05-31",
+          "name": "Día de la Región Castilla-La Mancha"
+        },
+        {
+          "date": "2027-06-09",
+          "name": "Día de La Rioja"
+        },
+        {
+          "date": "2027-06-09",
+          "name": "Día de la Región de Murcia"
+        },
+        {
+          "date": "2027-06-24",
+          "name": "Sant Joan"
+        },
+        {
+          "date": "2027-07-25",
+          "name": "Santiago Apóstol"
+        },
+        {
+          "date": "2027-07-28",
+          "name": "Día de las Instituciones de Cantabria"
+        },
+        {
+          "date": "2027-08-16",
+          "name": "Asunción"
+        },
+        {
+          "date": "2027-09-08",
+          "name": "Día de Asturias"
+        },
+        {
+          "date": "2027-09-08",
+          "name": "Día de Extremadura"
+        },
+        {
+          "date": "2027-09-11",
+          "name": "Diada Nacional de Catalunya"
+        },
+        {
+          "date": "2027-09-15",
+          "name": "Festividad de la Bien Aparecida"
+        },
+        {
+          "date": "2027-10-09",
+          "name": "Dia de la Comunitat Valenciana"
+        },
+        {
+          "date": "2027-10-12",
+          "name": "Fiesta Nacional de España"
+        },
+        {
+          "date": "2027-11-01",
+          "name": "Día de todos los Santos"
+        },
+        {
+          "date": "2027-12-06",
+          "name": "Día de la Constitución"
+        },
+        {
+          "date": "2027-12-08",
+          "name": "Inmaculada Concepción"
+        },
+        {
+          "date": "2027-12-25",
+          "name": "Navidad"
+        },
+        {
+          "date": "2027-12-26",
+          "name": "Feast of Saint Stephen"
+        }
+      ],
+      "2028": [
+        {
+          "date": "2028-01-01",
+          "name": "Año Nuevo"
+        },
+        {
+          "date": "2028-01-06",
+          "name": "Día de Reyes / Epifanía del Señor"
+        },
+        {
+          "date": "2028-02-28",
+          "name": "Día de Andalucía"
+        },
+        {
+          "date": "2028-03-01",
+          "name": "Dia de les Illes Balears"
+        },
+        {
+          "date": "2028-04-13",
+          "name": "Jueves Santo"
+        },
+        {
+          "date": "2028-04-14",
+          "name": "Viernes Santo"
+        },
+        {
+          "date": "2028-04-17",
+          "name": "Lunes de Pascua"
+        },
+        {
+          "date": "2028-04-23",
+          "name": "Día de Castilla y León"
+        },
+        {
+          "date": "2028-04-24",
+          "name": "San Jorge (Día de Aragón)"
+        },
+        {
+          "date": "2028-05-01",
+          "name": "Fiesta del trabajo"
+        },
+        {
+          "date": "2028-05-02",
+          "name": "Fiesta de la Comunidad de Madrid"
+        },
+        {
+          "date": "2028-05-17",
+          "name": "Día das Letras Galegas"
+        },
+        {
+          "date": "2028-05-30",
+          "name": "Día de Canarias"
+        },
+        {
+          "date": "2028-05-31",
+          "name": "Día de la Región Castilla-La Mancha"
+        },
+        {
+          "date": "2028-06-09",
+          "name": "Día de La Rioja"
+        },
+        {
+          "date": "2028-06-09",
+          "name": "Día de la Región de Murcia"
+        },
+        {
+          "date": "2028-06-15",
+          "name": "Corpus Christi"
+        },
+        {
+          "date": "2028-06-24",
+          "name": "Sant Joan"
+        },
+        {
+          "date": "2028-07-28",
+          "name": "Día de las Instituciones de Cantabria"
+        },
+        {
+          "date": "2028-08-15",
+          "name": "Asunción"
+        },
+        {
+          "date": "2028-09-08",
+          "name": "Día de Asturias"
+        },
+        {
+          "date": "2028-09-08",
+          "name": "Día de Extremadura"
+        },
+        {
+          "date": "2028-09-11",
+          "name": "Diada Nacional de Catalunya"
+        },
+        {
+          "date": "2028-09-15",
+          "name": "Festividad de la Bien Aparecida"
+        },
+        {
+          "date": "2028-10-09",
+          "name": "Dia de la Comunitat Valenciana"
+        },
+        {
+          "date": "2028-10-12",
+          "name": "Fiesta Nacional de España"
+        },
+        {
+          "date": "2028-11-01",
+          "name": "Día de todos los Santos"
+        },
+        {
+          "date": "2028-12-06",
+          "name": "Día de la Constitución"
+        },
+        {
+          "date": "2028-12-08",
+          "name": "Inmaculada Concepción"
+        },
+        {
+          "date": "2028-12-25",
+          "name": "Navidad"
+        },
+        {
+          "date": "2028-12-26",
+          "name": "Feast of Saint Stephen"
+        }
+      ]
+    },
+    "AU": {
+      "2025": [
+        {
+          "date": "2025-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2025-01-27",
+          "name": "Australia Day"
+        },
+        {
+          "date": "2025-03-03",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2025-03-10",
+          "name": "Canberra Day"
+        },
+        {
+          "date": "2025-03-10",
+          "name": "Adelaide Cup Day"
+        },
+        {
+          "date": "2025-03-10",
+          "name": "Eight Hours Day"
+        },
+        {
+          "date": "2025-03-10",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2025-04-18",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2025-04-19",
+          "name": "Easter Eve"
+        },
+        {
+          "date": "2025-04-20",
+          "name": "Easter Sunday"
+        },
+        {
+          "date": "2025-04-21",
+          "name": "Easter Monday"
+        },
+        {
+          "date": "2025-04-25",
+          "name": "Anzac Day"
+        },
+        {
+          "date": "2025-05-05",
+          "name": "May Day"
+        },
+        {
+          "date": "2025-05-05",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2025-06-02",
+          "name": "Reconciliation Day"
+        },
+        {
+          "date": "2025-06-02",
+          "name": "Western Australia Day"
+        },
+        {
+          "date": "2025-06-09",
+          "name": "King's Birthday"
+        },
+        {
+          "date": "2025-08-04",
+          "name": "Picnic Day"
+        },
+        {
+          "date": "2025-09-26",
+          "name": "Friday before AFL Grand Final"
+        },
+        {
+          "date": "2025-09-29",
+          "name": "King's Birthday"
+        },
+        {
+          "date": "2025-10-06",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2025-10-06",
+          "name": "King's Birthday"
+        },
+        {
+          "date": "2025-11-04",
+          "name": "Melbourne Cup"
+        },
+        {
+          "date": "2025-12-25",
+          "name": "Christmas Day"
+        },
+        {
+          "date": "2025-12-26",
+          "name": "Boxing Day"
+        }
+      ],
+      "2026": [
+        {
+          "date": "2026-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2026-01-26",
+          "name": "Australia Day"
+        },
+        {
+          "date": "2026-03-02",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2026-03-09",
+          "name": "Canberra Day"
+        },
+        {
+          "date": "2026-03-09",
+          "name": "Adelaide Cup Day"
+        },
+        {
+          "date": "2026-03-09",
+          "name": "Eight Hours Day"
+        },
+        {
+          "date": "2026-03-09",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2026-04-03",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2026-04-04",
+          "name": "Easter Eve"
+        },
+        {
+          "date": "2026-04-05",
+          "name": "Easter Sunday"
+        },
+        {
+          "date": "2026-04-06",
+          "name": "Easter Monday"
+        },
+        {
+          "date": "2026-04-25",
+          "name": "Anzac Day"
+        },
+        {
+          "date": "2026-04-27",
+          "name": "Anzac Day"
+        },
+        {
+          "date": "2026-05-04",
+          "name": "May Day"
+        },
+        {
+          "date": "2026-05-04",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2026-06-01",
+          "name": "Reconciliation Day"
+        },
+        {
+          "date": "2026-06-01",
+          "name": "Western Australia Day"
+        },
+        {
+          "date": "2026-06-08",
+          "name": "King's Birthday"
+        },
+        {
+          "date": "2026-08-03",
+          "name": "Picnic Day"
+        },
+        {
+          "date": "2026-09-28",
+          "name": "King's Birthday"
+        },
+        {
+          "date": "2026-10-05",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2026-10-05",
+          "name": "King's Birthday"
+        },
+        {
+          "date": "2026-11-03",
+          "name": "Melbourne Cup"
+        },
+        {
+          "date": "2026-12-25",
+          "name": "Christmas Day"
+        },
+        {
+          "date": "2026-12-28",
+          "name": "Boxing Day"
+        }
+      ],
+      "2027": [
+        {
+          "date": "2027-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2027-01-26",
+          "name": "Australia Day"
+        },
+        {
+          "date": "2027-03-01",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2027-03-08",
+          "name": "Canberra Day"
+        },
+        {
+          "date": "2027-03-08",
+          "name": "Adelaide Cup Day"
+        },
+        {
+          "date": "2027-03-08",
+          "name": "Eight Hours Day"
+        },
+        {
+          "date": "2027-03-08",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2027-03-26",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2027-03-27",
+          "name": "Easter Eve"
+        },
+        {
+          "date": "2027-03-28",
+          "name": "Easter Sunday"
+        },
+        {
+          "date": "2027-03-29",
+          "name": "Easter Monday"
+        },
+        {
+          "date": "2027-04-25",
+          "name": "Anzac Day"
+        },
+        {
+          "date": "2027-04-26",
+          "name": "Anzac Day"
+        },
+        {
+          "date": "2027-05-03",
+          "name": "May Day"
+        },
+        {
+          "date": "2027-05-03",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2027-05-31",
+          "name": "Reconciliation Day"
+        },
+        {
+          "date": "2027-06-07",
+          "name": "Western Australia Day"
+        },
+        {
+          "date": "2027-06-14",
+          "name": "King's Birthday"
+        },
+        {
+          "date": "2027-08-02",
+          "name": "Picnic Day"
+        },
+        {
+          "date": "2027-09-24",
+          "name": "Friday before AFL Grand Final (Tentative Date)"
+        },
+        {
+          "date": "2027-09-27",
+          "name": "King's Birthday"
+        },
+        {
+          "date": "2027-10-04",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2027-10-04",
+          "name": "King's Birthday"
+        },
+        {
+          "date": "2027-11-02",
+          "name": "Melbourne Cup"
+        },
+        {
+          "date": "2027-12-27",
+          "name": "Christmas Day"
+        },
+        {
+          "date": "2027-12-28",
+          "name": "Boxing Day"
+        }
+      ],
+      "2028": [
+        {
+          "date": "2028-01-03",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2028-01-26",
+          "name": "Australia Day"
+        },
+        {
+          "date": "2028-03-06",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2028-03-13",
+          "name": "Canberra Day"
+        },
+        {
+          "date": "2028-03-13",
+          "name": "Adelaide Cup Day"
+        },
+        {
+          "date": "2028-03-13",
+          "name": "Eight Hours Day"
+        },
+        {
+          "date": "2028-03-13",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2028-04-14",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2028-04-15",
+          "name": "Easter Eve"
+        },
+        {
+          "date": "2028-04-16",
+          "name": "Easter Sunday"
+        },
+        {
+          "date": "2028-04-17",
+          "name": "Easter Monday"
+        },
+        {
+          "date": "2028-04-25",
+          "name": "Anzac Day"
+        },
+        {
+          "date": "2028-05-01",
+          "name": "May Day"
+        },
+        {
+          "date": "2028-05-01",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2028-05-29",
+          "name": "Reconciliation Day"
+        },
+        {
+          "date": "2028-06-05",
+          "name": "Western Australia Day"
+        },
+        {
+          "date": "2028-06-12",
+          "name": "King's Birthday"
+        },
+        {
+          "date": "2028-08-07",
+          "name": "Picnic Day"
+        },
+        {
+          "date": "2028-09-25",
+          "name": "King's Birthday"
+        },
+        {
+          "date": "2028-09-29",
+          "name": "Friday before AFL Grand Final (Tentative Date)"
+        },
+        {
+          "date": "2028-10-02",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2028-10-02",
+          "name": "King's Birthday"
+        },
+        {
+          "date": "2028-11-07",
+          "name": "Melbourne Cup"
+        },
+        {
+          "date": "2028-12-25",
+          "name": "Christmas Day"
+        },
+        {
+          "date": "2028-12-26",
+          "name": "Boxing Day"
+        }
+      ]
+    },
+    "NZ": {
+      "2025": [
+        {
+          "date": "2025-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2025-01-02",
+          "name": "Day after New Year's Day"
+        },
+        {
+          "date": "2025-01-20",
+          "name": "Wellington Anniversary Day"
+        },
+        {
+          "date": "2025-01-27",
+          "name": "Auckland/Northland Anniversary Day"
+        },
+        {
+          "date": "2025-02-03",
+          "name": "Nelson Anniversary Day"
+        },
+        {
+          "date": "2025-02-06",
+          "name": "Waitangi Day"
+        },
+        {
+          "date": "2025-03-10",
+          "name": "Taranaki Anniversary Day"
+        },
+        {
+          "date": "2025-03-24",
+          "name": "Otago Anniversary Day"
+        },
+        {
+          "date": "2025-04-18",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2025-04-21",
+          "name": "Easter Monday"
+        },
+        {
+          "date": "2025-04-22",
+          "name": "Southland Anniversary Day"
+        },
+        {
+          "date": "2025-04-25",
+          "name": "Anzac Day"
+        },
+        {
+          "date": "2025-06-02",
+          "name": "King's Birthday"
+        },
+        {
+          "date": "2025-06-20",
+          "name": "Matariki"
+        },
+        {
+          "date": "2025-09-22",
+          "name": "Dominion Day"
+        },
+        {
+          "date": "2025-10-24",
+          "name": "Hawke's Bay Anniversary Day"
+        },
+        {
+          "date": "2025-10-27",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2025-11-03",
+          "name": "Marlborough Anniversary Day"
+        },
+        {
+          "date": "2025-11-14",
+          "name": "Canterbury (North & Central) Anniversary Day"
+        },
+        {
+          "date": "2025-12-01",
+          "name": "Chatham Islands Anniversary Day"
+        },
+        {
+          "date": "2025-12-01",
+          "name": "Westland Anniversary Day"
+        },
+        {
+          "date": "2025-12-25",
+          "name": "Christmas Day"
+        },
+        {
+          "date": "2025-12-26",
+          "name": "Boxing Day"
+        }
+      ],
+      "2026": [
+        {
+          "date": "2026-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2026-01-02",
+          "name": "Day after New Year's Day"
+        },
+        {
+          "date": "2026-01-19",
+          "name": "Wellington Anniversary Day"
+        },
+        {
+          "date": "2026-01-26",
+          "name": "Auckland/Northland Anniversary Day"
+        },
+        {
+          "date": "2026-02-02",
+          "name": "Nelson Anniversary Day"
+        },
+        {
+          "date": "2026-02-06",
+          "name": "Waitangi Day"
+        },
+        {
+          "date": "2026-03-09",
+          "name": "Taranaki Anniversary Day"
+        },
+        {
+          "date": "2026-03-23",
+          "name": "Otago Anniversary Day"
+        },
+        {
+          "date": "2026-04-03",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2026-04-06",
+          "name": "Easter Monday"
+        },
+        {
+          "date": "2026-04-07",
+          "name": "Southland Anniversary Day"
+        },
+        {
+          "date": "2026-04-27",
+          "name": "Anzac Day"
+        },
+        {
+          "date": "2026-06-01",
+          "name": "King's Birthday"
+        },
+        {
+          "date": "2026-07-10",
+          "name": "Matariki"
+        },
+        {
+          "date": "2026-09-28",
+          "name": "Dominion Day"
+        },
+        {
+          "date": "2026-10-23",
+          "name": "Hawke's Bay Anniversary Day"
+        },
+        {
+          "date": "2026-10-26",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2026-11-02",
+          "name": "Marlborough Anniversary Day"
+        },
+        {
+          "date": "2026-11-13",
+          "name": "Canterbury (North & Central) Anniversary Day"
+        },
+        {
+          "date": "2026-11-30",
+          "name": "Chatham Islands Anniversary Day"
+        },
+        {
+          "date": "2026-11-30",
+          "name": "Westland Anniversary Day"
+        },
+        {
+          "date": "2026-12-25",
+          "name": "Christmas Day"
+        },
+        {
+          "date": "2026-12-28",
+          "name": "Boxing Day"
+        }
+      ],
+      "2027": [
+        {
+          "date": "2027-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2027-01-04",
+          "name": "Day after New Year's Day"
+        },
+        {
+          "date": "2027-01-25",
+          "name": "Wellington Anniversary Day"
+        },
+        {
+          "date": "2027-02-01",
+          "name": "Auckland/Northland Anniversary Day"
+        },
+        {
+          "date": "2027-02-01",
+          "name": "Nelson Anniversary Day"
+        },
+        {
+          "date": "2027-02-08",
+          "name": "Waitangi Day"
+        },
+        {
+          "date": "2027-03-08",
+          "name": "Taranaki Anniversary Day"
+        },
+        {
+          "date": "2027-03-22",
+          "name": "Otago Anniversary Day"
+        },
+        {
+          "date": "2027-03-26",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2027-03-29",
+          "name": "Easter Monday"
+        },
+        {
+          "date": "2027-03-30",
+          "name": "Southland Anniversary Day"
+        },
+        {
+          "date": "2027-04-26",
+          "name": "Anzac Day"
+        },
+        {
+          "date": "2027-06-07",
+          "name": "King's Birthday"
+        },
+        {
+          "date": "2027-06-25",
+          "name": "Matariki"
+        },
+        {
+          "date": "2027-09-27",
+          "name": "Dominion Day"
+        },
+        {
+          "date": "2027-10-22",
+          "name": "Hawke's Bay Anniversary Day"
+        },
+        {
+          "date": "2027-10-25",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2027-11-01",
+          "name": "Marlborough Anniversary Day"
+        },
+        {
+          "date": "2027-11-12",
+          "name": "Canterbury (North & Central) Anniversary Day"
+        },
+        {
+          "date": "2027-11-29",
+          "name": "Chatham Islands Anniversary Day"
+        },
+        {
+          "date": "2027-11-29",
+          "name": "Westland Anniversary Day"
+        },
+        {
+          "date": "2027-12-27",
+          "name": "Christmas Day"
+        },
+        {
+          "date": "2027-12-28",
+          "name": "Boxing Day"
+        }
+      ],
+      "2028": [
+        {
+          "date": "2028-01-03",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2028-01-04",
+          "name": "Day after New Year's Day"
+        },
+        {
+          "date": "2028-01-24",
+          "name": "Wellington Anniversary Day"
+        },
+        {
+          "date": "2028-01-31",
+          "name": "Auckland/Northland Anniversary Day"
+        },
+        {
+          "date": "2028-01-31",
+          "name": "Nelson Anniversary Day"
+        },
+        {
+          "date": "2028-02-07",
+          "name": "Waitangi Day"
+        },
+        {
+          "date": "2028-03-13",
+          "name": "Taranaki Anniversary Day"
+        },
+        {
+          "date": "2028-03-20",
+          "name": "Otago Anniversary Day"
+        },
+        {
+          "date": "2028-04-14",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2028-04-17",
+          "name": "Easter Monday"
+        },
+        {
+          "date": "2028-04-18",
+          "name": "Southland Anniversary Day"
+        },
+        {
+          "date": "2028-04-25",
+          "name": "Anzac Day"
+        },
+        {
+          "date": "2028-06-05",
+          "name": "King's Birthday"
+        },
+        {
+          "date": "2028-07-14",
+          "name": "Matariki"
+        },
+        {
+          "date": "2028-09-25",
+          "name": "Dominion Day"
+        },
+        {
+          "date": "2028-10-20",
+          "name": "Hawke's Bay Anniversary Day"
+        },
+        {
+          "date": "2028-10-23",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2028-10-30",
+          "name": "Marlborough Anniversary Day"
+        },
+        {
+          "date": "2028-11-17",
+          "name": "Canterbury (North & Central) Anniversary Day"
+        },
+        {
+          "date": "2028-11-27",
+          "name": "Chatham Islands Anniversary Day"
+        },
+        {
+          "date": "2028-12-04",
+          "name": "Westland Anniversary Day"
+        },
+        {
+          "date": "2028-12-25",
+          "name": "Christmas Day"
+        },
+        {
+          "date": "2028-12-26",
+          "name": "Boxing Day"
+        }
+      ]
+    },
+    "US": {
+      "2025": [
+        {
+          "date": "2025-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2025-01-20",
+          "name": "Martin Luther King, Jr. Day"
+        },
+        {
+          "date": "2025-02-12",
+          "name": "Lincoln's Birthday"
+        },
+        {
+          "date": "2025-02-17",
+          "name": "Washington's Birthday"
+        },
+        {
+          "date": "2025-04-18",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2025-04-18",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2025-05-08",
+          "name": "Truman Day"
+        },
+        {
+          "date": "2025-05-26",
+          "name": "Memorial Day"
+        },
+        {
+          "date": "2025-06-19",
+          "name": "Juneteenth National Independence Day"
+        },
+        {
+          "date": "2025-07-04",
+          "name": "Independence Day"
+        },
+        {
+          "date": "2025-09-01",
+          "name": "Labor Day"
+        },
+        {
+          "date": "2025-10-13",
+          "name": "Columbus Day"
+        },
+        {
+          "date": "2025-10-13",
+          "name": "Indigenous Peoples' Day"
+        },
+        {
+          "date": "2025-11-11",
+          "name": "Veterans Day"
+        },
+        {
+          "date": "2025-11-27",
+          "name": "Thanksgiving Day"
+        },
+        {
+          "date": "2025-12-25",
+          "name": "Christmas Day"
+        }
+      ],
+      "2026": [
+        {
+          "date": "2026-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2026-01-19",
+          "name": "Martin Luther King, Jr. Day"
+        },
+        {
+          "date": "2026-02-12",
+          "name": "Lincoln's Birthday"
+        },
+        {
+          "date": "2026-02-16",
+          "name": "Washington's Birthday"
+        },
+        {
+          "date": "2026-04-03",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2026-04-03",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2026-05-08",
+          "name": "Truman Day"
+        },
+        {
+          "date": "2026-05-25",
+          "name": "Memorial Day"
+        },
+        {
+          "date": "2026-06-19",
+          "name": "Juneteenth National Independence Day"
+        },
+        {
+          "date": "2026-07-03",
+          "name": "Independence Day"
+        },
+        {
+          "date": "2026-09-07",
+          "name": "Labor Day"
+        },
+        {
+          "date": "2026-10-12",
+          "name": "Columbus Day"
+        },
+        {
+          "date": "2026-10-12",
+          "name": "Indigenous Peoples' Day"
+        },
+        {
+          "date": "2026-11-11",
+          "name": "Veterans Day"
+        },
+        {
+          "date": "2026-11-26",
+          "name": "Thanksgiving Day"
+        },
+        {
+          "date": "2026-12-25",
+          "name": "Christmas Day"
+        }
+      ],
+      "2027": [
+        {
+          "date": "2027-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2027-01-18",
+          "name": "Martin Luther King, Jr. Day"
+        },
+        {
+          "date": "2027-02-12",
+          "name": "Lincoln's Birthday"
+        },
+        {
+          "date": "2027-02-15",
+          "name": "Washington's Birthday"
+        },
+        {
+          "date": "2027-03-26",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2027-03-26",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2027-05-08",
+          "name": "Truman Day"
+        },
+        {
+          "date": "2027-05-31",
+          "name": "Memorial Day"
+        },
+        {
+          "date": "2027-06-18",
+          "name": "Juneteenth National Independence Day"
+        },
+        {
+          "date": "2027-07-05",
+          "name": "Independence Day"
+        },
+        {
+          "date": "2027-09-06",
+          "name": "Labor Day"
+        },
+        {
+          "date": "2027-10-11",
+          "name": "Columbus Day"
+        },
+        {
+          "date": "2027-10-11",
+          "name": "Indigenous Peoples' Day"
+        },
+        {
+          "date": "2027-11-11",
+          "name": "Veterans Day"
+        },
+        {
+          "date": "2027-11-25",
+          "name": "Thanksgiving Day"
+        },
+        {
+          "date": "2027-12-24",
+          "name": "Christmas Day"
+        }
+      ],
+      "2028": [
+        {
+          "date": "2027-12-31",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2028-01-17",
+          "name": "Martin Luther King, Jr. Day"
+        },
+        {
+          "date": "2028-02-12",
+          "name": "Lincoln's Birthday"
+        },
+        {
+          "date": "2028-02-21",
+          "name": "Washington's Birthday"
+        },
+        {
+          "date": "2028-04-14",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2028-04-14",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2028-05-08",
+          "name": "Truman Day"
+        },
+        {
+          "date": "2028-05-29",
+          "name": "Memorial Day"
+        },
+        {
+          "date": "2028-06-19",
+          "name": "Juneteenth National Independence Day"
+        },
+        {
+          "date": "2028-07-04",
+          "name": "Independence Day"
+        },
+        {
+          "date": "2028-09-04",
+          "name": "Labor Day"
+        },
+        {
+          "date": "2028-10-09",
+          "name": "Columbus Day"
+        },
+        {
+          "date": "2028-10-09",
+          "name": "Indigenous Peoples' Day"
+        },
+        {
+          "date": "2028-11-10",
+          "name": "Veterans Day"
+        },
+        {
+          "date": "2028-11-23",
+          "name": "Thanksgiving Day"
+        },
+        {
+          "date": "2028-12-25",
+          "name": "Christmas Day"
+        }
+      ]
+    },
+    "CA": {
+      "2025": [
+        {
+          "date": "2025-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2025-02-17",
+          "name": "Louis Riel Day"
+        },
+        {
+          "date": "2025-02-17",
+          "name": "Islander Day"
+        },
+        {
+          "date": "2025-02-17",
+          "name": "Heritage Day"
+        },
+        {
+          "date": "2025-02-17",
+          "name": "Family Day"
+        },
+        {
+          "date": "2025-03-17",
+          "name": "Saint Patrick's Day"
+        },
+        {
+          "date": "2025-04-18",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2025-04-21",
+          "name": "Easter Monday"
+        },
+        {
+          "date": "2025-04-23",
+          "name": "Saint George's Day"
+        },
+        {
+          "date": "2025-05-19",
+          "name": "National Patriots' Day"
+        },
+        {
+          "date": "2025-05-19",
+          "name": "Victoria Day"
+        },
+        {
+          "date": "2025-06-21",
+          "name": "National Aboriginal Day"
+        },
+        {
+          "date": "2025-06-24",
+          "name": "Discovery Day"
+        },
+        {
+          "date": "2025-06-24",
+          "name": "Fête nationale du Québec"
+        },
+        {
+          "date": "2025-07-01",
+          "name": "Canada Day"
+        },
+        {
+          "date": "2025-07-12",
+          "name": "Orangemen's Day"
+        },
+        {
+          "date": "2025-08-04",
+          "name": "Civic Holiday"
+        },
+        {
+          "date": "2025-08-04",
+          "name": "British Columbia Day"
+        },
+        {
+          "date": "2025-08-04",
+          "name": "Heritage Day"
+        },
+        {
+          "date": "2025-08-04",
+          "name": "New Brunswick Day"
+        },
+        {
+          "date": "2025-08-04",
+          "name": "Natal Day"
+        },
+        {
+          "date": "2025-08-04",
+          "name": "Saskatchewan Day"
+        },
+        {
+          "date": "2025-08-18",
+          "name": "Gold Cup Parade Day"
+        },
+        {
+          "date": "2025-08-18",
+          "name": "Discovery Day"
+        },
+        {
+          "date": "2025-09-01",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2025-09-30",
+          "name": "National Day for Truth and Reconciliation"
+        },
+        {
+          "date": "2025-10-13",
+          "name": "Thanksgiving"
+        },
+        {
+          "date": "2025-11-11",
+          "name": "Armistice Day"
+        },
+        {
+          "date": "2025-11-11",
+          "name": "Remembrance Day"
+        },
+        {
+          "date": "2025-12-25",
+          "name": "Christmas Day"
+        },
+        {
+          "date": "2025-12-26",
+          "name": "Boxing Day"
+        }
+      ],
+      "2026": [
+        {
+          "date": "2026-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2026-02-16",
+          "name": "Louis Riel Day"
+        },
+        {
+          "date": "2026-02-16",
+          "name": "Islander Day"
+        },
+        {
+          "date": "2026-02-16",
+          "name": "Heritage Day"
+        },
+        {
+          "date": "2026-02-16",
+          "name": "Family Day"
+        },
+        {
+          "date": "2026-03-17",
+          "name": "Saint Patrick's Day"
+        },
+        {
+          "date": "2026-04-03",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2026-04-06",
+          "name": "Easter Monday"
+        },
+        {
+          "date": "2026-04-23",
+          "name": "Saint George's Day"
+        },
+        {
+          "date": "2026-05-18",
+          "name": "National Patriots' Day"
+        },
+        {
+          "date": "2026-05-18",
+          "name": "Victoria Day"
+        },
+        {
+          "date": "2026-06-21",
+          "name": "National Aboriginal Day"
+        },
+        {
+          "date": "2026-06-24",
+          "name": "Discovery Day"
+        },
+        {
+          "date": "2026-06-24",
+          "name": "Fête nationale du Québec"
+        },
+        {
+          "date": "2026-07-01",
+          "name": "Canada Day"
+        },
+        {
+          "date": "2026-07-12",
+          "name": "Orangemen's Day"
+        },
+        {
+          "date": "2026-08-03",
+          "name": "Civic Holiday"
+        },
+        {
+          "date": "2026-08-03",
+          "name": "British Columbia Day"
+        },
+        {
+          "date": "2026-08-03",
+          "name": "Heritage Day"
+        },
+        {
+          "date": "2026-08-03",
+          "name": "New Brunswick Day"
+        },
+        {
+          "date": "2026-08-03",
+          "name": "Natal Day"
+        },
+        {
+          "date": "2026-08-03",
+          "name": "Saskatchewan Day"
+        },
+        {
+          "date": "2026-08-17",
+          "name": "Gold Cup Parade Day"
+        },
+        {
+          "date": "2026-08-17",
+          "name": "Discovery Day"
+        },
+        {
+          "date": "2026-09-07",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2026-09-30",
+          "name": "National Day for Truth and Reconciliation"
+        },
+        {
+          "date": "2026-10-12",
+          "name": "Thanksgiving"
+        },
+        {
+          "date": "2026-11-11",
+          "name": "Armistice Day"
+        },
+        {
+          "date": "2026-11-11",
+          "name": "Remembrance Day"
+        },
+        {
+          "date": "2026-12-25",
+          "name": "Christmas Day"
+        },
+        {
+          "date": "2026-12-26",
+          "name": "Boxing Day"
+        }
+      ],
+      "2027": [
+        {
+          "date": "2027-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2027-02-15",
+          "name": "Louis Riel Day"
+        },
+        {
+          "date": "2027-02-15",
+          "name": "Islander Day"
+        },
+        {
+          "date": "2027-02-15",
+          "name": "Heritage Day"
+        },
+        {
+          "date": "2027-02-15",
+          "name": "Family Day"
+        },
+        {
+          "date": "2027-03-17",
+          "name": "Saint Patrick's Day"
+        },
+        {
+          "date": "2027-03-26",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2027-03-29",
+          "name": "Easter Monday"
+        },
+        {
+          "date": "2027-04-23",
+          "name": "Saint George's Day"
+        },
+        {
+          "date": "2027-05-24",
+          "name": "National Patriots' Day"
+        },
+        {
+          "date": "2027-05-24",
+          "name": "Victoria Day"
+        },
+        {
+          "date": "2027-06-21",
+          "name": "National Aboriginal Day"
+        },
+        {
+          "date": "2027-06-24",
+          "name": "Discovery Day"
+        },
+        {
+          "date": "2027-06-24",
+          "name": "Fête nationale du Québec"
+        },
+        {
+          "date": "2027-07-01",
+          "name": "Canada Day"
+        },
+        {
+          "date": "2027-07-12",
+          "name": "Orangemen's Day"
+        },
+        {
+          "date": "2027-08-02",
+          "name": "Civic Holiday"
+        },
+        {
+          "date": "2027-08-02",
+          "name": "British Columbia Day"
+        },
+        {
+          "date": "2027-08-02",
+          "name": "Heritage Day"
+        },
+        {
+          "date": "2027-08-02",
+          "name": "New Brunswick Day"
+        },
+        {
+          "date": "2027-08-02",
+          "name": "Natal Day"
+        },
+        {
+          "date": "2027-08-02",
+          "name": "Saskatchewan Day"
+        },
+        {
+          "date": "2027-08-16",
+          "name": "Gold Cup Parade Day"
+        },
+        {
+          "date": "2027-08-16",
+          "name": "Discovery Day"
+        },
+        {
+          "date": "2027-09-06",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2027-09-30",
+          "name": "National Day for Truth and Reconciliation"
+        },
+        {
+          "date": "2027-10-11",
+          "name": "Thanksgiving"
+        },
+        {
+          "date": "2027-11-11",
+          "name": "Armistice Day"
+        },
+        {
+          "date": "2027-11-11",
+          "name": "Remembrance Day"
+        },
+        {
+          "date": "2027-12-25",
+          "name": "Christmas Day"
+        },
+        {
+          "date": "2027-12-26",
+          "name": "Boxing Day"
+        }
+      ],
+      "2028": [
+        {
+          "date": "2028-01-01",
+          "name": "New Year's Day"
+        },
+        {
+          "date": "2028-02-21",
+          "name": "Louis Riel Day"
+        },
+        {
+          "date": "2028-02-21",
+          "name": "Islander Day"
+        },
+        {
+          "date": "2028-02-21",
+          "name": "Heritage Day"
+        },
+        {
+          "date": "2028-02-21",
+          "name": "Family Day"
+        },
+        {
+          "date": "2028-03-17",
+          "name": "Saint Patrick's Day"
+        },
+        {
+          "date": "2028-04-14",
+          "name": "Good Friday"
+        },
+        {
+          "date": "2028-04-17",
+          "name": "Easter Monday"
+        },
+        {
+          "date": "2028-04-23",
+          "name": "Saint George's Day"
+        },
+        {
+          "date": "2028-05-22",
+          "name": "National Patriots' Day"
+        },
+        {
+          "date": "2028-05-22",
+          "name": "Victoria Day"
+        },
+        {
+          "date": "2028-06-21",
+          "name": "National Aboriginal Day"
+        },
+        {
+          "date": "2028-06-24",
+          "name": "Discovery Day"
+        },
+        {
+          "date": "2028-06-24",
+          "name": "Fête nationale du Québec"
+        },
+        {
+          "date": "2028-07-01",
+          "name": "Canada Day"
+        },
+        {
+          "date": "2028-07-12",
+          "name": "Orangemen's Day"
+        },
+        {
+          "date": "2028-08-07",
+          "name": "Civic Holiday"
+        },
+        {
+          "date": "2028-08-07",
+          "name": "British Columbia Day"
+        },
+        {
+          "date": "2028-08-07",
+          "name": "Heritage Day"
+        },
+        {
+          "date": "2028-08-07",
+          "name": "New Brunswick Day"
+        },
+        {
+          "date": "2028-08-07",
+          "name": "Natal Day"
+        },
+        {
+          "date": "2028-08-07",
+          "name": "Saskatchewan Day"
+        },
+        {
+          "date": "2028-08-21",
+          "name": "Gold Cup Parade Day"
+        },
+        {
+          "date": "2028-08-21",
+          "name": "Discovery Day"
+        },
+        {
+          "date": "2028-09-04",
+          "name": "Labour Day"
+        },
+        {
+          "date": "2028-09-30",
+          "name": "National Day for Truth and Reconciliation"
+        },
+        {
+          "date": "2028-10-09",
+          "name": "Thanksgiving"
+        },
+        {
+          "date": "2028-11-11",
+          "name": "Armistice Day"
+        },
+        {
+          "date": "2028-11-11",
+          "name": "Remembrance Day"
+        },
+        {
+          "date": "2028-12-25",
+          "name": "Christmas Day"
+        },
+        {
+          "date": "2028-12-26",
+          "name": "Boxing Day"
+        }
+      ]
+    }
+  }
+}

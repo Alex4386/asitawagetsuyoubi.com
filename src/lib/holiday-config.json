@@ -1,0 +1,34 @@
+{
+  "defaultCountry": "JP",
+  "syncYearOffsets": [-1, 0, 1, 2],
+  "countries": [
+    { "code": "JP", "label": "日本", "timeZone": "Asia/Tokyo" },
+    { "code": "KR", "label": "韓国", "timeZone": "Asia/Seoul" },
+    { "code": "SG", "label": "シンガポール", "timeZone": "Asia/Singapore" },
+    { "code": "GB", "label": "イギリス", "timeZone": "Europe/London" },
+    { "code": "DE", "label": "ドイツ", "timeZone": "Europe/Berlin" },
+    { "code": "FR", "label": "フランス", "timeZone": "Europe/Paris" },
+    { "code": "IT", "label": "イタリア", "timeZone": "Europe/Rome" },
+    { "code": "ES", "label": "スペイン", "timeZone": "Europe/Madrid" },
+    {
+      "code": "AU",
+      "label": "オーストラリア（シドニー）",
+      "timeZone": "Australia/Sydney"
+    },
+    {
+      "code": "NZ",
+      "label": "ニュージーランド",
+      "timeZone": "Pacific/Auckland"
+    },
+    {
+      "code": "US",
+      "label": "アメリカ（東部時間）",
+      "timeZone": "America/New_York"
+    },
+    {
+      "code": "CA",
+      "label": "カナダ（東部時間）",
+      "timeZone": "America/Toronto"
+    }
+  ]
+}

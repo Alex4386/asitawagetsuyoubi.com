@@ -1,15 +1,12 @@
 import PanelTitle from '@/components/PanelTitle';
+import type { MondayDisplayMode } from '@/hooks/useMonday';
 
 interface DisappointedTextProps {
-  isShukujitsu: boolean;
-  isTomorrowMonday: boolean;
+  mode: Exclude<MondayDisplayMode, 'teasing'>;
 }
 
-function getDisappointedCopy({
-  isShukujitsu,
-  isTomorrowMonday,
-}: DisappointedTextProps) {
-  if (isShukujitsu) {
+function getDisappointedCopy({ mode }: DisappointedTextProps) {
+  if (mode === 'holiday') {
     return {
       bottomLine: '祝日',
       finalLine: 'なんだって...',
@@ -18,7 +15,7 @@ function getDisappointedCopy({
     };
   }
 
-  if (isTomorrowMonday) {
+  if (mode === 'override-off') {
     return {
       bottomLine: '月曜日',
       finalLine: 'だけど...',
@@ -35,14 +32,8 @@ function getDisappointedCopy({
   };
 }
 
-export default function DisappointedText({
-  isShukujitsu,
-  isTomorrowMonday,
-}: DisappointedTextProps) {
-  const copy = getDisappointedCopy({
-    isShukujitsu,
-    isTomorrowMonday,
-  });
+export default function DisappointedText({ mode }: DisappointedTextProps) {
+  const copy = getDisappointedCopy({ mode });
 
   return (
     <main className="fixed inset-0 overflow-hidden">

@@ -6,21 +6,20 @@ import SettingsDialog from '@/components/SettingsDialog';
 import { useMonday } from '@/hooks/useMonday';
 
 export default function Home() {
-  const { canTeaseOmaera, isLoading, isShukujitsu, isTomorrowMonday } =
-    useMonday();
+  const { canTeaseOmaera, displayMode, isLoading } = useMonday();
 
   if (isLoading) {
     return <SettingsDialog />;
   }
 
   if (!canTeaseOmaera) {
+    const disappointedMode =
+      displayMode === 'teasing' ? 'not-monday' : displayMode;
+
     return (
       <>
         <SettingsDialog />
-        <DisappointedText
-          isShukujitsu={isShukujitsu}
-          isTomorrowMonday={isTomorrowMonday}
-        />
+        <DisappointedText mode={disappointedMode} />
       </>
     );
   }

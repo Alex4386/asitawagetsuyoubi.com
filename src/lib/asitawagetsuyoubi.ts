@@ -1,76 +1,62 @@
-const HOLIDAY_CACHE_TTL_MS = 1000 * 60 * 60 * 12;
-const NAGER_DATE_BASE_URL = 'https://date.nager.at/api/v3/PublicHolidays';
+import holidayCalendarData from '@/generated/holidays.json';
+import holidayConfigData from '@/lib/holiday-config.json';
 
-export const DEFAULT_COUNTRY = 'JP';
+interface HolidayConfigCountryOption {
+  code: string;
+  label: string;
+  timeZone: string;
+}
 
-export const COUNTRY_OPTIONS = [
-  { code: 'JP', label: '日本', timeZone: 'Asia/Tokyo' },
-  { code: 'KR', label: '韓国', timeZone: 'Asia/Seoul' },
-  { code: 'TW', label: '台湾', timeZone: 'Asia/Taipei' },
-  { code: 'SG', label: 'シンガポール', timeZone: 'Asia/Singapore' },
-  { code: 'GB', label: 'イギリス', timeZone: 'Europe/London' },
-  { code: 'DE', label: 'ドイツ', timeZone: 'Europe/Berlin' },
-  { code: 'FR', label: 'フランス', timeZone: 'Europe/Paris' },
-  { code: 'IT', label: 'イタリア', timeZone: 'Europe/Rome' },
-  { code: 'ES', label: 'スペイン', timeZone: 'Europe/Madrid' },
-  {
-    code: 'AU',
-    label: 'オーストラリア（シドニー）',
-    timeZone: 'Australia/Sydney',
-  },
-  { code: 'NZ', label: 'ニュージーランド', timeZone: 'Pacific/Auckland' },
-  { code: 'US', label: 'アメリカ（東部時間）', timeZone: 'America/New_York' },
-  { code: 'CA', label: 'カナダ（東部時間）', timeZone: 'America/Toronto' },
-] as const;
+interface HolidayConfig {
+  countries: HolidayConfigCountryOption[];
+  defaultCountry: string;
+  syncYearOffsets: number[];
+}
+
+export interface HolidayEntry {
+  date: string;
+  name: string;
+}
+
+interface GeneratedHolidayCalendar {
+  countries: Record<string, Record<string, HolidayEntry[]>>;
+  metadata: {
+    generatedAt: string;
+    schemaVersion: number;
+    years: number[];
+  };
+}
+
+const holidayConfig = holidayConfigData as HolidayConfig;
+const holidayCalendar = holidayCalendarData as GeneratedHolidayCalendar;
+
+export const DEFAULT_COUNTRY = holidayConfig.defaultCountry;
+export const COUNTRY_OPTIONS = holidayConfig.countries;
 
 export type SupportedCountryCode = (typeof COUNTRY_OPTIONS)[number]['code'];
 
-const COUNTRY_TIME_ZONES: Record<SupportedCountryCode, string> =
-  COUNTRY_OPTIONS.reduce(
-    (timeZones, option) => {
-      timeZones[option.code] = option.timeZone;
-      return timeZones;
-    },
-    {} as Record<SupportedCountryCode, string>,
-  );
+const COUNTRY_TIME_ZONES = COUNTRY_OPTIONS.reduce<Record<string, string>>(
+  (timeZones, option) => {
+    timeZones[option.code] = option.timeZone;
+    return timeZones;
+  },
+  {},
+);
 
-interface HolidayRecord {
-  date: string;
-}
-
-interface HolidayCacheEntry {
-  expiresAt: number;
-  holidays: HolidayRecord[];
-}
-
-interface SharedHolidayState {
-  __ASITA_HOLIDAY_CACHE__?: Map<string, HolidayCacheEntry>;
-  __ASITA_HOLIDAY_REQUESTS__?: Map<string, Promise<HolidayRecord[]>>;
-}
-
-export interface HolidayCacheStore {
-  get(
-    key: string,
-  ): Promise<HolidayCacheEntry | null> | HolidayCacheEntry | null;
-  set(key: string, value: HolidayCacheEntry): Promise<void> | void;
-}
-
-export interface KvNamespaceLike {
-  get(key: string, type?: 'text'): Promise<string | null>;
-  put(key: string, value: string): Promise<void>;
+interface HolidayLookupState {
+  __ASITA_HOLIDAY_LOOKUPS__?: Map<string, Map<string, HolidayEntry>>;
 }
 
 export interface AsitaWaGetsuyoubiResponse {
   asita: {
     getsuyoubi: boolean;
+    holiday: HolidayEntry | null;
     shukujitsu: boolean;
   };
 }
 
 export interface GetAsitaWaGetsuyoubiOptions {
-  cache?: HolidayCacheStore;
   country: string;
-  fetchImpl?: typeof fetch;
   now?: Date;
 }
 
@@ -84,55 +70,17 @@ class AsitaWaGetsuyoubiError extends Error {
   }
 }
 
-function getSharedHolidayState() {
-  return globalThis as typeof globalThis & SharedHolidayState;
+function getHolidayLookupState() {
+  return globalThis as typeof globalThis & HolidayLookupState;
 }
 
-function getSharedHolidayCache() {
-  const state = getSharedHolidayState();
-  state.__ASITA_HOLIDAY_CACHE__ ??= new Map<string, HolidayCacheEntry>();
-  return state.__ASITA_HOLIDAY_CACHE__;
-}
-
-function getSharedHolidayRequests() {
-  const state = getSharedHolidayState();
-  state.__ASITA_HOLIDAY_REQUESTS__ ??= new Map<
+function getHolidayLookups() {
+  const state = getHolidayLookupState();
+  state.__ASITA_HOLIDAY_LOOKUPS__ ??= new Map<
     string,
-    Promise<HolidayRecord[]>
+    Map<string, HolidayEntry>
   >();
-  return state.__ASITA_HOLIDAY_REQUESTS__;
-}
-
-export function createMemoryHolidayCacheStore(): HolidayCacheStore {
-  const cache = getSharedHolidayCache();
-
-  return {
-    get(key) {
-      return cache.get(key) ?? null;
-    },
-    set(key, value) {
-      cache.set(key, value);
-    },
-  };
-}
-
-export function createKvHolidayCacheStore(
-  kv: KvNamespaceLike,
-): HolidayCacheStore {
-  return {
-    async get(key) {
-      const value = await kv.get(key, 'text');
-
-      if (!value) {
-        return null;
-      }
-
-      return JSON.parse(value) as HolidayCacheEntry;
-    },
-    async set(key, value) {
-      await kv.put(key, JSON.stringify(value));
-    },
-  };
+  return state.__ASITA_HOLIDAY_LOOKUPS__;
 }
 
 function normalizeCountryCode(country: string) {
@@ -235,132 +183,53 @@ function getTomorrowInTimeZone(now: Date, timeZone: string) {
   };
 }
 
-async function fetchPublicHolidaysForYear(
-  country: string,
-  year: number,
-  fetchImpl: typeof fetch,
-) {
-  const response = await fetchImpl(
-    `${NAGER_DATE_BASE_URL}/${year}/${country}`,
-    {
-      cache: 'no-store',
-    },
+function getHolidayEntriesForYear(country: string, year: number) {
+  const countryCode = getSupportedCountryCode(country);
+  const yearKey = String(year);
+  const lookupKey = `${countryCode}:${yearKey}`;
+  const cachedLookup = getHolidayLookups().get(lookupKey);
+
+  if (cachedLookup) {
+    return cachedLookup;
+  }
+
+  const holidayDates = holidayCalendar.countries[countryCode]?.[yearKey];
+
+  if (!holidayDates) {
+    const syncedYears = holidayCalendar.metadata?.years ?? [];
+    throw new AsitaWaGetsuyoubiError(
+      `Holiday data for ${countryCode} in ${yearKey} is not synced. Available years: ${
+        syncedYears.join(', ') || 'none'
+      }. Run yarn synccal.`,
+      503,
+    );
+  }
+
+  const lookup = new Map(
+    holidayDates.map(holiday => [holiday.date, holiday] as const),
   );
-
-  if (response.status === 404) {
-    throw new AsitaWaGetsuyoubiError(
-      `Holiday lookup does not support country ${country}.`,
-      400,
-    );
-  }
-
-  if (!response.ok) {
-    throw new AsitaWaGetsuyoubiError(
-      `Failed to fetch holidays for ${country}.`,
-      502,
-    );
-  }
-
-  const payload = (await response.json()) as unknown;
-
-  if (!Array.isArray(payload)) {
-    throw new AsitaWaGetsuyoubiError(
-      `Holiday response for ${country} was invalid.`,
-      502,
-    );
-  }
-
-  return payload
-    .filter(
-      (holiday): holiday is HolidayRecord =>
-        typeof holiday === 'object' &&
-        holiday !== null &&
-        'date' in holiday &&
-        typeof holiday.date === 'string',
-    )
-    .map(holiday => ({ date: holiday.date }));
-}
-
-async function getPublicHolidaysForYear({
-  cache,
-  cacheKey,
-  country,
-  fetchImpl,
-  now,
-  year,
-}: {
-  cache: HolidayCacheStore;
-  cacheKey: string;
-  country: string;
-  fetchImpl: typeof fetch;
-  now: Date;
-  year: number;
-}) {
-  const cachedEntry = await cache.get(cacheKey);
-
-  if (cachedEntry && cachedEntry.expiresAt > now.getTime()) {
-    return cachedEntry.holidays;
-  }
-
-  const pendingRequests = getSharedHolidayRequests();
-  const existingRequest = pendingRequests.get(cacheKey);
-
-  if (existingRequest) {
-    return existingRequest;
-  }
-
-  const request = fetchPublicHolidaysForYear(country, year, fetchImpl)
-    .then(async holidays => {
-      await cache.set(cacheKey, {
-        expiresAt: now.getTime() + HOLIDAY_CACHE_TTL_MS,
-        holidays,
-      });
-
-      return holidays;
-    })
-    .catch(error => {
-      if (cachedEntry) {
-        return cachedEntry.holidays;
-      }
-
-      throw error;
-    })
-    .finally(() => {
-      pendingRequests.delete(cacheKey);
-    });
-
-  pendingRequests.set(cacheKey, request);
-
-  return request;
+  getHolidayLookups().set(lookupKey, lookup);
+  return lookup;
 }
 
 export async function getAsitaWaGetsuyoubi({
-  cache = createMemoryHolidayCacheStore(),
   country,
-  fetchImpl = globalThis.fetch.bind(globalThis),
   now = new Date(),
 }: GetAsitaWaGetsuyoubiOptions): Promise<AsitaWaGetsuyoubiResponse> {
-  if (typeof fetchImpl !== 'function') {
-    throw new AsitaWaGetsuyoubiError('fetch is not available.', 500);
-  }
-
-  const normalizedCountry = normalizeCountryCode(country);
+  const normalizedCountry = getSupportedCountryCode(country);
   const timeZone = getCountryTimeZone(normalizedCountry);
   const tomorrow = getTomorrowInTimeZone(now, timeZone);
-  const cacheKey = `nager-public-holidays:${normalizedCountry}:${tomorrow.year}`;
-  const holidays = await getPublicHolidaysForYear({
-    cache,
-    cacheKey,
-    country: normalizedCountry,
-    fetchImpl,
-    now,
-    year: tomorrow.year,
-  });
+  const holidayEntries = getHolidayEntriesForYear(
+    normalizedCountry,
+    tomorrow.year,
+  );
+  const holiday = holidayEntries.get(tomorrow.isoDate) ?? null;
 
   return {
     asita: {
       getsuyoubi: tomorrow.weekday === 1,
-      shukujitsu: holidays.some(holiday => holiday.date === tomorrow.isoDate),
+      holiday,
+      shukujitsu: Boolean(holiday),
     },
   };
 }

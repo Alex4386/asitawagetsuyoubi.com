@@ -12,24 +12,58 @@ import {
 
 import {
   DEFAULT_COUNTRY,
-  createMemoryHolidayCacheStore,
   getAsitaWaGetsuyoubi,
   getSupportedCountryCode,
   parseReferenceDate,
   type AsitaWaGetsuyoubiResponse,
+  type HolidayEntry,
 } from '@/lib/asitawagetsuyoubi';
 
 const TEASING_CLASS_NAME = 'teasing';
 const COUNTRY_STORAGE_KEY = 'asita-country';
-const browserHolidayCache = createMemoryHolidayCacheStore();
 
 type TeaseOmaeraOverride = boolean | null;
+export type MondayDisplayMode =
+  | 'teasing'
+  | 'not-monday'
+  | 'holiday'
+  | 'override-off';
+
+function getMondayDisplayMode({
+  isTomorrowMonday,
+  isShukujitsu,
+  teaseOmaeraOverride,
+}: {
+  isTomorrowMonday: boolean;
+  isShukujitsu: boolean;
+  teaseOmaeraOverride: TeaseOmaeraOverride;
+}): MondayDisplayMode {
+  if (teaseOmaeraOverride === true) {
+    return 'teasing';
+  }
+
+  if (!isTomorrowMonday) {
+    return 'not-monday';
+  }
+
+  if (isShukujitsu) {
+    return 'holiday';
+  }
+
+  if (teaseOmaeraOverride === false) {
+    return 'override-off';
+  }
+
+  return 'teasing';
+}
 
 export interface MondayContextValue {
   country: string;
   isTomorrowMonday: boolean;
   isShukujitsu: boolean;
+  nextHoliday: HolidayEntry | null;
   canTeaseOmaera: boolean;
+  displayMode: MondayDisplayMode;
   specificDateTime: string;
   teaseOmaeraOverride: TeaseOmaeraOverride;
   isLoading: boolean;
@@ -42,14 +76,11 @@ export interface MondayContextValue {
 
 const MondayContext = createContext<MondayContextValue | null>(null);
 
-function getFetchWithSignal(signal: AbortSignal): typeof fetch {
-  return (input, init) => fetch(input, { ...init, signal });
-}
-
 export function MondayProvider({ children }: { children: ReactNode }) {
   const [countryState, setCountryState] = useState(DEFAULT_COUNTRY);
   const [isTomorrowMonday, setTomorrowMonday] = useState(false);
   const [isShukujitsu, setShukujitsu] = useState(false);
+  const [nextHoliday, setNextHoliday] = useState<HolidayEntry | null>(null);
   const [specificDateTime, setSpecificDateTime] = useState('');
   const [teaseOmaeraOverride, setTeaseOmaeraOverride] =
     useState<TeaseOmaeraOverride>(null);
@@ -69,8 +100,19 @@ export function MondayProvider({ children }: { children: ReactNode }) {
     });
   };
 
-  const canTeaseOmaera =
-    !isShukujitsu && (teaseOmaeraOverride ?? isTomorrowMonday);
+  const displayMode = getMondayDisplayMode({
+    isShukujitsu,
+    isTomorrowMonday,
+    teaseOmaeraOverride,
+  });
+  const canTeaseOmaera = displayMode === 'teasing';
+
+  useEffect(() => {
+    document.documentElement.classList.toggle(
+      TEASING_CLASS_NAME,
+      canTeaseOmaera,
+    );
+  }, [canTeaseOmaera]);
 
   useEffect(() => {
     const storedCountry =
@@ -97,10 +139,11 @@ export function MondayProvider({ children }: { children: ReactNode }) {
       return;
     }
 
-    const abortController = new AbortController();
+    let isCancelled = false;
 
     function applyMondayState(payload: AsitaWaGetsuyoubiResponse) {
       setTomorrowMonday(Boolean(payload.asita?.getsuyoubi));
+      setNextHoliday(payload.asita?.holiday ?? null);
       setShukujitsu(Boolean(payload.asita?.shukujitsu));
     }
 
@@ -108,63 +151,28 @@ export function MondayProvider({ children }: { children: ReactNode }) {
       setIsLoading(true);
 
       try {
-        const searchParams = new URLSearchParams({ country: countryState });
+        const referenceDate = parseReferenceDate(referenceDateIso) ?? undefined;
+        const payload = await getAsitaWaGetsuyoubi({
+          country: countryState,
+          now: referenceDate,
+        });
 
-        if (referenceDateIso) {
-          searchParams.set('at', referenceDateIso);
-        }
-
-        const response = await fetch(
-          `/api/asitawagetsuyoubi?${searchParams.toString()}`,
-          {
-            cache: 'no-store',
-            signal: abortController.signal,
-          },
-        );
-
-        if (!response.ok) {
-          throw new Error(`Failed to load Monday state: ${response.status}`);
-        }
-
-        const payload = (await response.json()) as AsitaWaGetsuyoubiResponse;
-        applyMondayState(payload);
-      } catch (apiError) {
-        if (abortController.signal.aborted) {
+        if (isCancelled) {
           return;
         }
 
-        console.warn(
-          'Failed to load Monday state from API. Falling back to browser implementation.',
-          apiError,
-        );
-
-        try {
-          const referenceDate =
-            parseReferenceDate(referenceDateIso) ?? undefined;
-          const payload = await getAsitaWaGetsuyoubi({
-            cache: browserHolidayCache,
-            country: countryState,
-            fetchImpl: getFetchWithSignal(abortController.signal),
-            now: referenceDate,
-          });
-
-          if (abortController.signal.aborted) {
-            return;
-          }
-
-          applyMondayState(payload);
-        } catch (browserError) {
-          if (abortController.signal.aborted) {
-            return;
-          }
-
-          console.error(
-            'Failed to hydrate Monday state from both API and browser fallback.',
-            browserError,
-          );
+        applyMondayState(payload);
+      } catch (error) {
+        if (isCancelled) {
+          return;
         }
+
+        console.error(
+          'Failed to hydrate Monday state from local calendar.',
+          error,
+        );
       } finally {
-        if (!abortController.signal.aborted) {
+        if (!isCancelled) {
           setIsLoading(false);
         }
       }
@@ -173,7 +181,7 @@ export function MondayProvider({ children }: { children: ReactNode }) {
     void hydrateMondayState();
 
     return () => {
-      abortController.abort();
+      isCancelled = true;
     };
   }, [countryState, hasResolvedStoredCountry, referenceDateIso]);
 
@@ -188,7 +196,9 @@ export function MondayProvider({ children }: { children: ReactNode }) {
       value={{
         canTeaseOmaera,
         country: countryState,
+        displayMode,
         isLoading,
+        nextHoliday,
         isShukujitsu,
         isTomorrowMonday,
         setCountry,

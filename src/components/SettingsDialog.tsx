@@ -39,6 +39,32 @@ function StatusRow({ active, label }: { active: boolean; label: string }) {
   );
 }
 
+function DebugInfoRow({
+  label,
+  value,
+  subvalue,
+}: {
+  label: string;
+  value: string;
+  subvalue?: string;
+}) {
+  return (
+    <div className="rounded-xl border border-white/10 bg-white/[0.03] px-3 py-3">
+      <div className="flex items-start justify-between gap-3">
+        <span className="text-sm text-neutral-200">{label}</span>
+        <span className="text-right text-sm font-medium text-neutral-100">
+          {value}
+        </span>
+      </div>
+      {subvalue ? (
+        <p className="mt-1 text-right text-xs leading-5 text-neutral-500">
+          {subvalue}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
 function optionButtonClass(active: boolean) {
   return cn(
     'h-auto min-h-[3rem] justify-between rounded-xl border px-4 py-3 text-left text-sm font-semibold whitespace-normal transition-colors',
@@ -86,6 +112,7 @@ export default function SettingsDialog() {
     canTeaseOmaera,
     country,
     isLoading,
+    nextHoliday,
     isShukujitsu,
     isTomorrowMonday,
     setCountry,
@@ -223,6 +250,17 @@ export default function SettingsDialog() {
                       <p className="text-xs leading-5 text-neutral-500">
                         この設定は保存されず、この画面だけで使われます。
                       </p>
+                    </section>
+
+                    <section className="space-y-2">
+                      <h3 className="text-xs font-semibold tracking-[0.12em] text-neutral-500">
+                        翌日の祝日情報
+                      </h3>
+                      <DebugInfoRow
+                        label="判定結果"
+                        value={nextHoliday ? nextHoliday.name : '該当なし'}
+                        subvalue={nextHoliday ? nextHoliday.date : undefined}
+                      />
                     </section>
 
                     <section className="space-y-2">
