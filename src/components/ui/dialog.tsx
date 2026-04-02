@@ -66,7 +66,7 @@ function DialogContent({
           ref={contentRef}
           data-slot="dialog-content"
           className={cn(
-            'relative isolate flex max-h-[calc(100dvh-2rem)] w-full max-w-lg flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-neutral-950 text-white shadow-[0_1.8rem_5rem_rgba(0,0,0,0.48)] outline-none duration-100 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 sm:max-h-[calc(100dvh-3rem)]',
+            'relative isolate flex max-h-[calc(100dvh-2rem)] w-full max-w-lg flex-col overflow-hidden max-h-[calc(100dvh-7rem)] rounded-[1.75rem] border border-white/10 bg-neutral-950 text-white shadow-[0_1.8rem_5rem_rgba(0,0,0,0.48)] outline-none duration-100 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 sm:max-h-[calc(100dvh-3rem)]',
             className,
           )}
           onOpenAutoFocus={event => {
