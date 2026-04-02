@@ -1,5 +1,15 @@
 import holidayCalendarData from '@/generated/holidays.json';
 import holidayConfigData from '@/lib/holiday-config.json';
+import {
+  buildCountryTimeZoneLookup,
+  buildSupportedCountryTimeZoneLookup,
+  getTomorrowInTimeZone,
+  getSupportedCountryCodeForTimeZone as resolveSupportedCountryCodeForTimeZone,
+} from '@/lib/timezone';
+import {
+  TIME_ZONE_COUNTRY_ALIASES,
+  TIME_ZONE_COUNTRY_PREFIXES,
+} from '@/lib/timezone.const';
 
 interface HolidayConfigCountryOption {
   code: string;
@@ -35,12 +45,11 @@ export const COUNTRY_OPTIONS = holidayConfig.countries;
 
 export type SupportedCountryCode = (typeof COUNTRY_OPTIONS)[number]['code'];
 
-const COUNTRY_TIME_ZONES = COUNTRY_OPTIONS.reduce<Record<string, string>>(
-  (timeZones, option) => {
-    timeZones[option.code] = option.timeZone;
-    return timeZones;
-  },
-  {},
+const COUNTRY_TIME_ZONES = buildCountryTimeZoneLookup(COUNTRY_OPTIONS);
+
+const SUPPORTED_COUNTRY_TIME_ZONE_LOOKUP = buildSupportedCountryTimeZoneLookup(
+  COUNTRY_OPTIONS,
+  TIME_ZONE_COUNTRY_ALIASES,
 );
 
 interface HolidayLookupState {
@@ -112,6 +121,19 @@ export function getSupportedCountryCode(country: string | null | undefined) {
   return DEFAULT_COUNTRY;
 }
 
+export function getSupportedCountryCodeForTimeZone(
+  timeZone: string | null | undefined,
+) {
+  return resolveSupportedCountryCodeForTimeZone({
+    supportedCountryTimeZoneLookup: SUPPORTED_COUNTRY_TIME_ZONE_LOOKUP,
+    timeZone,
+    timeZoneCountryPrefixes: TIME_ZONE_COUNTRY_PREFIXES as Record<
+      string,
+      SupportedCountryCode
+    >,
+  });
+}
+
 export function parseReferenceDate(value: string | null | undefined) {
   if (!value) {
     return null;
@@ -128,59 +150,6 @@ export function parseReferenceDate(value: string | null | undefined) {
 
 function getCountryTimeZone(country: string) {
   return COUNTRY_TIME_ZONES[getSupportedCountryCode(country)];
-}
-
-function getRequiredDatePart(
-  parts: Intl.DateTimeFormatPart[],
-  type: 'day' | 'month' | 'year',
-) {
-  const value = parts.find(part => part.type === type)?.value;
-
-  if (!value) {
-    throw new AsitaWaGetsuyoubiError(
-      `Unable to resolve ${type} for timezone-aware date.`,
-      500,
-    );
-  }
-
-  return Number(value);
-}
-
-function getDatePartsInTimeZone(date: Date, timeZone: string) {
-  const formatter = new Intl.DateTimeFormat('en-US', {
-    day: '2-digit',
-    month: '2-digit',
-    timeZone,
-    year: 'numeric',
-  });
-  const parts = formatter.formatToParts(date);
-  const year = getRequiredDatePart(parts, 'year');
-  const month = getRequiredDatePart(parts, 'month');
-  const day = getRequiredDatePart(parts, 'day');
-
-  return { day, month, year };
-}
-
-function getTomorrowInTimeZone(now: Date, timeZone: string) {
-  const today = getDatePartsInTimeZone(now, timeZone);
-  const tomorrow = new Date(
-    Date.UTC(today.year, today.month - 1, today.day + 1, 12),
-  );
-
-  const year = tomorrow.getUTCFullYear();
-  const month = tomorrow.getUTCMonth() + 1;
-  const day = tomorrow.getUTCDate();
-
-  return {
-    day,
-    isoDate: `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(
-      2,
-      '0',
-    )}`,
-    month,
-    weekday: tomorrow.getUTCDay(),
-    year,
-  };
 }
 
 function getHolidayEntriesForYear(country: string, year: number) {
@@ -218,7 +187,17 @@ export async function getAsitaWaGetsuyoubi({
 }: GetAsitaWaGetsuyoubiOptions): Promise<AsitaWaGetsuyoubiResponse> {
   const normalizedCountry = getSupportedCountryCode(country);
   const timeZone = getCountryTimeZone(normalizedCountry);
-  const tomorrow = getTomorrowInTimeZone(now, timeZone);
+  let tomorrow: ReturnType<typeof getTomorrowInTimeZone>;
+
+  try {
+    tomorrow = getTomorrowInTimeZone(now, timeZone);
+  } catch {
+    throw new AsitaWaGetsuyoubiError(
+      'Unable to resolve timezone-aware date.',
+      500,
+    );
+  }
+
   const holidayEntries = getHolidayEntriesForYear(
     normalizedCountry,
     tomorrow.year,

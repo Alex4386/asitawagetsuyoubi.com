@@ -14,6 +14,7 @@ import {
   DEFAULT_COUNTRY,
   getAsitaWaGetsuyoubi,
   getSupportedCountryCode,
+  getSupportedCountryCodeForTimeZone,
   parseReferenceDate,
   type AsitaWaGetsuyoubiResponse,
   type HolidayEntry,
@@ -76,6 +77,32 @@ export interface MondayContextValue {
 
 const MondayContext = createContext<MondayContextValue | null>(null);
 
+function getInitialCountryState() {
+  if (typeof window === 'undefined') {
+    return DEFAULT_COUNTRY;
+  }
+
+  const storedCountry = window.localStorage.getItem(COUNTRY_STORAGE_KEY);
+
+  if (storedCountry !== null) {
+    return getSupportedCountryCode(storedCountry);
+  }
+
+  if (typeof Intl === 'undefined') {
+    return DEFAULT_COUNTRY;
+  }
+
+  try {
+    return (
+      getSupportedCountryCodeForTimeZone(
+        Intl.DateTimeFormat().resolvedOptions().timeZone,
+      ) ?? DEFAULT_COUNTRY
+    );
+  } catch {
+    return DEFAULT_COUNTRY;
+  }
+}
+
 export function MondayProvider({ children }: { children: ReactNode }) {
   const [countryState, setCountryState] = useState(DEFAULT_COUNTRY);
   const [isTomorrowMonday, setTomorrowMonday] = useState(false);
@@ -115,14 +142,7 @@ export function MondayProvider({ children }: { children: ReactNode }) {
   }, [canTeaseOmaera]);
 
   useEffect(() => {
-    const storedCountry =
-      typeof window === 'undefined'
-        ? DEFAULT_COUNTRY
-        : getSupportedCountryCode(
-            window.localStorage.getItem(COUNTRY_STORAGE_KEY),
-          );
-
-    setCountryState(storedCountry);
+    setCountryState(getInitialCountryState());
     setHasResolvedStoredCountry(true);
   }, []);
 
