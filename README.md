@@ -5,7 +5,7 @@
 
 <p align="center">
     <img width="900" height="506" alt="image" src="https://github.com/user-attachments/assets/2efdfcb3-4220-49a0-9d3e-5cb12c8076ae" />
-    <sub>Source: <a href="https://www.youtube.com/live/mt8AyISL9Ig?t=1h09m21s">【 3D LIVE 】The First Note【 #⁠音乃瀬奏生誕祭2025 】#hololiveDEV_IS #ReGLOSS </a></sub>
+    <sub>Source: <a href="https://www.youtube.com/live/mt8AyISL9Ig?t=1h09m21s">【 3D LIVE 】 The First Note 【 #⁠音乃瀬奏生誕祭2025 】 #hololiveDEV_IS #ReGLOSS</a></sub>
 </p>
 
 <!-- 아이고 연주연주야 -->
