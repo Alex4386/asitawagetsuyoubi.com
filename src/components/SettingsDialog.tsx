@@ -150,9 +150,11 @@ export default function SettingsDialog() {
               <h3 className="text-xs font-semibold tracking-[0.12em] text-neutral-500">
                 現在の表示
               </h3>
-              <div className="space-y-2">
-                <StatusRow label="あしたは月曜日" active={isTomorrowMonday} />
-                <StatusRow label="あしたは祝日" active={isShukujitsu} />
+              <div className="flex flex-col gap-2">
+                <div className="grid gap-2 sm:grid-cols-2">
+                  <StatusRow label="あしたは月曜日" active={isTomorrowMonday} />
+                  <StatusRow label="あしたは祝日" active={isShukujitsu} />
+                </div>
                 <StatusRow label="月曜日表示" active={canTeaseOmaera} />
               </div>
             </section>
