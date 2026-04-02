@@ -9,7 +9,7 @@ function getDisappointedCopy({ mode }: DisappointedTextProps) {
   if (mode === 'holiday') {
     return {
       bottomLine: '祝日',
-      finalLine: 'なんだって...',
+      finalLine: 'なんで？！？！？！',
       srText: 'あしたは祝日...',
       topLine: 'あしたは',
     };
