@@ -6,6 +6,17 @@ import './global.css';
 export const metadata: Metadata = {
   title: 'あしたは月曜日',
   description: 'だってあしたは月曜日だもん、やったね！ククククwww',
+  openGraph: {
+    type: 'article',
+    title: 'あしたは月曜日',
+    description: 'だってあしたは月曜日だもん、やったね！ククククwww',
+    images: [
+      {
+        type: 'image/png',
+        url: '/opengraph.png',
+      },
+    ],
+  },
 };
 
 export const viewport: Viewport = {
