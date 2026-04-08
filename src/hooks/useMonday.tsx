@@ -1,6 +1,5 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
 import {
   createContext,
   useContext,
@@ -14,9 +13,9 @@ import {
 import {
   DEFAULT_COUNTRY,
   getAsitaWaGetsuyoubi,
+  getReferenceDateForCountry,
   getSupportedCountryCode,
   getSupportedCountryCodeForTimeZone,
-  parseReferenceDate,
   type AsitaWaGetsuyoubiResponse,
   type HolidayEntry,
 } from '@/lib/asitawagetsuyoubi';
@@ -84,6 +83,11 @@ export interface MondayContextValue {
 
 const MondayContext = createContext<MondayContextValue | null>(null);
 
+interface MondayProviderProps {
+  children: ReactNode;
+  forceTeasing?: boolean;
+}
+
 function getInitialCountryState() {
   if (typeof window === 'undefined') {
     return DEFAULT_COUNTRY;
@@ -110,8 +114,10 @@ function getInitialCountryState() {
   }
 }
 
-export function MondayProvider({ children }: { children: ReactNode }) {
-  const pathname = usePathname();
+export function MondayProvider({
+  children,
+  forceTeasing = false,
+}: MondayProviderProps) {
   const [countryState, setCountryState] = useState(DEFAULT_COUNTRY);
   const [isTomorrowMonday, setTomorrowMonday] = useState(false);
   const [isShukujitsu, setShukujitsu] = useState(false);
@@ -122,8 +128,6 @@ export function MondayProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
   const [hasResolvedStoredCountry, setHasResolvedStoredCountry] =
     useState(false);
-  const referenceDateIso = parseReferenceDate(specificDateTime)?.toISOString();
-  const forceTeasing = pathname === '/force';
 
   const setCountry: Dispatch<SetStateAction<string>> = nextCountry => {
     setCountryState(currentCountry => {
@@ -181,7 +185,9 @@ export function MondayProvider({ children }: { children: ReactNode }) {
       setIsLoading(true);
 
       try {
-        const referenceDate = parseReferenceDate(referenceDateIso) ?? undefined;
+        const referenceDate =
+          getReferenceDateForCountry(specificDateTime, countryState) ??
+          undefined;
         const payload = await getAsitaWaGetsuyoubi({
           country: countryState,
           now: referenceDate,
@@ -213,7 +219,7 @@ export function MondayProvider({ children }: { children: ReactNode }) {
     return () => {
       isCancelled = true;
     };
-  }, [countryState, hasResolvedStoredCountry, referenceDateIso]);
+  }, [countryState, hasResolvedStoredCountry, specificDateTime]);
 
   useEffect(() => {
     return () => {

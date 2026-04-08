@@ -1,9 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 
-import Providers from '@/app/Providers';
-import { cn } from "@/lib/utils";
-import RootWrapper from './wrapper';
+import './global.css';
 
 export const metadata: Metadata = {
   title: 'あしたは月曜日',
@@ -19,11 +17,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <Providers>
-      <RootWrapper>
-        {children}
-      </RootWrapper>  
-    </Providers>
-    
+    <html lang="ja">
+      <body>{children}</body>
+    </html>
   );
 }

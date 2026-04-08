@@ -1,39 +1,13 @@
-'use client';
-
-import DisappointedText from '@/components/DisappointedText';
-import PanelSurface from '@/components/PanelSurface';
-import SettingsDialog from '@/components/SettingsDialog';
-import { useMonday } from '@/hooks/useMonday';
+import Providers from '@/app/Providers';
+import RootWrapper from '@/app/wrapper';
+import HomePageContent from '@/components/HomePageContent';
 
 export default function Home() {
-  const { canTeaseOmaera, displayMode, isLoading } = useMonday();
-
-  if (isLoading) {
-    return <SettingsDialog />;
-  }
-
-  if (!canTeaseOmaera) {
-    const disappointedMode =
-      displayMode === 'teasing' ? 'not-monday' : displayMode;
-
-    return (
-      <>
-        <SettingsDialog />
-        <DisappointedText mode={disappointedMode} />
-      </>
-    );
-  }
-
   return (
-    <>
-      <SettingsDialog />
-      <main className="fixed inset-0 w-full">
-        <PanelSurface />
-        <div
-          className="panel-bottom-target absolute inset-x-0 top-full z-0 h-[clamp(11rem,30svh,19rem)] pointer-events-none"
-          aria-hidden="true"
-        />
-      </main>
-    </>
+    <Providers>
+      <RootWrapper>
+        <HomePageContent />
+      </RootWrapper>
+    </Providers>
   );
 }

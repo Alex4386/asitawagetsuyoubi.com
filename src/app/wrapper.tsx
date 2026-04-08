@@ -1,9 +1,9 @@
 'use client';
 
+import { useEffect } from 'react';
 import Script from 'next/script';
 
 import { useMonday } from '@/hooks/useMonday';
-import './global.css';
 
 const clarityProjectId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
 
@@ -26,22 +26,27 @@ export default function RootWrapper({
 }) {
   const monday = useMonday();
 
+  useEffect(() => {
+    const root = document.documentElement;
+    const previousBackgroundColor = root.style.backgroundColor;
+
+    root.style.backgroundColor = monday.canTeaseOmaera
+      ? 'var(--panel-background)'
+      : 'var(--panel-background-not-monday)';
+
+    return () => {
+      root.style.backgroundColor = previousBackgroundColor;
+    };
+  }, [monday.canTeaseOmaera]);
+
   return (
-    <html
-      lang="ja"
-      style={{
-        backgroundColor: monday.canTeaseOmaera
-          ? 'var(--panel-background)'
-          : 'var(--panel-background-not-monday)',
-      }}>
-      <body>
-        {children}
-        {clarityBootstrap ? (
-          <Script id="microsoft-clarity" strategy="afterInteractive">
-            {clarityBootstrap}
-          </Script>
-        ) : null}
-      </body>
-    </html>
+    <>
+      {children}
+      {clarityBootstrap ? (
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {clarityBootstrap}
+        </Script>
+      ) : null}
+    </>
   );
 }

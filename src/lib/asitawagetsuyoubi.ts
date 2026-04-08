@@ -3,6 +3,7 @@ import holidayConfigData from '@/lib/holiday-config.json';
 import {
   buildCountryTimeZoneLookup,
   buildSupportedCountryTimeZoneLookup,
+  createDateInTimeZone,
   getTomorrowInTimeZone,
   getSupportedCountryCodeForTimeZone as resolveSupportedCountryCodeForTimeZone,
 } from '@/lib/timezone';
@@ -139,6 +140,24 @@ export function parseReferenceDate(value: string | null | undefined) {
     return null;
   }
 
+  const dateOnlyMatch = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+
+  if (dateOnlyMatch) {
+    const [, year, month, day] = dateOnlyMatch;
+    const referenceDate = new Date(
+      Number(year),
+      Number(month) - 1,
+      Number(day),
+      12,
+    );
+
+    if (Number.isNaN(referenceDate.getTime())) {
+      return null;
+    }
+
+    return referenceDate;
+  }
+
   const referenceDate = new Date(value);
 
   if (Number.isNaN(referenceDate.getTime())) {
@@ -146,6 +165,49 @@ export function parseReferenceDate(value: string | null | undefined) {
   }
 
   return referenceDate;
+}
+
+export function getReferenceDateForCountry(
+  value: string | null | undefined,
+  country: string,
+) {
+  if (!value) {
+    return null;
+  }
+
+  const timeZone = getCountryTimeZone(country);
+  const dateOnlyMatch = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+
+  if (dateOnlyMatch) {
+    const [, year, month, day] = dateOnlyMatch;
+
+    return createDateInTimeZone({
+      day: Number(day),
+      month: Number(month),
+      timeZone,
+      year: Number(year),
+    });
+  }
+
+  const localDateTimeMatch = value.match(
+    /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2}))?$/,
+  );
+
+  if (localDateTimeMatch) {
+    const [, year, month, day, hour, minute, second] = localDateTimeMatch;
+
+    return createDateInTimeZone({
+      day: Number(day),
+      hour: Number(hour),
+      minute: Number(minute),
+      month: Number(month),
+      second: Number(second ?? '0'),
+      timeZone,
+      year: Number(year),
+    });
+  }
+
+  return parseReferenceDate(value);
 }
 
 function getCountryTimeZone(country: string) {

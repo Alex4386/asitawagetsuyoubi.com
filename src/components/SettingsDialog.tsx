@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 import {
   Accordion,
   AccordionContent,
@@ -20,7 +22,7 @@ import {
 import { useMonday } from '@/hooks/useMonday';
 import { COUNTRY_OPTIONS } from '@/lib/asitawagetsuyoubi';
 import { cn } from '@/lib/utils';
-import { SettingsIcon } from 'lucide-react';
+import { GlobeIcon, SettingsIcon } from 'lucide-react';
 
 function StatusRow({ active, label }: { active: boolean; label: string }) {
   return (
@@ -123,7 +125,17 @@ export default function SettingsDialog() {
   } = useMonday();
 
   return (
-    <div className="fixed right-4 top-4 z-[60] sm:right-6 sm:top-6">
+    <div className="fixed right-4 top-4 z-[60] flex items-center gap-2 sm:right-6 sm:top-6 sm:gap-3">
+      <Link
+        href="/global"
+        className={cn(
+          'inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-black/30 text-white shadow-[0_0.8rem_2rem_rgba(0,0,0,0.35)] backdrop-blur-md transition-colors hover:bg-black/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40',
+          isLoading && 'opacity-70',
+        )}
+        aria-label="グローバル判定を開く">
+        <GlobeIcon className="h-5 w-5" />
+      </Link>
+
       <Dialog>
         <DialogTrigger
           className={cn(
@@ -225,11 +237,11 @@ export default function SettingsDialog() {
                   <div className="space-y-5">
                     <section className="space-y-2">
                       <h3 className="text-xs font-semibold tracking-[0.12em] text-neutral-500">
-                        基準日時
+                        基準日
                       </h3>
                       <div className="space-y-2">
                         <input
-                          type="datetime-local"
+                          type="date"
                           value={specificDateTime}
                           className="h-12 w-full rounded-xl border border-white/10 bg-[#151515] px-3 text-sm font-medium text-neutral-100 outline-none transition-colors focus:border-white/30"
                           onChange={event =>
@@ -241,7 +253,7 @@ export default function SettingsDialog() {
                             className="border-white/12 bg-white/[0.03] text-neutral-100 hover:bg-white/[0.08]"
                             variant="outline"
                             onClick={() => setSpecificDateTime('')}>
-                            現在日時に戻す
+                            今日に戻す
                           </Button>
                         </div>
                       </div>
@@ -282,10 +294,22 @@ export default function SettingsDialog() {
                         </OptionButton>
                       </div>
                     </section>
+
                   </div>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
+
+            <section className="space-y-2">
+              <h3 className="text-xs font-semibold tracking-[0.12em] text-neutral-500">
+                謝辞
+              </h3>
+              <Link
+                href="/credits"
+                className="inline-flex text-sm text-neutral-300 underline underline-offset-4 transition-colors hover:text-white">
+                クレジット
+              </Link>
+            </section>
           </div>
 
           <DialogFooter className="mt-0 shrink-0 px-6 pb-6 pt-4">

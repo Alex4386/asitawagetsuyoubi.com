@@ -62,7 +62,7 @@ export function getSupportedCountryCodeForTimeZone<CountryCode extends string>({
 
 function getRequiredDatePart(
   parts: Intl.DateTimeFormatPart[],
-  type: 'day' | 'month' | 'year',
+  type: 'day' | 'month' | 'year' | 'hour' | 'minute' | 'second',
 ) {
   const value = parts.find(part => part.type === type)?.value;
 
@@ -86,6 +86,70 @@ export function getDatePartsInTimeZone(date: Date, timeZone: string) {
   const day = getRequiredDatePart(parts, 'day');
 
   return { day, month, year };
+}
+
+export function getDateTimePartsInTimeZone(date: Date, timeZone: string) {
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    day: '2-digit',
+    hour: '2-digit',
+    hourCycle: 'h23',
+    minute: '2-digit',
+    month: '2-digit',
+    second: '2-digit',
+    timeZone,
+    year: 'numeric',
+  });
+  const parts = formatter.formatToParts(date);
+  const year = getRequiredDatePart(parts, 'year');
+  const month = getRequiredDatePart(parts, 'month');
+  const day = getRequiredDatePart(parts, 'day');
+  const hour = getRequiredDatePart(parts, 'hour');
+  const minute = getRequiredDatePart(parts, 'minute');
+  const second = getRequiredDatePart(parts, 'second');
+
+  return { day, hour, minute, month, second, year };
+}
+
+export function createDateInTimeZone({
+  day,
+  hour = 12,
+  minute = 0,
+  month,
+  second = 0,
+  timeZone,
+  year,
+}: {
+  day: number;
+  hour?: number;
+  minute?: number;
+  month: number;
+  second?: number;
+  timeZone: string;
+  year: number;
+}) {
+  const targetTimestamp = Date.UTC(year, month - 1, day, hour, minute, second);
+  let candidate = new Date(targetTimestamp);
+
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    const parts = getDateTimePartsInTimeZone(candidate, timeZone);
+    const observedTimestamp = Date.UTC(
+      parts.year,
+      parts.month - 1,
+      parts.day,
+      parts.hour,
+      parts.minute,
+      parts.second,
+    );
+    const offset = targetTimestamp - observedTimestamp;
+
+    if (offset === 0) {
+      return candidate;
+    }
+
+    candidate = new Date(candidate.getTime() + offset);
+  }
+
+  return candidate;
 }
 
 export function getTomorrowInTimeZone(now: Date, timeZone: string) {
