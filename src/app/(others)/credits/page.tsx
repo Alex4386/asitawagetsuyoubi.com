@@ -20,8 +20,7 @@ export default function CreditsPage() {
               謝辞
             </h1>
             <p className="text-sm leading-6 text-neutral-300">
-              このサイトで利用している祝日データの提供元と、デザイン上の
-              参考元をまとめています。
+              このサイトで利用している祝日データの提供元と、デザイン上の参考元をまとめています。
             </p>
           </div>
 
@@ -95,6 +94,48 @@ export default function CreditsPage() {
                 で確認できます。
               </p>
               <p>
+                3D 表現には{' '}
+                <a
+                  href="https://threejs.org"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline underline-offset-4 transition-colors hover:text-white">
+                  Three.js
+                </a>{' '}
+                を利用しています。
+              </p>
+              <p>
+                このウェブページは{' '}
+                <a
+                  href="https://nextjs.org"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline underline-offset-4 transition-colors hover:text-white">
+                  Next.js
+                </a>{' '}
+                で構築されています。
+              </p>
+              <p>
+                UI の構築には{' '}
+                <a
+                  href="https://react.dev/?uwu=1"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline underline-offset-4 transition-colors hover:text-white">
+                  React
+                </a>{' '}
+                を利用しています。
+              </p>
+              <p>
+                スタイリングには{' '}
+                <a
+                  href="https://tailwindcss.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline underline-offset-4 transition-colors hover:text-white">
+                  Tailwind CSS
+                </a>{' '}
+                を利用しています。
               </p>
             </div>
           </section>
