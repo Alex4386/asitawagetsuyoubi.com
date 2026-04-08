@@ -44,6 +44,10 @@ body {
   min-height: 100%;
 }
 
+.text-kanade {
+  color: var(--panel-background);
+}
+
 body {
   margin: 0;
   background: transparent;

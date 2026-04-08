@@ -61,7 +61,9 @@ export default function CreditsPage() {
             </h2>
             <div className="flex flex-col gap-2 text-sm leading-7 text-neutral-200">
               <p>
-                ビジュアル表現は音乃瀬奏さんの演出から着想を得ています。
+                ビジュアル表現は
+                <span className="text-kanade">音乃瀬奏</span>
+                の演出から着想を得ています。
               </p>
               <p>
                 参考:{' '}
