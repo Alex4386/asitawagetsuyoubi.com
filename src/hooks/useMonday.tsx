@@ -1,5 +1,6 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import {
   createContext,
   useContext,
@@ -31,14 +32,20 @@ export type MondayDisplayMode =
   | 'override-off';
 
 function getMondayDisplayMode({
+  forceTeasing,
   isTomorrowMonday,
   isShukujitsu,
   teaseOmaeraOverride,
 }: {
+  forceTeasing: boolean;
   isTomorrowMonday: boolean;
   isShukujitsu: boolean;
   teaseOmaeraOverride: TeaseOmaeraOverride;
 }): MondayDisplayMode {
+  if (forceTeasing) {
+    return 'teasing';
+  }
+
   if (teaseOmaeraOverride === true) {
     return 'teasing';
   }
@@ -104,6 +111,7 @@ function getInitialCountryState() {
 }
 
 export function MondayProvider({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
   const [countryState, setCountryState] = useState(DEFAULT_COUNTRY);
   const [isTomorrowMonday, setTomorrowMonday] = useState(false);
   const [isShukujitsu, setShukujitsu] = useState(false);
@@ -115,6 +123,7 @@ export function MondayProvider({ children }: { children: ReactNode }) {
   const [hasResolvedStoredCountry, setHasResolvedStoredCountry] =
     useState(false);
   const referenceDateIso = parseReferenceDate(specificDateTime)?.toISOString();
+  const forceTeasing = pathname === '/force';
 
   const setCountry: Dispatch<SetStateAction<string>> = nextCountry => {
     setCountryState(currentCountry => {
@@ -128,6 +137,7 @@ export function MondayProvider({ children }: { children: ReactNode }) {
   };
 
   const displayMode = getMondayDisplayMode({
+    forceTeasing,
     isShukujitsu,
     isTomorrowMonday,
     teaseOmaeraOverride,
