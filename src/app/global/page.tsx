@@ -322,6 +322,9 @@ export default function GlobalPage() {
                       国・地域
                     </th>
                     <th className="px-4 py-3 text-xs font-semibold tracking-[0.18em] text-neutral-400">
+                      煽りOK
+                    </th>
+                    <th className="px-4 py-3 text-xs font-semibold tracking-[0.18em] text-neutral-400">
                       タイムゾーン
                     </th>
                     <th className="px-4 py-3 text-xs font-semibold tracking-[0.18em] text-neutral-400">
@@ -332,9 +335,6 @@ export default function GlobalPage() {
                     </th>
                     <th className="px-4 py-3 text-xs font-semibold tracking-[0.18em] text-neutral-400">
                       祝日
-                    </th>
-                    <th className="px-4 py-3 text-xs font-semibold tracking-[0.18em] text-neutral-400">
-                      煽りOK
                     </th>
                   </tr>
                 </thead>
@@ -361,6 +361,16 @@ export default function GlobalPage() {
                           </div>
                         </div>
                       </td>
+                      <td className="px-4 py-3 whitespace-nowrap">
+                        <span
+                          className={
+                            country.canTeaseOmaera
+                              ? 'inline-flex rounded-full border border-emerald-400/30 bg-emerald-400/15 px-2.5 py-0.5 text-[11px] font-semibold tracking-[0.14em] text-emerald-200'
+                              : 'inline-flex rounded-full border border-rose-400/30 bg-rose-400/15 px-2.5 py-0.5 text-[11px] font-semibold tracking-[0.14em] text-rose-200'
+                          }>
+                          {country.canTeaseOmaera ? 'OK' : 'NG'}
+                        </span>
+                      </td>
                       <td className="px-4 py-3">
                         {country.timeZone}
                       </td>
@@ -384,16 +394,6 @@ export default function GlobalPage() {
                             </span>
                           ) : null}
                         </div>
-                      </td>
-                      <td className="px-4 py-3 whitespace-nowrap">
-                        <span
-                          className={
-                            country.canTeaseOmaera
-                              ? 'inline-flex rounded-full border border-emerald-400/30 bg-emerald-400/15 px-2.5 py-0.5 text-[11px] font-semibold tracking-[0.14em] text-emerald-200'
-                              : 'inline-flex rounded-full border border-rose-400/30 bg-rose-400/15 px-2.5 py-0.5 text-[11px] font-semibold tracking-[0.14em] text-rose-200'
-                          }>
-                          {country.canTeaseOmaera ? 'OK' : 'NG'}
-                        </span>
                       </td>
                     </tr>
                   ))}
