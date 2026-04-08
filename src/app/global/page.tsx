@@ -76,7 +76,7 @@ function getCountryStatus({
 
 function getStatusLabel(status: GlobalCountryStatus) {
   if (status === 'teasing') {
-    return '煽り可能';
+    return '煽りOK';
   }
 
   if (status === 'holiday') {
@@ -322,9 +322,6 @@ export default function GlobalPage() {
                       国・地域
                     </th>
                     <th className="px-4 py-3 text-xs font-semibold tracking-[0.18em] text-neutral-400">
-                      判定
-                    </th>
-                    <th className="px-4 py-3 text-xs font-semibold tracking-[0.18em] text-neutral-400">
                       タイムゾーン
                     </th>
                     <th className="px-4 py-3 text-xs font-semibold tracking-[0.18em] text-neutral-400">
@@ -338,12 +335,6 @@ export default function GlobalPage() {
                     </th>
                     <th className="px-4 py-3 text-xs font-semibold tracking-[0.18em] text-neutral-400">
                       煽りOK
-                    </th>
-                    <th className="px-4 py-3 text-xs font-semibold tracking-[0.18em] text-neutral-400">
-                      祝日名
-                    </th>
-                    <th className="px-4 py-3 text-xs font-semibold tracking-[0.18em] text-neutral-400">
-                      備考
                     </th>
                   </tr>
                 </thead>
@@ -371,14 +362,6 @@ export default function GlobalPage() {
                         </div>
                       </td>
                       <td className="px-4 py-3">
-                        <span
-                          className={`inline-flex rounded-full border px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-[0.14em] ${getStatusClassName(
-                            country.status,
-                          )}`}>
-                          {getStatusLabel(country.status)}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3 font-medium whitespace-nowrap text-neutral-200">
                         {country.timeZone}
                       </td>
                       <td className="px-4 py-3 font-medium whitespace-nowrap text-neutral-100">
@@ -387,24 +370,37 @@ export default function GlobalPage() {
                       <td className="px-4 py-3 font-medium whitespace-nowrap text-neutral-100">
                         {country.isTomorrowMonday ? 'はい' : 'いいえ'}
                       </td>
-                      <td className="px-4 py-3 font-medium whitespace-nowrap text-neutral-100">
-                        {country.isShukujitsu ? 'はい' : 'いいえ'}
+                      <td className="px-4 py-3">
+                        <div className="flex flex-col font-medium whitespace-nowrap text-neutral-100">
+                          <span>{country.isShukujitsu ? 'はい' : 'いいえ'}</span>
+                          {country.isShukujitsu && country.holiday?.name ? (
+                            <span className="text-[11px] font-medium text-neutral-500">
+                              {country.holiday.name}
+                            </span>
+                          ) : null}
+                          {country.errorMessage ? (
+                            <span className="text-xs font-medium text-rose-200">
+                              {country.errorMessage}
+                            </span>
+                          ) : null}
+                        </div>
                       </td>
-                      <td className="px-4 py-3 font-medium whitespace-nowrap text-neutral-100">
-                        {country.canTeaseOmaera ? 'OK' : 'NG'}
-                      </td>
-                      <td className="px-4 py-3 font-medium text-neutral-200">
-                        {country.holiday?.name ?? 'なし'}
-                      </td>
-                      <td className="px-4 py-3 text-neutral-300">
-                        {country.errorMessage ?? 'なし'}
+                      <td className="px-4 py-3 whitespace-nowrap">
+                        <span
+                          className={
+                            country.canTeaseOmaera
+                              ? 'inline-flex rounded-full border border-emerald-400/30 bg-emerald-400/15 px-2.5 py-0.5 text-[11px] font-semibold tracking-[0.14em] text-emerald-200'
+                              : 'inline-flex rounded-full border border-rose-400/30 bg-rose-400/15 px-2.5 py-0.5 text-[11px] font-semibold tracking-[0.14em] text-rose-200'
+                          }>
+                          {country.canTeaseOmaera ? 'OK' : 'NG'}
+                        </span>
                       </td>
                     </tr>
                   ))}
                   {!countries.length && isLoading ? (
                     <tr>
                       <td
-                        colSpan={9}
+                        colSpan={6}
                         className="px-4 py-8 text-center text-sm text-neutral-400">
                         読み込み中...
                       </td>
