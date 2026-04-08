@@ -276,7 +276,7 @@ export default function GlobalPage() {
             </div>
             <div className="flex min-w-[10rem] flex-1 flex-col gap-1 rounded-2xl border border-white/10 bg-black/20 px-4 py-3">
               <dt className="text-xs font-medium tracking-[0.18em] text-neutral-500">
-                煽り可能
+                煽りOK
               </dt>
               <dd className="text-2xl font-semibold text-white">
                 {isLoading ? '...' : teasableCountries.length}
@@ -337,7 +337,7 @@ export default function GlobalPage() {
                       祝日
                     </th>
                     <th className="px-4 py-3 text-xs font-semibold tracking-[0.18em] text-neutral-400">
-                      煽り可否
+                      煽りOK
                     </th>
                     <th className="px-4 py-3 text-xs font-semibold tracking-[0.18em] text-neutral-400">
                       祝日名
@@ -391,7 +391,7 @@ export default function GlobalPage() {
                         {country.isShukujitsu ? 'はい' : 'いいえ'}
                       </td>
                       <td className="px-4 py-3 font-medium whitespace-nowrap text-neutral-100">
-                        {country.canTeaseOmaera ? 'はい' : 'いいえ'}
+                        {country.canTeaseOmaera ? 'OK' : 'NG'}
                       </td>
                       <td className="px-4 py-3 font-medium text-neutral-200">
                         {country.holiday?.name ?? 'なし'}

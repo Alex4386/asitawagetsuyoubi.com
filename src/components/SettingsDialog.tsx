@@ -24,7 +24,20 @@ import { COUNTRY_OPTIONS } from '@/lib/asitawagetsuyoubi';
 import { cn } from '@/lib/utils';
 import { GlobeIcon, SettingsIcon } from 'lucide-react';
 
-function StatusRow({ active, label }: { active: boolean; label: string }) {
+type StatusRowMode = 'boolean' | 'ok-ng';
+
+function StatusRow({
+  active,
+  label,
+  mode = 'boolean',
+}: {
+  active: boolean;
+  label: string;
+  mode?: StatusRowMode;
+}) {
+  const activeLabel = mode === 'ok-ng' ? 'OK' : 'True';
+  const inactiveLabel = mode === 'ok-ng' ? 'NG' : 'False';
+
   return (
     <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5">
       <span className="text-sm text-neutral-200">{label}</span>
@@ -33,7 +46,7 @@ function StatusRow({ active, label }: { active: boolean; label: string }) {
           'rounded-full px-2 py-0.5 text-xs font-medium',
           active ? 'bg-active text-neutral-950' : 'bg-white/8 text-neutral-400',
         )}>
-        {active ? '有効' : '無効'}
+        {active ? activeLabel : inactiveLabel}
       </span>
     </div>
   );
@@ -192,7 +205,7 @@ export default function SettingsDialog() {
                   <StatusRow label="あしたは月曜日" active={isTomorrowMonday} />
                   <StatusRow label="あしたは祝日" active={isShukujitsu} />
                 </div>
-                <StatusRow label="月曜日表示" active={canTeaseOmaera} />
+                <StatusRow label="煽りOK" active={canTeaseOmaera} mode="ok-ng" />
               </div>
             </section>
 
