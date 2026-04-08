@@ -43,6 +43,7 @@ const holidayCalendar = holidayCalendarData as GeneratedHolidayCalendar;
 
 export const DEFAULT_COUNTRY = holidayConfig.defaultCountry;
 export const COUNTRY_OPTIONS = holidayConfig.countries;
+export const AUTO_COUNTRY_SELECTION = 'AUTO';
 
 export type SupportedCountryCode = (typeof COUNTRY_OPTIONS)[number]['code'];
 

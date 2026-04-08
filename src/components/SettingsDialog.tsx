@@ -20,7 +20,10 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { useMonday } from '@/hooks/useMonday';
-import { COUNTRY_OPTIONS } from '@/lib/asitawagetsuyoubi';
+import {
+  AUTO_COUNTRY_SELECTION,
+  COUNTRY_OPTIONS,
+} from '@/lib/asitawagetsuyoubi';
 import { cn } from '@/lib/utils';
 import { GlobeIcon, SettingsIcon } from 'lucide-react';
 
@@ -122,8 +125,10 @@ function OptionButton({
 
 export default function SettingsDialog() {
   const {
+    autoDetectedCountry,
     canTeaseOmaera,
     country,
+    countrySelection,
     isLoading,
     nextHoliday,
     isShukujitsu,
@@ -136,6 +141,9 @@ export default function SettingsDialog() {
     specificDateTime,
     teaseOmaeraOverride,
   } = useMonday();
+  const autoDetectedCountryLabel =
+    COUNTRY_OPTIONS.find(option => option.code === autoDetectedCountry)
+      ?.label ?? country;
 
   return (
     <div className="fixed right-4 top-4 z-[60] flex items-center gap-2 sm:right-6 sm:top-6 sm:gap-3">
@@ -178,9 +186,14 @@ export default function SettingsDialog() {
               <div className="rounded-xl border border-white/10 bg-white/[0.03] px-3">
                 <select
                   id="settings-country"
-                  value={country}
+                  value={countrySelection}
                   className="h-11 w-full appearance-none bg-transparent text-sm font-medium text-neutral-100 outline-none"
                   onChange={event => setCountry(event.target.value)}>
+                  <option
+                    value={AUTO_COUNTRY_SELECTION}
+                    className="bg-neutral-950 text-white">
+                    {`自動（${autoDetectedCountryLabel}）`}
+                  </option>
                   {COUNTRY_OPTIONS.map(option => (
                     <option
                       key={option.code}

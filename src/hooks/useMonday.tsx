@@ -11,11 +11,13 @@ import {
 } from 'react';
 
 import {
+  AUTO_COUNTRY_SELECTION,
   DEFAULT_COUNTRY,
   getAsitaWaGetsuyoubi,
   getReferenceDateForCountry,
   getSupportedCountryCode,
   getSupportedCountryCodeForTimeZone,
+  type SupportedCountryCode,
   type AsitaWaGetsuyoubiResponse,
   type HolidayEntry,
 } from '@/lib/asitawagetsuyoubi';
@@ -24,6 +26,7 @@ const TEASING_CLASS_NAME = 'teasing';
 const COUNTRY_STORAGE_KEY = 'asita-country';
 
 type TeaseOmaeraOverride = boolean | null;
+type CountrySelection = SupportedCountryCode | typeof AUTO_COUNTRY_SELECTION;
 export type MondayDisplayMode =
   | 'teasing'
   | 'not-monday'
@@ -31,20 +34,14 @@ export type MondayDisplayMode =
   | 'override-off';
 
 function getMondayDisplayMode({
-  forceTeasing,
   isTomorrowMonday,
   isShukujitsu,
   teaseOmaeraOverride,
 }: {
-  forceTeasing: boolean;
   isTomorrowMonday: boolean;
   isShukujitsu: boolean;
   teaseOmaeraOverride: TeaseOmaeraOverride;
 }): MondayDisplayMode {
-  if (forceTeasing) {
-    return 'teasing';
-  }
-
   if (teaseOmaeraOverride === true) {
     return 'teasing';
   }
@@ -66,6 +63,8 @@ function getMondayDisplayMode({
 
 export interface MondayContextValue {
   country: string;
+  countrySelection: string;
+  autoDetectedCountry: SupportedCountryCode;
   isTomorrowMonday: boolean;
   isShukujitsu: boolean;
   nextHoliday: HolidayEntry | null;
@@ -85,63 +84,85 @@ const MondayContext = createContext<MondayContextValue | null>(null);
 
 interface MondayProviderProps {
   children: ReactNode;
-  forceTeasing?: boolean;
+  initialTeaseOmaeraOverride?: TeaseOmaeraOverride;
 }
 
 function getInitialCountryState() {
+  let autoDetectedCountry = DEFAULT_COUNTRY as SupportedCountryCode;
+
   if (typeof window === 'undefined') {
-    return DEFAULT_COUNTRY;
+    return {
+      autoDetectedCountry,
+      countrySelection: AUTO_COUNTRY_SELECTION as CountrySelection,
+    };
+  }
+
+  try {
+    autoDetectedCountry =
+      getSupportedCountryCodeForTimeZone(
+        Intl.DateTimeFormat().resolvedOptions().timeZone,
+      ) ?? DEFAULT_COUNTRY;
+  } catch {
+    autoDetectedCountry = DEFAULT_COUNTRY as SupportedCountryCode;
   }
 
   const storedCountry = window.localStorage.getItem(COUNTRY_STORAGE_KEY);
 
-  if (storedCountry !== null) {
-    return getSupportedCountryCode(storedCountry);
+  if (storedCountry === AUTO_COUNTRY_SELECTION || storedCountry === null) {
+    return {
+      autoDetectedCountry,
+      countrySelection: AUTO_COUNTRY_SELECTION as CountrySelection,
+    };
   }
 
-  if (typeof Intl === 'undefined') {
-    return DEFAULT_COUNTRY;
+  return {
+    autoDetectedCountry,
+    countrySelection: getSupportedCountryCode(storedCountry),
+  };
+}
+
+function resolveCountrySelection(countrySelection: string): CountrySelection {
+  if (countrySelection === AUTO_COUNTRY_SELECTION) {
+    return AUTO_COUNTRY_SELECTION;
   }
 
-  try {
-    return (
-      getSupportedCountryCodeForTimeZone(
-        Intl.DateTimeFormat().resolvedOptions().timeZone,
-      ) ?? DEFAULT_COUNTRY
-    );
-  } catch {
-    return DEFAULT_COUNTRY;
-  }
+  return getSupportedCountryCode(countrySelection);
 }
 
 export function MondayProvider({
   children,
-  forceTeasing = false,
+  initialTeaseOmaeraOverride = null,
 }: MondayProviderProps) {
-  const [countryState, setCountryState] = useState(DEFAULT_COUNTRY);
+  const [countrySelectionState, setCountrySelectionState] =
+    useState<CountrySelection>(AUTO_COUNTRY_SELECTION);
+  const [autoDetectedCountry, setAutoDetectedCountry] =
+    useState<SupportedCountryCode>(DEFAULT_COUNTRY);
   const [isTomorrowMonday, setTomorrowMonday] = useState(false);
   const [isShukujitsu, setShukujitsu] = useState(false);
   const [nextHoliday, setNextHoliday] = useState<HolidayEntry | null>(null);
   const [specificDateTime, setSpecificDateTime] = useState('');
   const [teaseOmaeraOverride, setTeaseOmaeraOverride] =
-    useState<TeaseOmaeraOverride>(null);
+    useState<TeaseOmaeraOverride>(initialTeaseOmaeraOverride);
   const [isLoading, setIsLoading] = useState(true);
   const [hasResolvedStoredCountry, setHasResolvedStoredCountry] =
     useState(false);
+  const countryState =
+    countrySelectionState === AUTO_COUNTRY_SELECTION
+      ? autoDetectedCountry
+      : countrySelectionState;
 
   const setCountry: Dispatch<SetStateAction<string>> = nextCountry => {
-    setCountryState(currentCountry => {
+    setCountrySelectionState(currentCountry => {
       const resolvedCountry =
         typeof nextCountry === 'function'
           ? nextCountry(currentCountry)
           : nextCountry;
 
-      return getSupportedCountryCode(resolvedCountry);
+      return resolveCountrySelection(resolvedCountry);
     });
   };
 
   const displayMode = getMondayDisplayMode({
-    forceTeasing,
     isShukujitsu,
     isTomorrowMonday,
     teaseOmaeraOverride,
@@ -156,7 +177,9 @@ export function MondayProvider({
   }, [canTeaseOmaera]);
 
   useEffect(() => {
-    setCountryState(getInitialCountryState());
+    const initialCountryState = getInitialCountryState();
+    setAutoDetectedCountry(initialCountryState.autoDetectedCountry);
+    setCountrySelectionState(initialCountryState.countrySelection);
     setHasResolvedStoredCountry(true);
   }, []);
 
@@ -165,8 +188,8 @@ export function MondayProvider({
       return;
     }
 
-    window.localStorage.setItem(COUNTRY_STORAGE_KEY, countryState);
-  }, [countryState, hasResolvedStoredCountry]);
+    window.localStorage.setItem(COUNTRY_STORAGE_KEY, countrySelectionState);
+  }, [countrySelectionState, hasResolvedStoredCountry]);
 
   useEffect(() => {
     if (!hasResolvedStoredCountry) {
@@ -230,8 +253,10 @@ export function MondayProvider({
   return (
     <MondayContext.Provider
       value={{
+        autoDetectedCountry,
         canTeaseOmaera,
         country: countryState,
+        countrySelection: countrySelectionState,
         displayMode,
         isLoading,
         nextHoliday,

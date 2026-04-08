@@ -4,14 +4,16 @@ import { MondayProvider } from '@/hooks/useMonday';
 
 export interface ProvidersProps {
   children: ReactNode;
-  forceTeasing?: boolean;
+  initialTeaseOmaeraOverride?: boolean | null;
 }
 
 export default function Providers({
   children,
-  forceTeasing = false,
+  initialTeaseOmaeraOverride = null,
 }: ProvidersProps) {
   return (
-    <MondayProvider forceTeasing={forceTeasing}>{children}</MondayProvider>
+    <MondayProvider initialTeaseOmaeraOverride={initialTeaseOmaeraOverride}>
+      {children}
+    </MondayProvider>
   );
 }

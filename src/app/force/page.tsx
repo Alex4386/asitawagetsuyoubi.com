@@ -4,7 +4,7 @@ import HomePageContent from '@/components/HomePageContent';
 
 export default function ForcePage() {
   return (
-    <Providers forceTeasing>
+    <Providers initialTeaseOmaeraOverride={true}>
       <RootWrapper>
         <HomePageContent />
       </RootWrapper>
