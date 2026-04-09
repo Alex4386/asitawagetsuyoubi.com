@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     images: [
       {
         type: 'image/png',
-        url: '/opengraph.png',
+        url: 'https://asitawagetsuyoubi.com/opengraph.png',
       },
     ],
   },
