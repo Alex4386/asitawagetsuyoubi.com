@@ -348,7 +348,7 @@ export default function GlobalPage() {
                       data-teasable={country.canTeaseOmaera}>
                       <td className="px-4 py-3">
                         <div className="flex min-w-[14rem] items-center gap-3">
-                          <span className="text-lg leading-none" aria-hidden="true">
+                          <span className="text-lg leading-none emoji" aria-hidden="true">
                             {getFlagEmoji(country.code)}
                           </span>
                           <div className="flex min-w-0 items-baseline gap-2">

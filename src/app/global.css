@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&Noto+Sans+JP:wght@100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -63,6 +63,13 @@ body {
     'Meiryo',
     sans-serif
   );
+}
+
+.emoji {
+  font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Android Emoji', 'EmojiOne Color', 'Twemoji Mozilla',
+    'Twitter Color Emoji', 'JoyPixels', 'OpenMoji', 'Noto Sans Symbols',
+    sans-serif;
 }
 
 @layer utilities {
