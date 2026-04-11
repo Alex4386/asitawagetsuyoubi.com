@@ -20,7 +20,7 @@ export default function CreditsPage() {
               謝辞
             </h1>
             <p className="text-sm leading-6 text-neutral-300">
-              このサイトで利用している祝日データの提供元と、デザイン上の参考元をまとめています。
+              本サイトで利用している各種データの提供元やデザインの着想元、および使用技術についてまとめています。
             </p>
           </div>
 
@@ -65,7 +65,7 @@ export default function CreditsPage() {
                 の演出から着想を得ています。
               </p>
               <p>
-                参考:{' '}
+                配信アーカイブ:{' '}
                 <a
                   href="https://www.youtube.com/live/mt8AyISL9Ig?t=1h09m21s"
                   target="_blank"
@@ -79,7 +79,7 @@ export default function CreditsPage() {
 
           <section className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-black/20 p-5">
             <h2 className="text-sm font-semibold tracking-[0.12em] text-neutral-400">
-              ソースコード
+              ソースコード・使用技術
             </h2>
             <div className="flex flex-col gap-2 text-sm leading-7 text-neutral-200">
               <p>
@@ -91,21 +91,10 @@ export default function CreditsPage() {
                   className="underline underline-offset-4 transition-colors hover:text-white">
                   GitHub
                 </a>{' '}
-                で確認できます。
+                で公開しています。
               </p>
               <p>
-                3D 表現には{' '}
-                <a
-                  href="https://threejs.org"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="underline underline-offset-4 transition-colors hover:text-white">
-                  Three.js
-                </a>{' '}
-                を利用しています。
-              </p>
-              <p>
-                このウェブページは{' '}
+                フロントエンドの構築には{' '}
                 <a
                   href="https://nextjs.org"
                   target="_blank"
@@ -113,10 +102,7 @@ export default function CreditsPage() {
                   className="underline underline-offset-4 transition-colors hover:text-white">
                   Next.js
                 </a>{' '}
-                で構築されています。
-              </p>
-              <p>
-                UI の構築には{' '}
+                および{' '}
                 <a
                   href="https://react.dev/?uwu=1"
                   target="_blank"
@@ -124,10 +110,7 @@ export default function CreditsPage() {
                   className="underline underline-offset-4 transition-colors hover:text-white">
                   React
                 </a>{' '}
-                を利用しています。
-              </p>
-              <p>
-                スタイリングには{' '}
+                を採用し、スタイリングには{' '}
                 <a
                   href="https://tailwindcss.com"
                   target="_blank"
@@ -135,7 +118,18 @@ export default function CreditsPage() {
                   className="underline underline-offset-4 transition-colors hover:text-white">
                   Tailwind CSS
                 </a>{' '}
-                を利用しています。
+                を使用しています。
+              </p>
+              <p>
+                また、3D 表現の実装には{' '}
+                <a
+                  href="https://threejs.org"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline underline-offset-4 transition-colors hover:text-white">
+                  Three.js
+                </a>{' '}
+                を活用しています。
               </p>
             </div>
           </section>
