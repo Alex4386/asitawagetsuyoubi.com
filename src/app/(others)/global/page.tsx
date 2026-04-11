@@ -50,7 +50,7 @@ function formatDateInputValue(date: Date) {
 }
 
 function getTomorrowPresetDate() {
-  return addDays(new Date(), 1);
+  return addDays(new Date(), 0);
 }
 
 function getNextSundayPresetDate() {
