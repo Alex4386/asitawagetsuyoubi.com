@@ -130,6 +130,8 @@ export default function SettingsDialog() {
     country,
     countrySelection,
     isLoading,
+    isTodayMonday,
+    isTodayShukujitsu,
     nextHoliday,
     isShukujitsu,
     isTomorrowMonday,
@@ -215,6 +217,8 @@ export default function SettingsDialog() {
               </h3>
               <div className="flex flex-col gap-2">
                 <div className="grid gap-2 sm:grid-cols-2">
+                  <StatusRow label="きょうは月曜日" active={isTodayMonday} />
+                  <StatusRow label="きょうは祝日" active={isTodayShukujitsu} />
                   <StatusRow label="あしたは月曜日" active={isTomorrowMonday} />
                   <StatusRow label="あしたは祝日" active={isShukujitsu} />
                 </div>

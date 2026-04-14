@@ -29,28 +29,47 @@ type TeaseOmaeraOverride = boolean | null;
 type CountrySelection = SupportedCountryCode | typeof AUTO_COUNTRY_SELECTION;
 export type MondayDisplayMode =
   | 'teasing'
+  | 'today-monday'
+  | 'today-holiday'
+  | 'today-override-off'
   | 'not-monday'
   | 'holiday'
   | 'override-off';
 
 function getMondayDisplayMode({
+  isTodayMonday,
+  isTodayShukujitsu,
   isTomorrowMonday,
-  isShukujitsu,
+  isTomorrowShukujitsu,
   teaseOmaeraOverride,
 }: {
+  isTodayMonday: boolean;
+  isTodayShukujitsu: boolean;
   isTomorrowMonday: boolean;
-  isShukujitsu: boolean;
+  isTomorrowShukujitsu: boolean;
   teaseOmaeraOverride: TeaseOmaeraOverride;
 }): MondayDisplayMode {
   if (teaseOmaeraOverride === true) {
     return 'teasing';
   }
 
+  if (isTodayMonday) {
+    if (isTodayShukujitsu) {
+      return 'today-holiday';
+    }
+
+    if (teaseOmaeraOverride === false) {
+      return 'today-override-off';
+    }
+
+    return 'today-monday';
+  }
+
   if (!isTomorrowMonday) {
     return 'not-monday';
   }
 
-  if (isShukujitsu) {
+  if (isTomorrowShukujitsu) {
     return 'holiday';
   }
 
@@ -65,8 +84,11 @@ export interface MondayContextValue {
   country: string;
   countrySelection: string;
   autoDetectedCountry: SupportedCountryCode;
+  isTodayMonday: boolean;
+  isTodayShukujitsu: boolean;
   isTomorrowMonday: boolean;
   isShukujitsu: boolean;
+  todayHoliday: HolidayEntry | null;
   nextHoliday: HolidayEntry | null;
   canTeaseOmaera: boolean;
   displayMode: MondayDisplayMode;
@@ -137,8 +159,11 @@ export function MondayProvider({
     useState<CountrySelection>(AUTO_COUNTRY_SELECTION);
   const [autoDetectedCountry, setAutoDetectedCountry] =
     useState<SupportedCountryCode>(DEFAULT_COUNTRY);
+  const [isTodayMonday, setTodayMonday] = useState(false);
+  const [isTodayShukujitsu, setTodayShukujitsu] = useState(false);
   const [isTomorrowMonday, setTomorrowMonday] = useState(false);
   const [isShukujitsu, setShukujitsu] = useState(false);
+  const [todayHoliday, setTodayHoliday] = useState<HolidayEntry | null>(null);
   const [nextHoliday, setNextHoliday] = useState<HolidayEntry | null>(null);
   const [specificDateTime, setSpecificDateTime] = useState('');
   const [teaseOmaeraOverride, setTeaseOmaeraOverride] =
@@ -163,11 +188,14 @@ export function MondayProvider({
   };
 
   const displayMode = getMondayDisplayMode({
-    isShukujitsu,
+    isTodayMonday,
+    isTodayShukujitsu,
     isTomorrowMonday,
+    isTomorrowShukujitsu: isShukujitsu,
     teaseOmaeraOverride,
   });
-  const canTeaseOmaera = displayMode === 'teasing';
+  const canTeaseOmaera =
+    displayMode === 'teasing' || displayMode === 'today-monday';
 
   useEffect(() => {
     document.documentElement.classList.toggle(
@@ -199,6 +227,9 @@ export function MondayProvider({
     let isCancelled = false;
 
     function applyMondayState(payload: AsitaWaGetsuyoubiResponse) {
+      setTodayMonday(Boolean(payload.today?.getsuyoubi));
+      setTodayHoliday(payload.today?.holiday ?? null);
+      setTodayShukujitsu(Boolean(payload.today?.shukujitsu));
       setTomorrowMonday(Boolean(payload.asita?.getsuyoubi));
       setNextHoliday(payload.asita?.holiday ?? null);
       setShukujitsu(Boolean(payload.asita?.shukujitsu));
@@ -259,6 +290,8 @@ export function MondayProvider({
         countrySelection: countrySelectionState,
         displayMode,
         isLoading,
+        isTodayMonday,
+        isTodayShukujitsu,
         nextHoliday,
         isShukujitsu,
         isTomorrowMonday,
@@ -266,6 +299,7 @@ export function MondayProvider({
         setSpecificDateTime,
         specificDateTime,
         teaseOmaeraOverride,
+        todayHoliday,
         setShukujitsu,
         setTeaseOmaeraOverride,
         setTomorrowMonday,

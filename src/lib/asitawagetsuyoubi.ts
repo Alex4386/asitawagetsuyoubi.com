@@ -4,6 +4,7 @@ import {
   buildCountryTimeZoneLookup,
   buildSupportedCountryTimeZoneLookup,
   createDateInTimeZone,
+  getTodayInTimeZone,
   getTomorrowInTimeZone,
   getSupportedCountryCodeForTimeZone as resolveSupportedCountryCodeForTimeZone,
 } from '@/lib/timezone';
@@ -27,6 +28,13 @@ interface HolidayConfig {
 export interface HolidayEntry {
   date: string;
   name: string;
+}
+
+export interface GetsuyoubiDayStatus {
+  getsuyoubi: boolean;
+  holiday: HolidayEntry | null;
+  isoDate: string;
+  shukujitsu: boolean;
 }
 
 interface GeneratedHolidayCalendar {
@@ -59,11 +67,8 @@ interface HolidayLookupState {
 }
 
 export interface AsitaWaGetsuyoubiResponse {
-  asita: {
-    getsuyoubi: boolean;
-    holiday: HolidayEntry | null;
-    shukujitsu: boolean;
-  };
+  today: GetsuyoubiDayStatus;
+  asita: GetsuyoubiDayStatus;
 }
 
 export interface GetAsitaWaGetsuyoubiOptions {
@@ -244,15 +249,32 @@ function getHolidayEntriesForYear(country: string, year: number) {
   return lookup;
 }
 
+function getDayStatus(
+  country: string,
+  date: ReturnType<typeof getTodayInTimeZone>,
+): GetsuyoubiDayStatus {
+  const holidayEntries = getHolidayEntriesForYear(country, date.year);
+  const holiday = holidayEntries.get(date.isoDate) ?? null;
+
+  return {
+    getsuyoubi: date.weekday === 1,
+    holiday,
+    isoDate: date.isoDate,
+    shukujitsu: Boolean(holiday),
+  };
+}
+
 export async function getAsitaWaGetsuyoubi({
   country,
   now = new Date(),
 }: GetAsitaWaGetsuyoubiOptions): Promise<AsitaWaGetsuyoubiResponse> {
   const normalizedCountry = getSupportedCountryCode(country);
   const timeZone = getCountryTimeZone(normalizedCountry);
+  let today: ReturnType<typeof getTodayInTimeZone>;
   let tomorrow: ReturnType<typeof getTomorrowInTimeZone>;
 
   try {
+    today = getTodayInTimeZone(now, timeZone);
     tomorrow = getTomorrowInTimeZone(now, timeZone);
   } catch {
     throw new AsitaWaGetsuyoubiError(
@@ -261,18 +283,9 @@ export async function getAsitaWaGetsuyoubi({
     );
   }
 
-  const holidayEntries = getHolidayEntriesForYear(
-    normalizedCountry,
-    tomorrow.year,
-  );
-  const holiday = holidayEntries.get(tomorrow.isoDate) ?? null;
-
   return {
-    asita: {
-      getsuyoubi: tomorrow.weekday === 1,
-      holiday,
-      shukujitsu: Boolean(holiday),
-    },
+    today: getDayStatus(normalizedCountry, today),
+    asita: getDayStatus(normalizedCountry, tomorrow),
   };
 }
 

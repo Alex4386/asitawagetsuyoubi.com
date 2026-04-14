@@ -152,15 +152,10 @@ export function createDateInTimeZone({
   return candidate;
 }
 
-export function getTomorrowInTimeZone(now: Date, timeZone: string) {
-  const today = getDatePartsInTimeZone(now, timeZone);
-  const tomorrow = new Date(
-    Date.UTC(today.year, today.month - 1, today.day + 1, 12),
-  );
-
-  const year = tomorrow.getUTCFullYear();
-  const month = tomorrow.getUTCMonth() + 1;
-  const day = tomorrow.getUTCDate();
+function getTimeZoneCalendarDate(date: Date) {
+  const year = date.getUTCFullYear();
+  const month = date.getUTCMonth() + 1;
+  const day = date.getUTCDate();
 
   return {
     day,
@@ -169,7 +164,28 @@ export function getTomorrowInTimeZone(now: Date, timeZone: string) {
       '0',
     )}`,
     month,
-    weekday: tomorrow.getUTCDay(),
+    weekday: date.getUTCDay(),
     year,
   };
+}
+
+export function getRelativeDateInTimeZone(
+  now: Date,
+  timeZone: string,
+  offsetDays: number,
+) {
+  const today = getDatePartsInTimeZone(now, timeZone);
+  const targetDate = new Date(
+    Date.UTC(today.year, today.month - 1, today.day + offsetDays, 12),
+  );
+
+  return getTimeZoneCalendarDate(targetDate);
+}
+
+export function getTodayInTimeZone(now: Date, timeZone: string) {
+  return getRelativeDateInTimeZone(now, timeZone, 0);
+}
+
+export function getTomorrowInTimeZone(now: Date, timeZone: string) {
+  return getRelativeDateInTimeZone(now, timeZone, 1);
 }

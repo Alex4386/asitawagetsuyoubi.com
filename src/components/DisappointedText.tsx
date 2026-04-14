@@ -1,17 +1,40 @@
 import PanelTitle from '@/components/PanelTitle';
 import type { MondayDisplayMode } from '@/hooks/useMonday';
 
+type DisappointedDisplayMode = Exclude<
+  MondayDisplayMode,
+  'teasing' | 'today-monday'
+>;
+
 interface DisappointedTextProps {
-  mode: Exclude<MondayDisplayMode, 'teasing'>;
+  mode: DisappointedDisplayMode;
 }
 
 function getDisappointedCopy({ mode }: DisappointedTextProps) {
+  if (mode === 'today-holiday') {
+    return {
+      bottomLine: '祝日',
+      finalLine: 'なんで？！？！？！',
+      srText: 'きょうは祝日...',
+      topLine: 'きょうは',
+    };
+  }
+
   if (mode === 'holiday') {
     return {
       bottomLine: '祝日',
       finalLine: 'なんで？！？！？！',
       srText: 'あしたは祝日...',
       topLine: 'あしたは',
+    };
+  }
+
+  if (mode === 'today-override-off') {
+    return {
+      bottomLine: '月曜日',
+      finalLine: 'だけど...',
+      srText: 'きょうは月曜日だけど...',
+      topLine: 'きょうは',
     };
   }
 
@@ -47,19 +70,19 @@ export default function DisappointedText({ mode }: DisappointedTextProps) {
             id: 'top',
             text: copy.topLine,
             className:
-              'text-[clamp(2.9rem,min(11.5vw,8.8vh),5.4rem)] leading-[0.9] tracking-[-0.04em]',
+              'text-[clamp(2.9rem,min(11.5vw,8.8vh),5.4rem)] tracking-[-0.04em]',
           },
           {
             id: 'middle',
             text: copy.bottomLine,
             className:
-              'text-[clamp(3.95rem,min(15.8vw,12vh),7.45rem)] leading-[0.82] tracking-[-0.06em]',
+              'text-[clamp(3.95rem,min(15.8vw,12vh),7.45rem)] tracking-[-0.06em]',
           },
           {
             id: 'bottom',
             text: copy.finalLine,
             className:
-              'text-[clamp(1.55rem,min(6.4vw,4.8vh),3.05rem)] leading-[0.84] tracking-[-0.032em]',
+              'text-[clamp(1.55rem,min(6.4vw,4.8vh),3.05rem)] tracking-[-0.032em]',
           },
         ]}
       />
